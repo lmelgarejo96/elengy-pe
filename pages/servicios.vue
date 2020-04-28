@@ -25,6 +25,9 @@ export default {
     data: () => ({
         menu: false,
     }),
+    mounted(){
+        AOS.init();
+    },
     methods: {
         openMenu(bool){
             this.menu = bool;

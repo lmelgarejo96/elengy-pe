@@ -17,8 +17,8 @@
             <p class="card-text mb-0">Realizamos servicio de obras electromecánicas.</p>
             <v-card-actions>
               <v-spacer></v-spacer>
-                <v-btn to="/servicios" class="ma-2" style="border-radius: 20px; outline: none;" tile  text color="#af0000">
-                  ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> 
+                <v-btn class="ma-2" style="border-radius: 20px; outline: none;" tile  text color="#af0000">
+                  <a href="/servicios">ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> </a> 
                 </v-btn>
             </v-card-actions>
           </div>
@@ -34,8 +34,8 @@
             <!-- <a href="#" class="button button-light text-center">Ver más</a> -->
             <v-card-actions>
               <v-spacer></v-spacer>
-                <v-btn to="/servicios" class="ma-2" style="border-radius: 20px; outline: none;" tile  text color="#af0000">
-                  ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> 
+                <v-btn class="ma-2" style="border-radius: 20px; outline: none;" tile  text color="#af0000">
+                  <a href="/servicios">ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> </a>
                 </v-btn>
             </v-card-actions>
           </div>
@@ -53,8 +53,8 @@
             <p class="card-text mb-0">Realizamos todo tipo de obras en redes, comunicaciones y fibra óptica.</p>
             <v-card-actions>
               <v-spacer></v-spacer>
-                <v-btn to="/servicios" class="ma-2" style="border-radius: 20px; outline: none;" tile  text color="#af0000">
-                  ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> 
+                <v-btn class="ma-2" style="border-radius: 20px; outline: none;" tile  text color="#af0000">
+                  <a href="/servicios">ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> </a>
                 </v-btn>
             </v-card-actions>
           </div>
@@ -72,8 +72,8 @@
             <p class="card-text mb-0">Realizamos estudios eléctricos en AT, MT y BT.</p>
             <v-card-actions>
               <v-spacer></v-spacer>
-                <v-btn to="/servicios" class="ma-2" style="outline: none;" tile  text color="#af0000">
-                  ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> 
+                <v-btn class="ma-2" style="outline: none;" tile  text color="#af0000">
+                  <a href="/servicios">ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> </a>
                 </v-btn>
             </v-card-actions>
           </div>
