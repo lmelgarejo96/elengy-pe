@@ -5,8 +5,8 @@
         <div class="container">
           <div class="row">
             <div class="footer-links col-xl-3 col-lg-3 col-md-6 col-sm-12">
-              <img draggable="false" class="logo1" src="../static/logo.webp" style="max-width: 150px;" alt="logo-elengy-sac" />
-              <ul class="social_icon">
+              <img draggable="false" class="logo1" src="../static/logo.webp" style="max-width: 150px;" alt="logo-elengy-sac" data-aos="fade-up" data-aos-duration="1500"/>
+              <ul class="social_icon" data-aos="fade-up" data-aos-duration="1500">
                 <li>
                   <a href=" # ">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -28,14 +28,14 @@
                   </a>
                 </li>
               </ul>
-              <p class="text-muted">
+              <p class="text-muted" data-aos="fade-up" data-aos-duration="1500">
                 <small>Siguenos en nuestras redes sociales</small>
               </p>
             </div>
             <div id="menu-footer" class="col-xl-2 col-lg-2 col-md-6 col-sm-12">
               <div class="enlaces-footer">
-                <h3 class="pl-1">Menú</h3>
-                <ul>
+                <h3 class="pl-1" data-aos="fade-up" data-aos-duration="1500">Menú</h3>
+                <ul data-aos="fade-up" data-aos-duration="1500">
                   <li>
                     <a href="/">
                       <p>
@@ -80,13 +80,13 @@
               </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-              <h3>Contacto</h3>
+              <h3 data-aos="fade-up" data-aos-duration="1500">Contacto</h3>
               <div class="contacto-footer">
-                <div class="direccion">
+                <div class="direccion" data-aos="fade-up" data-aos-duration="1500">
                   <h6>Dirección:</h6>
                   <p class="text-muted">Manzana C Lote, San Martín de Porres 15112</p>
                 </div>
-                <div class="telefonos">
+                <div class="telefonos" data-aos="fade-up" data-aos-duration="1500">
                   <h6>Telefonos:</h6>
                   <ul>
                     <li class="text-muted">(+51) 933153669</li>
@@ -94,9 +94,9 @@
                     <li class="text-muted">(+51) 933153669</li>
                   </ul>
                 </div>
-                <div class="correos">
+                <div class="correos" data-aos="fade-up" data-aos-duration="1500">
                   <h6>Correos:</h6>
-                  <ul>
+                  <ul data-aos="fade-up" data-aos-duration="1500">
                     <li class="text-muted">elengy@gmail.com</li>
                     <li class="text-muted">elengy2@gmail.com</li>
                   </ul>
@@ -104,8 +104,8 @@
               </div>
             </div>
             <div id="about-footer" class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-              <h3>Acerca de Elengy</h3>
-              <div class="about-us">
+              <h3 data-aos="fade-up" data-aos-duration="1500">Acerca de Elengy</h3>
+              <div class="about-us" data-aos="fade-up" data-aos-duration="1500">
                   <p class="text-muted"> Somos una empresa peruana dedicada al rubro de Ingeniería Electrica. Contamos con especialistas en subestaciones de media, alta y extra alta tensión, desarrollamos ingeniería, estudios, sistemas de control y protección.</p>
               </div>
             </div>
@@ -114,8 +114,8 @@
         <div class="copyright">
           <div class="container pb-0 pt-0 mt-0 mb-0">
             <div class="row pb-0 pt-0 mt-0 mb-0">
-              <div class="col-md-12 m-2">
-                <p>
+              <div class="col-md-12 m-2" >
+                <p >
                   © 2020 <a href="#">Luis Melgarejo.</a> Todos los derechos reservados.
                   <!-- Design by<a href="# "> Luis Melgarejo</a> -->
                 </p>
@@ -138,6 +138,7 @@ export default {};
   flex-flow: column nowrap;
   justify-content: flex-end;
   z-index: 10;
+  overflow: hidden;
 }
 
 .footer {

@@ -26,7 +26,8 @@ export default {
             /* OWL Carousel */
             /* { rel: "stylesheet", type: "text/css", href: "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" }, */
             { rel: "stylesheet", type: "text/css", href: "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" },
-
+            /* AOS */
+            { rel: 'stylesheet', type: "text/css", href: 'https://unpkg.com/aos@2.3.1/dist/aos.css' },
         ],
         script: [
             /* Font awesome */
@@ -60,6 +61,12 @@ export default {
             {
                 src: "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js",
                 type: "text/javascript"
+            },
+            /* AOS */
+            {
+                src: "https://unpkg.com/aos@2.3.1/dist/aos.js",
+                type: "text/javascript",
+
             },
 
         ]

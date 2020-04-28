@@ -2,8 +2,8 @@
   <section class="section-caract section-margin">
       <div class="container">
         <div class="section-intro pb-85px text-center">
-          <h2 class="section-intro__title">Características que ofrecemos</h2>
-          <p class="section-intro__subtitle">Vel aliquam quis, nulla pede mi commodo tristique nam hac. Luctus torquent velit felis commodo pellentesque nulla cras. Tincidunt hacvel alivquam quis nulla pede mi commodo tristique nam hac  luctus torquent</p>
+          <h2 class="section-intro__title" data-aos="fade-up" data-aos-duration="1000">Características que ofrecemos</h2>
+          <p class="section-intro__subtitle" data-aos="fade-up" data-aos-duration="1000">Vel aliquam quis, nulla pede mi commodo tristique nam hac. Luctus torquent velit felis commodo pellentesque nulla cras. Tincidunt hacvel alivquam quis nulla pede mi commodo tristique nam hac  luctus torquent</p>
         </div>
 
         <div class="row">
@@ -11,7 +11,7 @@
 
             <div class="row offer-single-wrapper">
               <div class="col-lg-6 offer-single">
-                <div class="card offer-single__content text-center m-3">
+                <div class="card offer-single__content text-center m-3" data-aos="fade-up" data-aos-duration="1500">
                   <span class="offer-single__icon">
                     <i class="fas fa-award"></i>
                   </span>
@@ -21,7 +21,7 @@
               </div>
               
               <div class="col-lg-6 offer-single">
-                <div class="card offer-single__content text-center m-3">
+                <div class="card offer-single__content text-center m-3" data-aos="fade-up" data-aos-duration="1500">
                   <span class="offer-single__icon">
                     <i class="fa fa-users" aria-hidden="true"></i>
                   </span>
@@ -33,7 +33,7 @@
 
             <div class="row offer-single-wrapper">
               <div class="col-lg-6 offer-single">
-                <div class="card offer-single__content text-center m-3">
+                <div class="card offer-single__content text-center m-3" data-aos="fade-up" data-aos-duration="1500">
                   <span class="offer-single__icon">
                     <i class="fa fa-shield" aria-hidden="true"></i>
                   </span>
@@ -43,7 +43,7 @@
               </div>
               
               <div class="col-lg-6 offer-single">
-                <div class="card offer-single__content text-center m-3">
+                <div class="card offer-single__content text-center m-3" data-aos="fade-up" data-aos-duration="1500">
                   <span class="offer-single__icon">
                     <i class="fas fa-check-circle"></i>
                   </span>
@@ -56,7 +56,7 @@
           </div>
           <div class="col-lg-6">
             <div class="offer-single__img">
-              <img draggable="false" class="img-fluid" src="../static/offer.svg" alt="undraw-elengy-offer">
+              <img draggable="false" class="img-fluid" src="../static/offer.svg" alt="undraw-elengy-offer"  data-aos="fade-up" data-aos-duration="1500">
             </div>
           </div>
         </div>

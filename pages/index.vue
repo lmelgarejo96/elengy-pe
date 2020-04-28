@@ -88,6 +88,7 @@ export default {
     /* this.chargeContent(); */
     console.log('monto index');
     /* document.body.scrollTop; */
+    AOS.init();
   },
   destroyed(){
     console.log('se destruyó el index');

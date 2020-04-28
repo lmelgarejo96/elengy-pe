@@ -2,13 +2,13 @@
   <section class="services-section">
     <div class="section-margin-2">
     <div class="container mt-2">
-      <div class="section-intro pb-85px mb-4 text-center">
-          <h2 class="section-intro__title">Nuestros servicios</h2>
-          <p class="section-intro__subtitle">Ofrecemos las siguientes soluciones y servicios integrales para sus proyectos.</p>
+      <div class="section-intro pb-85px mb-5 text-center" >
+          <h2 class="section-intro__title" data-aos="fade-up" data-aos-duration="1000">Nuestros servicios</h2>
+          <p class="section-intro__subtitle" data-aos="fade-up" data-aos-duration="1000">Ofrecemos las siguientes soluciones y servicios integrales para sus proyectos.</p>
       </div>
       <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
-          <div class="card card-block pt-3 pb-2 pr-3 pl-3 h-100">
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-3" >
+          <div class="card card-block pt-3 pb-2 pr-3 pl-3 h-100" data-aos="fade-up" data-aos-duration="1500">
             <!-- <h4 class="card-title text-right">
               <i class="fa fa-external-link"></i>
             </h4> -->
@@ -23,8 +23,8 @@
             </v-card-actions>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
-          <div class="card card-block pt-3 pb-2 pr-3 pl-3">
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-3" >
+          <div class="card card-block pt-3 pb-2 pr-3 pl-3" data-aos="fade-up" data-aos-duration="1500">
             <!-- <h4 class="card-title text-right">
               <i class="material-icons">settings</i>
             </h4> -->
@@ -40,8 +40,8 @@
             </v-card-actions>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
-          <div class="card card-block pt-3 pb-2 pr-3 pl-3">
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-3" >
+          <div class="card card-block pt-3 pb-2 pr-3 pl-3" data-aos="fade-up" data-aos-duration="1500">
             <!-- <h4 class="card-title text-right">
               <i class="material-icons">settings</i>
             </h4> -->
@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
-          <div class="card card-block pt-3 pb-2 pr-3 pl-3">
+          <div class="card card-block pt-3 pb-2 pr-3 pl-3"   data-aos="fade-up" data-aos-duration="1500">
             <!-- <h4 class="card-title text-right">
               <i class="material-icons">settings</i>
             </h4> -->
@@ -97,6 +97,7 @@ export default {
   width: 100vw;
   background: #fff;
   position: relative;
+  overflow: hidden;
 }
 
 

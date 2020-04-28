@@ -3,16 +3,16 @@
       <div class="container">
         <div class="clients_slider owl-carousel">
           <div class="item">
-            <img src="../static/abb.png" alt="">
+            <img src="../static/abb.png" alt="" data-aos="fade-up" data-aos-duration="1500">
           </div>
           <div class="item">
-            <img src="../static/siemens.png" alt="">
+            <img src="../static/siemens.png" alt="" data-aos="fade-up" data-aos-duration="1500">
           </div>
           <div class="item">
-            <img src="../static/luzdelsur.png" alt="">
+            <img src="../static/luzdelsur.png" alt="" data-aos="fade-up" data-aos-duration="1500">
           </div>
           <div class="item">
-            <img src="../static/enel.png" alt="">
+            <img src="../static/enel.png" alt="" data-aos="fade-up" data-aos-duration="1500">
           </div>
           <!-- <div class="item">
             <img src="../static/abb.png" alt="">
@@ -175,7 +175,8 @@ export default {
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
-    max-width: 200px;
+    max-height: 60px;
+    cursor: grabbing;
 }
 
 .clients_logo_area .clients_slider .item:hover img {
@@ -184,7 +185,8 @@ export default {
     -moz-filter: grayscale(0%);
     -o-filter: grayscale(0%);
     -ms-filter: grayscale(0%);
-    filter: grayscale(0%)
+    filter: grayscale(0%);
+    transform: scale(1.035);
 }
 
 </style>

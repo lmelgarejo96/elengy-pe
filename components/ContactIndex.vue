@@ -2,7 +2,7 @@
   <section class="contact-section">
      
       <div class="section-contact-bg">
-          <div class="card-contact">
+          <div class="card-contact" data-aos="fade-up" data-aos-duration="1500">
               <h2 class="section-intro__title ">Contáctanos</h2>
                   <v-container>
                       <div class="errors">
