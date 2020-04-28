@@ -1,21 +1,22 @@
 {
-  "name": "elengy-app",
-  "version": "1.0.0",
-  "description": "My luminous Nuxt.js project",
-  "author": "Luis Melgarejo",
-  "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  },
-  "dependencies": {
-    "emailjs-com": "^2.4.1",
-    "nuxt": "^2.0.0",
-    "sweetalert2": "^9.10.12"
-  },
-  "devDependencies": {
-    "@nuxtjs/vuetify": "^1.0.0"
-  }
+    "name": "elengy-pe",
+    "version": "1.0.0",
+    "description": "Landing page elengy sac",
+    "author": "Luis Melgarejo",
+    "private": true,
+    "scripts": {
+        "dev": "nuxt",
+        "build": "nuxt build",
+        "start": "nuxt start",
+        "generate": "nuxt generate",
+        "heroku-postbuild": "npm run build"
+    },
+    "dependencies": {
+        "emailjs-com": "^2.4.1",
+        "nuxt": "^2.0.0",
+        "sweetalert2": "^9.10.12"
+    },
+    "devDependencies": {
+        "@nuxtjs/vuetify": "^1.0.0"
+    }
 }
