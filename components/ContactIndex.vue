@@ -3,7 +3,7 @@
      
       <div class="section-contact-bg">
           <div class="card-contact" data-aos="fade-up" data-aos-duration="1500">
-              <h2 class="section-intro__title ">Contáctanos</h2>
+              <h2 class="section-intro__title " data-aos="fade-up" data-aos-duration="1000">Contáctanos</h2>
                   <v-container>
                       <div class="errors">
                           <div v-for="(error, index) in errors" :key="index" class="alert alert-warning  alert-dismissible fade show">
@@ -15,13 +15,13 @@
                       </div>
                     <form >
                     <v-row>
-                    <v-col cols="12" lg="6" sm="6" md="6">
-                        <v-text-field outlined v-model="contact.nombres"  color="#21146a" placeholder="Nombres*" hint="Escriba sus nombres completos" required></v-text-field>
+                    <v-col cols="12" lg="6" sm="6" md="6" data-aos="fade-up" data-aos-duration="1000" >
+                        <v-text-field  outlined v-model="contact.nombres"  color="#21146a" placeholder="Nombres*" hint="Escriba sus nombres completos" required></v-text-field>
                     </v-col>
-                    <v-col cols="12" lg="6" sm="6" md="6">
-                        <v-text-field outlined v-model="contact.apellidos"  color="#21146a" placeholder="Apelllidos *" hint="Escriba sus apellidos completos"></v-text-field>
+                    <v-col cols="12" lg="6" sm="6" md="6" data-aos="fade-up" data-aos-duration="1000" >
+                        <v-text-field  outlined v-model="contact.apellidos"  color="#21146a" placeholder="Apelllidos *" hint="Escriba sus apellidos completos"></v-text-field>
                     </v-col>
-                    <v-col cols="12" lg="6" sm="6" md="6">
+                    <v-col cols="12" lg="6" sm="6" md="6" data-aos="fade-up" data-aos-duration="1000" >
                         <v-text-field 
                         outlined
                         placeholder="Email *"
@@ -30,7 +30,7 @@
                         required color="#21146a"
                         ></v-text-field>
                     </v-col>
-                    <v-col cols="12" lg="6" sm="6" md="6">
+                    <v-col cols="12" lg="6" sm="6" md="6" data-aos="fade-up" data-aos-duration="1000" >
                         <v-text-field 
                         outlined
                         placeholder="Telefono *"
@@ -39,7 +39,7 @@
                         required color="#21146a"
                         ></v-text-field>
                     </v-col>
-                    <v-col cols="12" lg="12" sm="12" md="12">
+                    <v-col cols="12" lg="12" sm="12" md="12" data-aos="fade-up" data-aos-duration="1000" >
                         <v-combobox 
                             light
                             item-color="#21146a"
@@ -54,9 +54,8 @@
                             required color="#21146a"
                         ></v-combobox>
                     </v-col>
-                    <v-col cols="12">
+                    <v-col cols="12" data-aos="fade-up" data-aos-duration="1000" >
                         <v-textarea color="#21146a"
-                        
                         :no-resize="true"
                         outlined
                         v-model="contact.descripcion"
@@ -66,7 +65,7 @@
                         hint="Puedes dejarnos algunos detalles adicionales"
                         ></v-textarea>
                     </v-col>
-                    <v-btn class="ml-auto mr-2" color="#21146a" text @click="sendMessage">Enviar</v-btn>
+                    <v-btn data-aos="fade-up" data-aos-duration="1000"  class="ml-auto mr-2" color="#21146a" text @click="sendMessage">Enviar</v-btn>
                     </v-row>
                 </form>
                 </v-container>

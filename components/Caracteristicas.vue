@@ -12,21 +12,21 @@
             <div class="row offer-single-wrapper">
               <div class="col-lg-6 offer-single">
                 <div class="card offer-single__content text-center m-3" data-aos="fade-up" data-aos-duration="1500">
-                  <span class="offer-single__icon">
+                  <span class="offer-single__icon" data-aos="fade-up" data-aos-duration="1500">
                     <i class="fas fa-award"></i>
                   </span>
-                  <h4>Calidad</h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, voluptatibus?</p>
+                  <h4 data-aos="fade-up" data-aos-duration="1500">Calidad</h4>
+                  <p data-aos="fade-up" data-aos-duration="1500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, voluptatibus?</p>
                 </div>
               </div>
               
               <div class="col-lg-6 offer-single">
                 <div class="card offer-single__content text-center m-3" data-aos="fade-up" data-aos-duration="1500">
-                  <span class="offer-single__icon">
+                  <span class="offer-single__icon" data-aos="fade-up" data-aos-duration="1500">
                     <i class="fa fa-users" aria-hidden="true"></i>
                   </span>
-                  <h4>Profesionalidad</h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, voluptatibus?</p>
+                  <h4 data-aos="fade-up" data-aos-duration="1500">Profesionalidad</h4>
+                  <p data-aos="fade-up" data-aos-duration="1500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, voluptatibus?</p>
                 </div>
               </div>
             </div>
@@ -34,21 +34,21 @@
             <div class="row offer-single-wrapper">
               <div class="col-lg-6 offer-single">
                 <div class="card offer-single__content text-center m-3" data-aos="fade-up" data-aos-duration="1500">
-                  <span class="offer-single__icon">
+                  <span class="offer-single__icon" data-aos="fade-up" data-aos-duration="1500">
                     <i class="fa fa-shield" aria-hidden="true"></i>
                   </span>
-                  <h4>Seguridad</h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, voluptatibus?</p>
+                  <h4 data-aos="fade-up" data-aos-duration="1500">Seguridad</h4>
+                  <p data-aos="fade-up" data-aos-duration="1500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, voluptatibus?</p>
                 </div>
               </div>
               
               <div class="col-lg-6 offer-single">
                 <div class="card offer-single__content text-center m-3" data-aos="fade-up" data-aos-duration="1500">
-                  <span class="offer-single__icon">
+                  <span class="offer-single__icon" data-aos="fade-up" data-aos-duration="1500">
                     <i class="fas fa-check-circle"></i>
                   </span>
-                  <h4>Garantía</h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, voluptatibus?</p>
+                  <h4 data-aos="fade-up" data-aos-duration="1500">Garantía</h4>
+                  <p data-aos="fade-up" data-aos-duration="1500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, voluptatibus?</p>
                 </div>
               </div>
             </div>

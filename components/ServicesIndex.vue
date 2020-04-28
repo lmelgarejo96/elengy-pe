@@ -8,17 +8,17 @@
       </div>
       <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6 mb-3" >
-          <div class="card card-block pt-3 pb-2 pr-3 pl-3 h-100" data-aos="fade-up" data-aos-duration="1500">
+          <div class="card card-block pt-3 pb-2 pr-3 pl-3" data-aos="fade-up" data-aos-duration="1500">
             <!-- <h4 class="card-title text-right">
               <i class="fa fa-external-link"></i>
             </h4> -->
-            <img draggable="false" src="https://img1.wsimg.com/isteam/ip/ba69460f-3ac0-4f5b-afa5-8b6ef5b4ac63/IMG_20180104_154831.jpg/:/cr=t:3.03%25,l:0%25,w:100%25,h:89.29%25/rs=w:600,h:300,cg:true" alt="Photo of sunset"/>
-            <h5 class="card-title mt-3 mb-3">Obras electromecánicas</h5>
-            <p class="card-text mb-0">Realizamos servicio de obras electromecánicas.</p>
+            <img draggable="false" data-aos="fade-up" data-aos-duration="1500" src="https://img1.wsimg.com/isteam/ip/ba69460f-3ac0-4f5b-afa5-8b6ef5b4ac63/IMG_20180104_154831.jpg/:/cr=t:3.03%25,l:0%25,w:100%25,h:89.29%25/rs=w:600,h:300,cg:true" alt="Photo of sunset"/>
+            <h5 class="card-title mt-3 mb-3" data-aos="fade-up" data-aos-duration="1500">Obras electromecánicas</h5>
+            <p class="card-text mb-0" data-aos="fade-up" data-aos-duration="1500">Realizamos servicio de obras electromecánicas.</p>
             <v-card-actions>
               <v-spacer></v-spacer>
-                <v-btn class="ma-2" style="border-radius: 20px; outline: none;" tile  text color="#af0000">
-                  <a href="/servicios">ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> </a> 
+                <v-btn data-aos="fade-up" data-aos-duration="1500" class="ma-2" style="border-radius: 20px; outline: none;" tile  text color="#af0000">
+                  <a href="/servicios" style="color: #af0000;">ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> </a> 
                 </v-btn>
             </v-card-actions>
           </div>
@@ -28,14 +28,14 @@
             <!-- <h4 class="card-title text-right">
               <i class="material-icons">settings</i>
             </h4> -->
-            <img draggable="false" src="../static/ingenieriasecyprotecciones.jpg" alt="Photo of sunset" />
-            <h5 class="card-title mt-3 mb-3">Ingeniería secundaria y protecciones</h5>
-            <p class="card-text mb-0">Brindamos servicios de Ingeniería secundaria y protecciones.</p>
+            <img draggable="false" data-aos="fade-up" data-aos-duration="1500" src="../static/ingenieriasecyprotecciones.jpg" alt="Photo of sunset" />
+            <h5 class="card-title mt-3 mb-3" data-aos="fade-up" data-aos-duration="1500">Ingeniería secundaria y protecciones</h5>
+            <p class="card-text mb-0" data-aos="fade-up" data-aos-duration="1500">Brindamos servicios de Ingeniería secundaria y protecciones.</p>
             <!-- <a href="#" class="button button-light text-center">Ver más</a> -->
             <v-card-actions>
               <v-spacer></v-spacer>
-                <v-btn class="ma-2" style="border-radius: 20px; outline: none;" tile  text color="#af0000">
-                  <a href="/servicios">ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> </a>
+                <v-btn data-aos="fade-up" data-aos-duration="1500" class="ma-2" style="border-radius: 20px; outline: none;" tile  text color="#af0000">
+                  <a href="/servicios" style="color: #af0000;">ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> </a>
                 </v-btn>
             </v-card-actions>
           </div>
@@ -45,16 +45,16 @@
             <!-- <h4 class="card-title text-right">
               <i class="material-icons">settings</i>
             </h4> -->
-            <img draggable="false"
+            <img draggable="false" data-aos="fade-up" data-aos-duration="1500"
               src="//img1.wsimg.com/isteam/ip/ba69460f-3ac0-4f5b-afa5-8b6ef5b4ac63/IMG_20180813_114204.jpg/:/cr=t:5.76%25,l:0%25,w:100%25,h:60.24%25/rs=w:600,h:300,cg:true"
               alt="Photo of sunset"
             />
-            <h5 class="card-title mt-3 mb-3">Redes, comunicaciones y fibra óptica</h5>
-            <p class="card-text mb-0">Realizamos todo tipo de obras en redes, comunicaciones y fibra óptica.</p>
+            <h5 class="card-title mt-3 mb-3" data-aos="fade-up" data-aos-duration="1500">Redes, comunicaciones y fibra óptica</h5>
+            <p class="card-text mb-0" data-aos="fade-up" data-aos-duration="1500">Realizamos todo tipo de obras en redes, comunicaciones y fibra óptica.</p>
             <v-card-actions>
               <v-spacer></v-spacer>
-                <v-btn class="ma-2" style="border-radius: 20px; outline: none;" tile  text color="#af0000">
-                  <a href="/servicios">ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> </a>
+                <v-btn data-aos="fade-up" data-aos-duration="1500" class="ma-2" style="border-radius: 20px; outline: none;" tile  text color="#af0000">
+                  <a href="/servicios" style="color: #af0000;">ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> </a>
                 </v-btn>
             </v-card-actions>
           </div>
@@ -64,16 +64,16 @@
             <!-- <h4 class="card-title text-right">
               <i class="material-icons">settings</i>
             </h4> -->
-            <img draggable="false"
+            <img draggable="false" data-aos="fade-up" data-aos-duration="1500"
               src="https://img1.wsimg.com/isteam/ip/ba69460f-3ac0-4f5b-afa5-8b6ef5b4ac63/IMG_0985.JPG/:/cr=t:29.24%25,l:0%25,w:100%25,h:43.1%25/rs=w:600,h:300,cg:true"
               alt="Photo of sunset"
             />
-            <h5 class="card-title mt-3 mb-3">Estudios Eléctricos en AT, MT y BT.</h5>
-            <p class="card-text mb-0">Realizamos estudios eléctricos en AT, MT y BT.</p>
+            <h5 class="card-title mt-3 mb-3" data-aos="fade-up" data-aos-duration="1500">Estudios Eléctricos en AT, MT y BT.</h5>
+            <p class="card-text mb-0" data-aos="fade-up" data-aos-duration="1500">Realizamos estudios eléctricos en AT, MT y BT.</p>
             <v-card-actions>
               <v-spacer></v-spacer>
-                <v-btn class="ma-2" style="outline: none;" tile  text color="#af0000">
-                  <a href="/servicios">ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> </a>
+                <v-btn class="ma-2" data-aos="fade-up" data-aos-duration="1500" style="outline: none;" tile  text color="#af0000">
+                  <a href="/servicios" style="color: #af0000;">ver más  <i class="fa fa-external-link ml-2" style="font-size: 13px; padding-top: 2px;"></i> </a>
                 </v-btn>
             </v-card-actions>
           </div>

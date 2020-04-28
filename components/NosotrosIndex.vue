@@ -4,16 +4,16 @@
         <div class="row no-gutters align-items-center">
           <div class="col-md-5 mb-4 mb-md-0 pr-2 pl-3">
             <div class="about__content" data-aos="fade-up" data-aos-duration="1500">
-              <h2>Acerca de nosotros</h2>
-              <p>ELENGY es una empresa, con sede central en Lima (Perú) y filial en Santiago (Chile), que cuenta con alto potencial humano especializado en planeamiento, administración y ejecución de proyectos electromecánicos y de telecomunicaciones.
+              <h2 data-aos="fade-up" data-aos-duration="1500">Acerca de nosotros</h2>
+              <p data-aos="fade-up" data-aos-duration="1500">ELENGY es una empresa, con sede central en Lima (Perú) y filial en Santiago (Chile), que cuenta con alto potencial humano especializado en planeamiento, administración y ejecución de proyectos electromecánicos y de telecomunicaciones.
 Contamos con especialistas en subestaciones de media, alta y extra alta tensión, desarrollamos ingeniería, estudios, sistemas de control y protección.</p>
-              <a class="button button-light" href="/nosotros">Leer más</a>
+              <a class="button button-light" href="/nosotros" data-aos="fade-up" data-aos-duration="1500">Leer más</a>
             </div>
           </div>
           <div class="col-md-7">
             <div class="about__img" data-aos="fade-up" data-aos-duration="1500">
               <div class="img-about-container">
-                <img draggable="false" class="img-fluid" src="../static/team-elengy.jpg" alt="">
+                <img draggable="false" class="img-fluid" src="../static/team-elengy.jpg" alt="" data-aos="fade-up" data-aos-duration="1500">
               </div>
             </div>
           </div>
