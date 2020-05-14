@@ -1,5 +1,5 @@
 <template>
-  <section class="contact-section">
+  <section id="contacto-elengy" class="contact-section">
      
       <div class="section-contact-bg">
           <div class="card-contact" data-aos="fade-up" data-aos-duration="1500">
@@ -13,15 +13,15 @@
                             </button>
                            </div>
                       </div>
-                    <form >
+                    <form data-aos="fade-up" data-aos-duration="1000" >
                     <v-row>
-                    <v-col cols="12" lg="6" sm="6" md="6" data-aos="fade-up" data-aos-duration="1000" >
-                        <v-text-field  outlined v-model="contact.nombres"  color="#21146a" placeholder="Nombres*" hint="Escriba sus nombres completos" required></v-text-field>
+                    <v-col cols="12" lg="6" sm="6" md="6" >
+                        <v-text-field outlined v-model="contact.nombres"  color="#21146a" placeholder="Nombres*" hint="Escriba sus nombres completos" required></v-text-field>
                     </v-col>
-                    <v-col cols="12" lg="6" sm="6" md="6" data-aos="fade-up" data-aos-duration="1000" >
+                    <v-col cols="12" lg="6" sm="6" md="6" >
                         <v-text-field  outlined v-model="contact.apellidos"  color="#21146a" placeholder="Apelllidos *" hint="Escriba sus apellidos completos"></v-text-field>
                     </v-col>
-                    <v-col cols="12" lg="6" sm="6" md="6" data-aos="fade-up" data-aos-duration="1000" >
+                    <v-col cols="12" lg="6" sm="6" md="6" >
                         <v-text-field 
                         outlined
                         placeholder="Email *"
@@ -30,7 +30,7 @@
                         required color="#21146a"
                         ></v-text-field>
                     </v-col>
-                    <v-col cols="12" lg="6" sm="6" md="6" data-aos="fade-up" data-aos-duration="1000" >
+                    <v-col cols="12" lg="6" sm="6" md="6" >
                         <v-text-field 
                         outlined
                         placeholder="Telefono *"
@@ -39,7 +39,7 @@
                         required color="#21146a"
                         ></v-text-field>
                     </v-col>
-                    <v-col cols="12" lg="12" sm="12" md="12" data-aos="fade-up" data-aos-duration="1000" >
+                    <v-col cols="12" lg="12" sm="12" md="12" >
                         <v-combobox 
                             light
                             item-color="#21146a"
@@ -47,14 +47,14 @@
                             placeholder="Servicio "
                             outlined
                             multiple
-                            v-model="contact.servicio"
+                            v-model="contact.servicios"
                             small-chips
                             :items="servicios"
                             hint="Puede elegir alguno(s) de nuestros servicios para ser más específicos."
                             required color="#21146a"
                         ></v-combobox>
                     </v-col>
-                    <v-col cols="12" data-aos="fade-up" data-aos-duration="1000" >
+                    <v-col cols="12">
                         <v-textarea color="#21146a"
                         :no-resize="true"
                         outlined
@@ -65,7 +65,7 @@
                         hint="Puedes dejarnos algunos detalles adicionales"
                         ></v-textarea>
                     </v-col>
-                    <v-btn data-aos="fade-up" data-aos-duration="1000"  class="ml-auto mr-2" color="#21146a" text @click="sendMessage">Enviar</v-btn>
+                    <v-btn class="ml-auto mr-2" color="#21146a" text @click="sendMessage">Enviar</v-btn>
                     </v-row>
                 </form>
                 </v-container>
@@ -79,43 +79,42 @@ import emailjs from 'emailjs-com';
 import Swal from 'sweetalert2';
 
 export default {
+    props: {
+        contact: Object,
+        servicios: Array
+    },
     data: () => ({
-        contact: {
+        /* contact: {
             nombres: '',
             apellidos: '',
             servicios: [],
             email: '',
             telefono: '',
             descripcion: ''
-        },
-        servicios: [
-            'Obras electromecánicas',
-            'Ingeniería secundaria y protecciones',
-            'Redes, comunicaciones y fibra óptica',
-            'Estudios Eléctricos en AT, MT y BT.'
-        ],
+        }, */
+        
         errors: []
     }),
     methods: {
         generateErrors(){
             const errors = [];
             try {
-                    if(this.contact.nombres.length === 0){
+                    if(this.$props.contact.nombres.length === 0){
                         errors.push({
-                            nameError: 'El campo nombre es requerido, por favor rellena el campo correspondiente por favor.'
+                            nameError: 'El campo nombre es requerido, por favor rellena el campo correspondiente.'
                         });
                     }
-                    if(this.contact.apellidos.length === 0){
+                    if(this.$props.contact.apellidos.length === 0){
                         errors.push({
                             nameError: 'El campo apellido es requerido, por favor rellena ese campo.'
                         });
                     }
-                    if(this.contact.email.length === 0){
+                    if(this.$props.contact.email.length === 0){
                         errors.push({
                             nameError: 'Tu correo es un campo muy importante, por favor rellena ese campo.'
                         });
                     }
-                    if(this.contact.telefono.length === 0){
+                    if(this.$props.contact.telefono.length === 0){
                         errors.push({
                             nameError: 'Tu telefono es un campo muy importante, por favor rellena ese campo.'
                         });
@@ -128,9 +127,10 @@ export default {
         },
         sendMessage(){
             this.errors = [];
-            const contacto = this.contact;
+            const contacto = {...this.$props.contact};
             const errors = this.generateErrors();
             if(errors.length === 0){ //indica que no hay errores
+            console.log('obj', contacto);
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -140,12 +140,12 @@ export default {
                     timer: 3500 */
                 });
                 this.errors = [];
-                this.contact.nombres = '';
-                this.contact.apellidos = '';
-                this.contact.telefono = '';
-                this.contact.email = '';
-                this.contact.servicios = '';
-                this.contact.descripcion = '';
+                this.$props.contact.nombres = '';
+                this.$props.contact.apellidos = '';
+                this.$props.contact.telefono = '';
+                this.$props.contact.email = '';
+                this.$props.contact.servicios = '';
+                this.$props.contact.descripcion = '';
             }else {
                 Swal.fire({
                     icon: 'error',
@@ -159,7 +159,7 @@ export default {
         },
         removeIndex(index){
             this.errors.splice(index, 1);
-        }
+        },
     }
 }
 </script>
@@ -169,7 +169,7 @@ export default {
     width: 100vw;
     background: #faf9ff;
     padding-bottom: 60px;
-    padding-top: 60px;
+    padding-top: 70px;
     overflow: hidden;
 }
 .section-contact-bg{

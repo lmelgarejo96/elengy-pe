@@ -1,371 +1,509 @@
 <template>
   <div>
-    
-    <nav class="menu" id="menu">
-      <div id="banner-top" class="banner-top">
-        <div id="nav-contact" class="contact">
-          <div>
-            <a class="contact-nav p-1" href="#home" style="font-size: 14px;"><v-icon dark>mdi-home</v-icon></a>
-          </div>
-          <div>
-            <a class="contact-nav p-1" href="#home" style="font-size: 14px;"><v-icon dark>mdi-phone</v-icon> (+51) 922576590</a>
-          </div>
+    <nav class="menu bg-menu" id="menu">
+      <div class="container menu-container">
 
-        </div>
-        <div id="social-links" class="social-links">
-                <div class="social-item">
-                    <!-- facebook -->
-                    <a  href="https://www.facebook.com/IEEEComputerSocietyUTP" target="_blank " class="st-btn contact-nav">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-3 7h-1.924c-.615 0-1.076.252-1.076.889v1.111h3l-.238 3h-2.762v8h-3v-8h-2v-3h2v-1.923c0-2.022 1.064-3.077 3.461-3.077h2.539v3z"/></svg>
-                    </a>
-                </div>
-                <div class="social-item">
-                    <!-- instagram -->
-                    <a href="https://www.instagram.com/computersocutp/" target="_blank " class="st-btn contact-nav">
-                        <svg  version="1.1 " id="Layer_1 " x="0px " y="0px " width="24 " height="24" viewBox="0 0 169.063 169.063 " style="enable-background:new 0 0 169.063 169.063;
-                                                " xml:space="preserve ">
-                            <g>
-                                <path d="M122.406,0H46.654C20.929,0,0,20.93,0,46.655v75.752c0,25.726,20.929,46.655,46.654,46.655h75.752 c25.727,0,46.656-20.93,46.656-46.655V46.655C169.063,20.93,148.133,0,122.406,0z M154.063,122.407 c0,17.455-14.201,31.655-31.656,31.655H46.654C29.2,154.063,15,139.862,15,122.407V46.655C15,29.201,29.2,15,46.654,15h75.752
-                                                c17.455,0,31.656,14.201,31.656,31.655V122.407z " fill="#fff "/>
-                                <path d="M84.531,40.97c-24.021,0-43.563,19.542-43.563,43.563c0,24.02,19.542,43.561,43.563,43.561s43.563-19.541,43.563-43.561 C128.094,60.512,108.552,40.97,84.531,40.97z M84.531,113.093c-15.749,0-28.563-12.812-28.563-28.561 c0-15.75,12.813-28.563,28.563-28.563s28.563,12.813,28.563,28.563C113.094,100.281,100.28,113.093,84.531,113.093z
-                                                " fill="#fff "/>
-                                <path d="M129.921,28.251c-2.89,0-5.729,1.17-7.77,3.22c-2.051,2.04-3.23,4.88-3.23,7.78c0,2.891,1.18,5.73,3.23,7.78 c2.04,2.04,4.88,3.22,7.77,3.22c2.9,0,5.73-1.18,7.78-3.22c2.05-2.05,3.22-4.89,3.22-7.78c0-2.9-1.17-5.74-3.22-7.78 C135.661,29.421,132.821,28.251,129.921,28.251z
-                                                " fill="#fff "/>
-                            </g>
-                        </svg>
-                    </a>
-                </div>
-                <div class="social-item">
-                    <!-- linkedin -->
-                    <a href="https://www.linkedin.com/company/ieee-computer-society-utp/" target="_blank " class="st-btn contact-nav">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                </div>
-            </div>
-      </div>
-      <div class="logo">
+      <BannerTop/>
+      <div id="navbar-logo" class="navbar-logo">
+
+      <div id="logo-elengy-top" class="logo">
         <a draggable="false" href="/">
           <img draggable="false" id="logo" src="../static/logo.webp" alt />
         </a>
+          <span id="lema-elengy">Engineering for the world</span>
       </div>
       <div id="enlaces" class="enlaces">
         <ul id="ul-menu">
           <li>
-            <a class="link-nav" href="/">Inicio</a>
-            <div class="cubo"></div>
+            <a class="link-nav" href="/#home">Inicio</a>
+          </li>
+          <li class="has-children2">
+            <a class="link-nav" href="/servicios">
+              Soluciones
+              <span class="material-icons ml-2">
+                keyboard_arrow_down
+              </span>
+            </a>
+            <ul class="dropdown2 container">
+
+              <li v-for="(servicio, index) in servicios" :key="index" class="has-children2">
+                  <a class="sub-enlaces2" :href="servicio.redirectTo">
+                    <i :class="servicio.icon"></i>
+                    <span>{{servicio.name_service}}</span>
+                  </a>
+                  <div class="dropdown2">
+                      <div class="container p-0">
+                        <div class="row p-0 m-0">
+                          <div class="col-lg-8 p-0 m-0">
+                            <div class="description p-4">
+                              <h5>{{servicio.name_service}}</h5>
+                              <p>{{servicio.description_service}}</p>
+                              <ul>
+                                <div v-for="(caracteristica, index) in servicio.characteristics" :key="index+100">
+                                  <li v-if="index>0 && index<5">
+                                    <span v-if="index!=4">
+                                      {{caracteristica}}
+                                    </span>
+                                    <span v-if="index===4">
+                                      {{caracteristica}}..
+                                    </span>
+                                  </li>
+
+                                </div>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 p-0 m-0">
+                            <div class="img-link p-4">
+                              <img draggable="false" class="img-fluid" src="../static/offer.png" alt="">
+                              <a :href="servicio.redirectTo" class="button">Ver servicio</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>  
+              </li>
+
+
+             <!--  <li>
+                <a class="sub-enlaces2" href="/#nosotros">
+                    <i class="fas fa-hard-hat"></i>
+                    <span>Servicio 1</span>
+                  </a>
+              </li>
+              <li>
+                <a class="sub-enlaces2" href="/#nosotros">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Servicio 1</span>
+                  </a>
+              </li>
+              <li>
+                <a class="sub-enlaces2" href="/#nosotros">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Servicio 1</span>
+                  </a>
+              </li> -->
+
+            </ul> 
           </li>
 
-          <li>
-            <a class="link-nav" href="/nosotros">Nosotros</a>
+          <li v-if="!isAbout">
+            <a class="link-nav" href="/nosotros">
+              Nosotros 
+            </a>
           </li>
-          <li>
-            <a class="link-nav" href="/servicios">Servicios</a>
+
+          <li v-else class="has-children">
+            <a class="link-nav" href="#none">
+              Nosotros 
+              <span class="material-icons ml-2">
+                keyboard_arrow_down
+              </span>
+            </a>
+            <ul class="dropdown container">
+              <li><a class="sub-enlaces" href="#nosotros">¿Quienes somos?</a></li>
+              <li><a class="sub-enlaces" href="#misionyvision">Misión y Visión</a></li>
+              <li><a class="sub-enlaces" href="#caracteristicas-elengy">Nuestras características</a></li>
+              <li><a class="sub-enlaces" href="#clientes-elengy">Nuestros Clientes</a></li>
+              <!-- <li><a class="sub-enlaces" href="#galeria-elengy">Galería</a></li> -->
+            </ul>  
           </li>
+          <!-- <li>
+            <a class="transparent-link" href="/servicios">Servicios</a>
+          </li> -->
           <li>
             <a class="link-nav" href="/portafolio">Portafolio</a>
           </li>
           <li>
-            <a class="link-nav" href="/contacto">Contacto</a>
+            <a class="link-nav" href="#contacto-elengy">Contacto</a>
           </li>
           <!-- <li>
-            <a class="link-nav" href="/noticias">Noticias</a>
+            <a class="link-nav" ></a>
           </li> -->
         </ul>
       </div>
-      <div id="buttons-nav" class="nav-contenedor contenedor-buttons">
-      <v-btn @click="openMenu" id="btn-bars" style="outline: none;" class="ma-2"  large color="teal" icon>
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      </div>
+
+      <div class="list-contact">
+
+      </div>
+      <div class="icon-three ml-auto">
+        <div id="hamburger-menu" @click="toggleMenu" class="hamburger hamburger-three"></div>
+      </div>
       </div>
     </nav>
   </div>
 </template>
 
 <script>
+import BannerTop from '../components/BannerTop';
 export default {
+  components: {
+    BannerTop
+  },
   props: {
-    isIndex: Boolean
+    isIndex: Boolean,
+    isAbout: Boolean
+  },
+  data: () => ({
+    flag: false,
+    servicios: []
+  }),
+  created() {
+    this.servicios = this.$store.state.services.all;
   },
   mounted() {
     const menu = document.getElementById("menu");
+    const sections = document.querySelectorAll('header, section');
+    
     if(this.$props.isIndex){
       menu.style.display = 'flex';
       this.cargaEnlaces();
     }else{
       menu.classList.add('animationNavbar');
+      /* document.getElementById('hamburger-menu').classList.add('red-hamburger'); */
       setTimeout(() => {
         menu.style.display = 'flex';
       }, 500);
     }
-    this.cambiaLinkActivo();
     const bannerTop = document.getElementById("banner-top");
     const logo = document.getElementById("logo");
-    const enlaces = document.getElementById("enlaces");
-    const lis = document.querySelectorAll('#ul-menu > li');
-    const menu_ul = document.getElementById("ul-menu");
+    const links = document.querySelectorAll('.transparent-link');
+    const containerLogo = document.getElementById('logo-elengy-top');
+    /* let containerNavegacion = document.getElementById('navbar-logo'); */
 
     window.onscroll = () => {
       const scroll = document.documentElement.scrollTop || document.body.scrollTop;
-      if (scroll > 100) {
+      if (scroll > 50) {
+        menu.classList.add('bg-white');
+        containerLogo.style.flexFlow = 'row nowrap';
+        containerLogo.style.alignItems = 'center';
         menu.style.height = "65px";
-        bannerTop.style.top = "-35px";
-        menu.classList.add("short-navbar");
-        logo.style.height = "55px";
-        enlaces.style.height = "65px";
-        menu_ul.style.height = "65px";
-        document.getElementById('social-ads').style.left='0';
-        this.ordenaNavbar(lis, 1);
+        bannerTop.style.top = "-60px";
+        logo.style.height = "50px";
+        document.getElementById('navbar-logo').style.flexFlow = "row nowrap";
+        document.getElementById('navbar-logo').style.justifyContent = "space-between";
+        document.getElementById('navbar-logo').style.alignItems = "flex-end";
+        document.getElementById('navbar-logo').style.paddingTop = "0";
+        if(this.$props.isIndex || this.$props.isAbout){
+          document.getElementById('hamburger-menu').classList.add('red-hamburger');
+        }
       } else {
-        menu.style.height = "100px";
+        menu.classList.remove('bg-white');
+        menu.style.height = "130px"
         bannerTop.style.top = "0";
-        logo.style.height = "80px";
-        enlaces.style.height = "65px";
-        menu_ul.style.height = "65px";
-        menu.classList.remove("short-navbar");
-        document.getElementById('social-ads').style.left='-100px';
-        this.ordenaNavbar(lis, 2);
+        logo.style.height = "55px";
+        containerLogo.style.flexFlow = 'column nowrap';
+        containerLogo.style.alignItems = 'flex-start';
+        document.getElementById('navbar-logo').style.flexFlow = "column nowrap";
+        document.getElementById('navbar-logo').style.justifyContent = "center";
+        document.getElementById('navbar-logo').style.alignItems = "flex-start";
+        document.getElementById('navbar-logo').style.paddingTop = "14px";
+        if(this.$props.isIndex || this.$props.isAbout){
+          document.getElementById('hamburger-menu').classList.remove('red-hamburger');
+        }
+      }
+      if(this.$props.isIndex){
+        this.cambiaColorLinks(scroll, links, menu);
+      }
+      if(this.$props.isAbout){
+        this.cambiaLinkActivo(scroll, sections);
       }
     }
   },
   methods: {
-    ordenaNavbar(array, opc) {
-      if(opc === 1){
-        for (let i = 0; i < array.length; i++) {
-          array[i].style.marginBottom = "30px";
-        }
+    cambiaColorLinks(scroll, links, menu){
+      const headerHeight = document.getElementById('header-elengy').clientHeight;
+      if(scroll>(headerHeight-60)){
+        document.getElementById('social-ads').style.left='0';
       }else{
-        for (let i = 0; i < array.length; i++) {
-          array[i].style.marginBottom = "10px";
+        document.getElementById('social-ads').style.left='-70px';
+      }
+       /*  menu.style.background = "rgb(170,0,0)"; */
+        /* links[links.length-1].style.color = "#fff";
+        for(let i=0; i<links.length-1; i++){
+          links[i].classList.add('dark-link');
+        links[i].classList.remove('transparent-link');
+          links[i].classList.remove('link-nav');
+        } */
+      
+
+    },
+    toggleMenu(){
+      this.flag = !this.flag;
+      this.$emit('openMenu', this.flag);
+      if(this.$props.isIndex || this.$props.isAbout){
+        const scroll = document.documentElement.scrollTop || document.body.scrollTop;
+        if(this.flag && scroll<=50){
+          document.getElementById('hamburger-menu').classList.add('red-hamburger');
+        }else if(!this.flag && scroll<=50){
+          document.getElementById('hamburger-menu').classList.remove('red-hamburger');
+        }else if(this.flag && scroll>50){
+          document.getElementById('hamburger-menu').classList.add('red-hamburger');
         }
-      } 
-    },
-    openMenu(){
-      this.$emit('openMenu', true);
-    },
-    closeMenu(){
-      this.$emit('closeMenu', false);
+      }/* else{
+        document.getElementById('hamburger-menu').classList.add('red-hamburger');
+      } */
     },
     cargaEnlaces(){
-      TweenMax.from(".link-nav", 3, {
+      TweenMax.from(".link-nav, .hamburger, .social-links", 3, {
         delay: 3,
         opacity: 0,
-        y: 20,
+        y: 30,
         ease: Expo.easeInOut
       });
-      TweenMax.from("#logo", 3, {
-          delay: 3,
+      TweenMax.from(".contact, #logo-elengy-top", 4, {
+          delay: 4,
           opacity: 0,
           y: 20,
           ease: Expo.easeInOut
       });
-      TweenMax.from(".contact-nav", 4, {
-          delay: 4.1,
-          opacity: 0,
-          y: 50,
-          ease: Expo.easeInOut
-      });
-      /* TweenMax.from(".menu", 4, {
-          delay: 2.5,
-          opacity: 0,
-          y: -50,
-          ease: Expo.easeInOut
-      }); */
     },
-    cambiaLinkActivo(){
-      const path = window.location.pathname;
-      const ruta = path.substring(1,location.length);
-      const links = document.querySelectorAll('.link-nav');
-      for(let i =0; i<links.length; i++){
-        const linkName = links[i].childNodes[0].nodeValue;
-        if(ruta.toLowerCase() !== linkName.toLowerCase()){
-          links[i].classList.remove('enlace-activo');
-        }else{
-          links[i].classList.add('enlace-activo');
+    cambiaLinkActivo(scroll, elements){
+      try {
+        const links = document.querySelectorAll('#ul-menu>li>a, .dropdown>li>a');
+        let alturaTotal = 0;  
+        for(let i=0; i<elements.length; i++){
+          let altura = 0;
+          for(let j=0; j<=i; j++){
+            altura+=elements[j].clientHeight;
+            if(scroll>(altura-elements[j].clientHeight)-60 && scroll<altura-60){
+              for(let x=0; x<links.length; x++){
+                const enlace = links[x].hash.substring(1, links[x].hash.length)
+                links[x].classList.remove('enlace-activo');
+                
+                if(enlace === elements[j].id){
+                  links[x].classList.add('enlace-activo');
+                }
+
+                const subEnlaces = document.querySelectorAll('.sub-enlaces');
+                for(let y=0; y<subEnlaces.length; y++){
+                  const classLista = subEnlaces[y].classList;
+                  if(classLista.length > 1){
+                    links[2].classList.add('enlace-activo');
+                    break;
+                  }
+                }
+              }
+            }
+          }
         }
-      }
-      if(ruta === ''){ //verificamos si es la ruta inicial
-        links[0].classList.add('enlace-activo'); 
-      }
-    }
+      } catch (error) {}
+    },
+    /* contactLink(){
+      console.log('click');
+      location.href = "#contacto-elengy"
+    } */
 
   }
 };
 </script>
 
 <style lang="scss">
-.banner-top {
-  position: absolute;
-  top: 0;
-  right: 70px;
-  width: 360px;
-  height: 35px;
-  background: #aa0000;
-  transition: all ease-in-out 0.5s;
-  z-index: 50;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.banner-top >div {
-  padding: 0 15px;
-}
-.banner-top >div:first-child {
-  padding-left: 0;
-}
-.banner-top >div:last-child {
-  padding-right: 5px;
-}
-.banner-top .contact {
-  display: flex;
-  flex-flow: row nowrap;
-}
-.banner-top .contact div {
-  border-right: 1px solid #fff;
-}
-.banner-top .contact div:last-child {
-   border-right: none;
-}
-.banner-top .contact div a {
-  margin-right: 10px;
-  margin-left: 10px;
-  text-decoration: none;
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-}
-.banner-top .social-links {
-  margin-left: auto;
-  display: flex;
-  flex-flow: row nowrap;
-  transition: all ease-in-out 0.5s;
-}
-.banner-top .social-links a{
-  padding: 0 5px;
-}
-
 .menu {
   font-family: Arial, sans-serif;
   width: 100%;
-  height: 100px;
-  background: #fff;
+  height: 130px;
   /* background: none; */
+  
+      border-bottom: 2px solid #dfe6ed;
+ /*  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.2); */
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   display: none;
   justify-content: space-between;
-  align-items: center;
-  padding: 0 50px;
-/*   border-bottom: 1px solid #ccc; */
+  align-items: flex-end;
+ /*  padding: 0 50px; */
   position: fixed;
-  z-index: 50;
-  transition: all ease-in-out .5s;
-  overflow: hidden;
+  z-index: 210;
+  transition: all ease-in-out .4s;
+  box-sizing: border-box;
+  /* overflow: hidden; */
 }
 
-.menu .nav-contenedor {
-  margin: auto;
-  width: 90%;
-  max-width: 1500px;
+.bg-menu {
+  background: #fff;
 }
 
-/* .logo {
-  margin-bottom: -50px;
-  background: #000;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  transition:  all ease-in-out .5s;
+.menu-container {
+  padding: 0;
+  margin: 0 auto;
+  height: auto;
+  width: 100%;
+  background: none;
+  transition: all ease-in-out .4s;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
 }
-.logo:hover {
-   padding-top: 40px;
-} */
+
+.navbar-logo {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding-top: 14px;
+}
+
+.logo {
+  z-index: 210;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  color: #000;
+  background: none;
+  box-sizing: border-box;
+  margin-left: 0;
+  padding-left: 0;
+  margin-left: 15px;
+  /* padding-left: 15px; */
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.logo a {
+  text-decoration: none;
+  background: none;
+  
+  
+}
+.logo span {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 12px;
+  margin-left: 5px;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 2px;
+  transition: all ease-in-out 1.2s;
+  background: none;
+  
+} 
 .logo a img {
-  height: 80px;
+  height: 55px;
   width: auto;
-  transition: all ease-in-out 0.5s;
- /*  margin: 20px; */
+  transition: all ease-in-out 0.4s;
 }
+
+
 .enlaces {
-  height: 100px;
+  height: 100%;
 }
-.enlaces ul {
+.enlaces >ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
+  height: 100%;
   margin-bottom: 0;
 }
-.enlaces ul li {
+.enlaces> ul> li {
   list-style: none;
-  margin: 0 20px;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: 100%;
-  margin-bottom: 10px;
+  align-items: center;
+  justify-content: flex-end;
   transition: all ease-in-out 0.5s;
+  height: 100%;
 }
 
-.enlaces .link-nav {
+.enlaces .link-nav  {
   text-decoration: none;
   text-align: center;
-  padding-bottom: 6px;
-  color: #2e4369;
+  color: #000;
   line-height: normal;
-  font-family: "Raleway",sans-serif;
-  font-weight: 200;
-  font-size: 15px;
+  font-weight: normal;
+  font-size: .95rem;
   letter-spacing: 1px;
   font-style: normal;
   text-transform: capitalize;
-  /* border-bottom: 4px solid #000; */
   position: relative;
   transition: ease-in-out 0.5s;
   line-height: -6px;
-  /* margin-bottom: 20px; */
+  padding: 12px 20px;
+  /* margin-top: 10px; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.enlaces .link-nav> span {
+  font-size: 1rem; 
+  padding-bottom: .03rem;
 }
 
-.enlaces .link-nav::after,
-.enlaces .link-nav::before {
+/* transparent link */
+.enlaces .transparent-link {
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-style: normal;
+  text-transform: capitalize;
+  transition: ease-in-out 0.5s;
+  padding: 15px 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+}
+.enlaces .transparent-link > span {
+  font-size: 1rem; 
+  padding-bottom: .2rem;
+}
+/* finish transparent link */
+
+/* dark link */
+.enlaces .dark-link {
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  padding-bottom: 8px;
+  color: #fff;
+  line-height: normal;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-style: normal;
+  text-transform: capitalize;
+  transition: ease-in-out 0.5s;
+  line-height: -6px;
+}
+.enlaces .dark-link::after{
   content: "";
   display: block;
   position: absolute;
   bottom: 0;
-  width: 0px;
-  left: 30%;
-  /* height: 4px; */
-  /* background: #aa0000; */
-  transform: scale(0);
-  transition: ease-in-out 0.5s;
+  width: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-bottom: 4px solid #fff;
+  transition: all .7s ease 0s; 
 }
-.enlaces .link-nav::after {
-  border-bottom: 4px solid #aa0000;
-  transform-origin: 100% 0%;
-}
-
-.enlaces a.link-nav:hover::after,
-.enlaces a.link-nav:hover::before {
-  transform: scale(1);
-  left: 0;
+.enlaces a.dark-link.enlace-activo::after, .enlaces a.dark-link:hover::after  {
   width: 100%;
 }
+/* finish dark link */
 
-.enlaces a.link-nav.enlace-activo::after {
-  width: 100%;
-  left: 0;
-  transform: scale(1);
-  border-bottom: 4px solid #aa0000;
+.enlaces a.link-nav.enlace-activo, .menu .has-children .dropdown a.enlace-activo{
+  color: #fd7e14;
 }
-.enlaces a.link-nav.enlace-activo{
-  /* font-weight: bold; */
-  color: #aa0000;
+.enlaces a.transparent-link.enlace-activo{
+  color: #fff;
 }
-
-.short-navbar {
-  background: #fff;
+.enlaces a.dark-link.enlace-activo{
+  color: #fff;
 }
 
-.banner-top:hover {
-  transition: all ease-in-out .5s;
-  height: 42px;
-}
 
 .nav-contenedor{
   display: none;
@@ -376,6 +514,272 @@ export default {
   animation-name: animationNabvar;
   animation-timing-function: ease-in-out;
   animation-duration: 1s;
+}
+
+#cellphone-elengy{
+  transition: all ease-in-out .5s;
+  animation-name: animationCellphone;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+/* sub menu */
+.has-children{
+  position: relative;
+}
+
+.has-children>a {
+    position: relative;
+    padding-right: 20px;
+}
+
+.menu .has-children .dropdown {
+    visibility: hidden;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    height: auto;
+    width: 250px;
+    position: absolute;
+    text-align: left;
+    border-top: 2px solid #fd7e14;
+    -webkit-box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.1);
+    padding: 0px;
+    margin-left: 0;
+    background: #fff;
+    -webkit-transition: 0.2s 0s;
+    -o-transition: 0.2s 0s;
+    transition: 0.2s 0s;
+    /* display: inline-block; */
+    /* overflow: hidden; */
+}
+
+.menu .has-children2 .dropdown2 {
+  visibility: hidden;
+  top: 100%;
+  margin-left:auto;
+  margin-right:auto;
+  left:0;
+  right:0;
+  opacity: 0;
+  height: auto;
+  /* display: inline-block; */
+  position: absolute;
+  /* width: 80%; */
+  display: flex;
+  justify-content: space-between;
+  -webkit-transition: 0.2s 0s;
+  -o-transition: 0.2s 0s;
+  transition: 0.2s 0s;
+    background: #fff;
+    border-top: 2px solid #fd7e14;
+    -webkit-box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.1);
+    padding-bottom: 0;
+    padding-top: 0;
+
+}
+
+
+.menu .has-children .dropdown a, .menu .has-children2 .dropdown2 a {
+    text-transform: none;
+    letter-spacing: normal;
+    -webkit-transition: 0s all;
+    -o-transition: 0s all;
+    transition: 0s all;
+    color: #000;
+    transition: color ease-in-out .2s;
+}
+
+.menu .has-children .dropdown .active, .menu .has-children2 .dropdown2 .active{
+    color: #000 !important;
+}
+
+.menu .has-children .dropdown>li , .menu .has-children2 .dropdown2>li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.menu .has-children2 .dropdown2 li a {
+  text-decoration: none;
+  padding: 30px 30px;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center; 
+  font-size: .9em; 
+  color: rgba(0,0,0,.5);
+  font-family: 'Montserrat',Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+.menu .has-children2 .dropdown2 li a:hover {
+  color: rgba(0,0,0,1);
+}
+.menu .has-children2 .dropdown2 li .dropdown2:hover ~.subenlaces2{
+  background: rgba(0,0,0,1);
+}
+
+
+.menu .has-children2 .dropdown2 li a i{
+  font-size: 2em; 
+  margin-bottom: 12px;
+  color: #6AAAE4;
+}
+.menu .has-children2 .dropdown2 li a span {
+  text-align: center;
+}
+.menu .has-children .dropdown>li>a {
+    padding: 9px 20px;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+}
+
+
+.menu .has-children2 .dropdown2 li .dropdown2 {
+  background: #fff;
+  border-top: none;
+}
+
+.menu .has-children2 .dropdown2 li .dropdown2 .container{
+  background: #f6f6f6;
+}
+
+/* .menu .has-children2 .dropdown2 li .dropdown2 .container .col-lg-8{
+  display: flex;
+  align-items: center;
+} */
+
+
+.menu .has-children2 .dropdown2 li .dropdown2 .description{
+  margin: auto 0px;
+  top: 0;
+  bottom: 0;
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+
+.menu .has-children2 .dropdown2 li .dropdown2 .description ul{
+  list-style-type: square;
+  margin-left: 1.5em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.menu .has-children2 .dropdown2 li .dropdown2 .description ul li span{
+  color: rgba(0,0,0,0.65);
+  font-size: .9em; 
+}
+
+.menu .has-children2 .dropdown2 li .dropdown2 .description h5 {
+  color: rgba(253,126,20,.7);
+  margin-bottom: .6em;
+}
+
+.menu .has-children2 .dropdown2 li .dropdown2 .description p{
+  color: rgba(0,0,0,.8);
+ margin-bottom: 0;
+}
+
+
+.menu .has-children2 .dropdown2 li .dropdown2 .col-lg-4 {
+  background: #fff;
+}
+.menu .has-children2 .dropdown2 li .dropdown2 .img-link {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu .has-children2 .dropdown2 li .dropdown2 .img-link img{
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+.menu .has-children2 .dropdown2 li .dropdown2 .img-link .button, .menu .has-children2 .dropdown2 li .dropdown2 .description .button {
+  padding: 5px 20px;
+  background: rgba(170,0,0,.9);
+  color: #fff;
+  outline: none;
+  border-radius: 0;
+  max-width: 200px;
+  margin-top: 10px;
+}
+
+.menu .has-children .dropdown>li>a:hover {
+    background: #eff1f3;
+    color: #fd7e14;
+}
+
+.menu .has-children .dropdown>li.has-children>a:before {
+    content: "\e315";
+    right: 20px;
+}
+
+.menu .has-children .dropdown>li.has-children>.dropdown,
+.menu .has-children .dropdown>li.has-children>ul {
+    left: 100%;
+    top: 0;
+}
+
+.menu .has-children .link-nav:hover,
+.menu .has-children .link-nav:focus,
+.menu .has-children .link-nav:active,
+.link-nav:hover,
+.link-nav:focus
+{
+    color: #fd7e14;
+}
+
+.has-children .transparent-link:hover,
+.has-children .transparent-link:focus,
+.has-children .transparent-link:active,
+.transparent-link:hover,
+.transparent-link:focus
+{
+    color: #fff;
+}
+
+.menu .has-children:hover,
+.menu .has-children:focus,
+.menu .has-children:active {
+    cursor: pointer;
+}
+
+.menu .has-children:hover>.dropdown,
+.menu .has-children:focus>.dropdown,
+.menu .has-children:active>.dropdown,
+.menu .has-children2:hover>.dropdown2,
+.menu .has-children2:focus>.dropdown2,
+.menu .has-children2:active>.dropdown2 {
+    -webkit-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+    margin-top: 0px;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* end sub menu */
+
+@keyframes animationCellphone {
+    0%{
+      opacity: 0;
+    }
+    75%{
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+    }
 }
 
 @keyframes animationNabvar {
@@ -402,30 +806,126 @@ export default {
     padding-right: 1em;
     padding-left: 1em;
   }
-  .banner-top {
-    right: 25px;
-  }
+  
   .enlaces .link-nav {
-  font-weight: 200;
-  font-size: 12px;
-}
-}
-@media screen and (max-width: 922px){
-  .banner-top {
-    right: 1.5em;
+    font-weight: 200;
+    font-size: 12px;
   }
+}
+
+@media screen and (max-width: 1000px){
+  .menu {
+    z-index: 150;
+  }
+}
+
+@media screen and (max-width: 840px){
+    .logo {
+      margin-left: 0;
+    }
+    .logo span {
+      color: #fff;
+      padding-top: 4px;
+    }
+}
+
+/* hamburguer */
+.hamburger {
+  display: none;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  right: 5%;
+  width: 35px;
+  height: 5px;
+  position: absolute;
+  background:rgba(255, 255, 255, .9);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+  transition: 0.5s;
+}
+
+.hamburger:before {
+  top: -12px;
+}
+
+.hamburger:after {
+  top: 12px;
+}
+
+.icon-three {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: none;
+  position: absolute;
+  /* top: 25%; */
+  right: 5%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.hamburger-three:before,
+.hamburger-three:after {
+  content: '';
+  position:absolute;
+  width: 40px;
+  height: 5px;
+  background:rgba(255, 255, 255, .9);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+  transition:0.5s;
+}
+
+.hamburger.red-hamburger {
+  background:rgba(170, 0, 0, .78);
+}
+
+.hamburger-three.red-hamburger:before,
+.hamburger-three.red-hamburger:after {
+  content: '';
+  position:absolute;
+  width: 40px;
+  height: 5px;
+  background:rgba(170, 0, 0, .8);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+  transition:0.5s;
+}
+
+.icon-three.active-three .hamburger-three {
+  background:rgba(0,0,0,0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+}
+
+.icon-three.active-three .hamburger-three:before {
+  top: 0;
+  transform:rotate(135deg);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.icon-three.active-three .hamburger-three:after {
+  top: 0;
+  transform:rotate(225deg);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* menu responsive in 840px */
 @media screen and (max-width: 840px){
-  .banner-top, .menu #enlaces {
-    display: none;
-  }
-  .nav-contenedor{
+  .hamburger,.icon-three {
     display: flex;
-    justify-content: flex-end;
   }
- 
+  .navbar-logo { 
+    padding-top: 0px;
+  }
+}
+
+
+@media screen and (max-width: 840px){
+  .bg-menu {
+    background: none;
+  }
+  .icon-three {
+    z-index: 250;
+  }
 
 }
 

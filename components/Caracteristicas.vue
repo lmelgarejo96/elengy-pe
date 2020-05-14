@@ -1,9 +1,9 @@
 <template>
-  <section class="section-caract section-margin">
+  <section id="caracteristicas-elengy" class="section-caract section-padding">
       <div class="container">
         <div class="section-intro pb-85px text-center">
-          <h2 class="section-intro__title" data-aos="fade-up" data-aos-duration="1000">Características que ofrecemos</h2>
-          <p class="section-intro__subtitle" data-aos="fade-up" data-aos-duration="1000">Vel aliquam quis, nulla pede mi commodo tristique nam hac. Luctus torquent velit felis commodo pellentesque nulla cras. Tincidunt hacvel alivquam quis nulla pede mi commodo tristique nam hac  luctus torquent</p>
+          <h2 class="section-intro__title mb-3" data-aos="fade-up" data-aos-duration="1000">Características que ofrecemos</h2>
+          <!-- <p class="section-intro__subtitle" data-aos="fade-up" data-aos-duration="1000">Vel aliquam quis, nulla pede mi commodo tristique nam hac. Luctus torquent velit felis commodo pellentesque nulla cras. Tincidunt hacvel alivquam quis nulla pede mi commodo tristique nam hac  luctus torquent</p> -->
         </div>
 
         <div class="row">
@@ -75,6 +75,7 @@ export default {
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
+  background: #faf9ff;
 }
 .section-intro {
     max-width: 630px;
@@ -106,10 +107,18 @@ export default {
     font-size: 30px;
     color: #21146a;
 }
+
+.section-caract .card {
+  -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
 .offer-single__content {
     border: 0;
     border-radius: 0;
-    background: #faf9ff;
+    background: #fff;
     padding: 30px 23px;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;

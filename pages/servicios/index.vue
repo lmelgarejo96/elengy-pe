@@ -1,15 +1,11 @@
 <template>
-    <div data-app class="nosotros-page">
+    <div data-app>
         <MenuResponsive v-if="menu" v-on:closeMenuResponsive="closeMenuResponsive($event)" />
-        <Navbar :isIndex="false" :isAbout="true" v-on:openMenu="openMenu($event)"/>
-        <HeaderNosotros/>
-        <Nosotros />
-        <!-- <HistoriaElengy/> -->
-        <MisionVision/>
-        <CaracteristicasElengy />
-        <!-- <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-            nosotros
+        <Navbar :isIndex="false" v-on:openMenu="openMenu($event)"/>
+        <!-- <div class="d-flex justify-content-center align-items-center" style="height: 200vh;">
+            servicios
         </div> -->
+        <ServicesSection/>
         <Clientes />
         <SocialAds/>
         <Footer/>
@@ -17,27 +13,17 @@
 </template>
 
 <script>
-import Navbar from '../components/Navbar';
-import MenuResponsive from '../components/MenuResponsive';
-import HeaderNosotros from '../components/nosotros/HeaderNosotros';
-import HistoriaElengy from '../components/nosotros/HistoriaElengy';
-import Nosotros from '../components/NosotrosIndex';
-import MisionVision from '../components/nosotros/MisionVision';
-import CaracteristicasElengy from '../components/Caracteristicas';
-import Clientes from '../components/ClientesIndex';
-
-import SocialAds from '../components/RedesSociales';
-import Footer from '../components/Footer';
-
+import Navbar from '../../components/Navbar';
+import MenuResponsive from '../../components/MenuResponsive';
+import ServicesSection from '../../components/ServicesIndex';
+import Clientes from '../../components/ClientesIndex';
+import SocialAds from '../../components/RedesSociales';
+import Footer from '../../components/Footer';
 export default {
     components: {
         Navbar,
         MenuResponsive,
-        HeaderNosotros,
-        HistoriaElengy,
-        Nosotros,
-        MisionVision,
-        CaracteristicasElengy,
+        ServicesSection,
         Clientes,
         SocialAds,
         Footer
@@ -47,6 +33,8 @@ export default {
     }),
     mounted(){
         AOS.init();
+        this.addActiveLink();
+        document.getElementById('hamburger-menu').classList.add('red-hamburger');
     },
     methods: {
         openMenu(bool) {
@@ -69,6 +57,21 @@ export default {
                 this.menu = bool;
             }, 700)
         },
+        addActiveLink(){
+            const links = document.querySelectorAll('.link-nav');
+            const URIactual = window.location.pathname.substring(1, window.location.pathname.length);
+            console.log(links);
+            console.log(URIactual);
+            for(let i=0; i<links.length; i++){
+                const pathName = links[i].pathname.toString()
+                const nameEnlace = pathName.substring(1, pathName.length);
+                if(URIactual === nameEnlace){
+                    console.log(URIactual,nameEnlace);
+                    links[i].classList.add('enlace-activo');
+                    break;
+                }
+            }
+        }
     }
     
 
@@ -90,16 +93,6 @@ body::-webkit-scrollbar-thumb {
     background-color: #BA0F22;
     outline: 1px solid slategrey
 }
-.nosotros-page {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-.padding-sections {
-    padding: 80px 0;
-}
-
 
 section {
     min-height: 30vh;
@@ -165,4 +158,10 @@ section {
         padding: 100px 0
     }
 }
+
+.bg-menu {
+    background: #fff !important;
+}
+
+
 </style>

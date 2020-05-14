@@ -413,7 +413,7 @@ footer .iframe iframe {
 
 .copyright p {
   color: #ddd;
-  font-size: 18px;
+  font-size: 1em;
   line-height: 22px;
   text-align: center;
   border-top: #ddd solid 1px;
