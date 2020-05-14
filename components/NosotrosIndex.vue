@@ -18,7 +18,7 @@
                 data-aos-duration="1500"
               ></p>
               <div class="d-flex align-items-center">
-                <button id="button-video" @click.stop="openVideo" class="play-btn mr-3">
+                <button id="button-video" @click.stop="openVideo" class="play-btn mr-3 mb-2">
                   <i class="fa fa-play text-white"></i>
                 </button>
                 <span class="small ml-1" >Ver video</span>
@@ -117,18 +117,30 @@ export default {
 }
 .about__content h2 {
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .about__content p {
   color: #797979;
   font-family: "Roboto", sans-serif;
-  margin-bottom: 38px;
+  margin-bottom: 15px;
   font-size: 15px;
   font-weight: 400;
   line-height: 1.667;
+  text-align: left;
 }
 .about__content a {
   text-decoration: none;
+
+}
+
+@media screen and (max-width: 768px){
+  .nosotros-section {
+    padding-top: 0;
+  }
+  .bg-nosotros-section {
+    padding: 70px 0px;
+  }
 }
 
 .button {

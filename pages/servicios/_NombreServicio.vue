@@ -4,7 +4,7 @@
       <MenuResponsive v-if="menu" v-on:closeMenuResponsive="closeMenuResponsive($event)" />
       <section class="section-servicios-page">
           
-          <div class="container animationMoveUp mt-5 mb-2">
+          <div class="container animationMoveUp mt-5 pt-5 pb-5 mb-2">
               <h1 class="text-center mt-5 mb-0 pb-0">{{servicio.name_service}}</h1>
               <p><span>(Lista de características)</span></p>
               <div class="flex-fila ">
@@ -142,6 +142,7 @@ export default {
         bodyEl.scrollTop = 0;
         this.servicios = await this.$store.state.services.all;
         /* this.servicio.nombre = this.$route.params.NombreServicio; */
+        document.getElementById('hamburger-menu').classList.add('red-hamburger');
         this.buscaServicio(this.$route.params.NombreServicio);
         this.addActiveLink();
     },
@@ -585,5 +586,8 @@ section {
     margin-bottom: 10px;
 }
 
+.bg-menu {
+    background: #fff !important;
+}
 
 </style>

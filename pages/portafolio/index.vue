@@ -1,14 +1,49 @@
 <template>
   <div data-app>
+      <MenuResponsive v-if="menu" v-on:closeMenuResponsive="closeMenuResponsive($event)" />
+      <Navbar :isIndex="false" v-on:openMenu="openMenu($event)"/>
       <ListaBlog/>
   </div>
 </template>
 
 <script>
 import ListaBlog from '../../components/NovedadesEventos';
+import Navbar from '../../components/Navbar';
+import MenuResponsive from '../../components/MenuResponsive';
+
 export default {
   components: {
-      ListaBlog
+      ListaBlog,
+      Navbar,
+      MenuResponsive
+  },
+  data: () => ({
+      menu: false,
+  }),
+  mounted(){
+      document.getElementById('hamburger-menu').classList.add('red-hamburger');
+  },
+  methods: {
+      openMenu(bool) {
+            try {
+                if (bool) {
+                document.querySelector(".icon-three").classList.add("active-three");
+                this.menu = bool;
+                } else {
+                document
+                    .querySelector(".icon-three")
+                    .classList.remove("active-three");
+                const menu = document.getElementById("menu-responsive");
+                menu.style.left = "-100vh";
+                this.closeMenuResponsive(bool);
+                }
+            } catch (error) {}
+        },
+        closeMenuResponsive(bool){
+            setTimeout(() => {
+                this.menu = bool;
+            }, 700)
+        },
   }
 }
 </script>
@@ -80,6 +115,10 @@ section {
 
 .section-padding {
     padding: 60px 0
+}
+
+.bg-menu {
+    background: #fff !important;
 }
 
 </style>

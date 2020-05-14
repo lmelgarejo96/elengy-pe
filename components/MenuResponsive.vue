@@ -10,8 +10,8 @@
       <a href="/">Inicio</a>
       <a href="/servicios">Servicios</a>
       <a href="/nosotros">Nosotros</a>
-      <a href="/contacto">Portafolio</a>
-      <a href="/portafolio">Contacto</a>
+      <a href="/portafolio">Portafolio</a>
+      <a href="#">Contacto</a>
       <div class="social-networks">
         <a href="https://www.facebook.com/elengysac/" target="_blank">
           <i class="fa fa-facebook" aria-hidden="true"></i>

@@ -60,13 +60,10 @@ export default {
         addActiveLink(){
             const links = document.querySelectorAll('.link-nav');
             const URIactual = window.location.pathname.substring(1, window.location.pathname.length);
-            console.log(links);
-            console.log(URIactual);
             for(let i=0; i<links.length; i++){
                 const pathName = links[i].pathname.toString()
                 const nameEnlace = pathName.substring(1, pathName.length);
                 if(URIactual === nameEnlace){
-                    console.log(URIactual,nameEnlace);
                     links[i].classList.add('enlace-activo');
                     break;
                 }

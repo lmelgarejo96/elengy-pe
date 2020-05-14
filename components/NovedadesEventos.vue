@@ -57,12 +57,6 @@
                       <article class="row blog_item">
                           <div class="col-md-3">
                               <div class="blog_info text-right">
-                                  <!-- <div class="post_tag">
-                                      <a href="#">Tecnología</a>
-                                      <a class="active" href="#">Technology,</a>
-                                      <a href="#">Politics,</a>
-                                      <a href="#">Lifestyle</a>
-                                  </div> -->
                                   <ul class="blog_meta list">
                                       <li>
                                           <a href="#">Elengy SAC
@@ -70,7 +64,7 @@
                                           </a>
                                       </li>
                                       <li>
-                                          <a href="#">12 Dec, 2017
+                                          <a href="#">30 Mar, 2020
                                               <i class="fas fa-calendar-alt"></i>
                                           </a>
                                       </li>
@@ -79,11 +73,6 @@
                                               <i class="fas fa-map-marker-alt"></i>
                                           </a>
                                       </li>
-                                      <!-- <li>
-                                          <a href="#">06 Comments
-                                              <i class="lnr lnr-bubble"></i>
-                                          </a>
-                                      </li> -->
                                   </ul>
                               </div>
                           </div>
@@ -92,12 +81,76 @@
                                   <div class="container-img">
                                     <img draggable="false" src="../static/bg/elengy-desinfection.jpg" alt="">
                                   </div>
+                                  <ul class="blog_meta list meta-2">
+                                        <li>
+                                            <a href="#">
+                                              <i class="fas fa-calendar-alt"></i>
+                                                30 Mar, 2020
+                                          </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                Lima, Perú
+                                            </a>
+                                        </li>
+                                      </ul>
                                   <div class="blog_details">
-                                      <a href="/">
-                                          <h2>Elengy presente en la lucha contra el Covid 19</h2>
-                                      </a>
+                                        <h2>Elengy presente en la lucha contra el Covid 19</h2>
                                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, sed veniam. Quasi culpa labore sed repellendus ipsam nisi libero, natus vitae dicta delectus, recusandae quam quibusdam nobis accusamus possimus saepe.</p>
-                                      <a class="button button-blog" href="/">Ver más</a>
+                                      <a @click="todavia" class="button button-blog" href="#none">Ver más</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </article>
+                  </div>
+
+                   <div class="blog_left_sidebar">
+                      <article class="row blog_item">
+                          <div class="col-md-3">
+                              <div class="blog_info text-right">
+                                  <ul class="blog_meta list">
+                                      <li>
+                                          <a href="#">Elengy SAC
+                                              <i class="fas fa-users"></i>
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a href="#">15 Sep, 2019
+                                              <i class="fas fa-calendar-alt"></i>
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a href="#">Lima, Perú
+                                              <i class="fas fa-map-marker-alt"></i>
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="col-md-9">
+                              <div class="blog_post">
+                                  <div class="container-img">
+                                    <img draggable="false" src="https://img1.wsimg.com/isteam/ip/ba69460f-3ac0-4f5b-afa5-8b6ef5b4ac63/IMG_20180217_130020_1.jpg/:/rs=w:1300,h:800" alt="">
+                                  </div>
+                                  <ul class="blog_meta list meta-2">
+                                        <li>
+                                            <a href="#">
+                                              <i class="fas fa-calendar-alt"></i>
+                                                15 Sep, 2019
+                                          </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                Cerro de pasco, Perú
+                                            </a>
+                                        </li>
+                                      </ul>
+                                  <div class="blog_details">
+                                        <h2>Elengy realizando obras electromecánicas en la subestación Milpo</h2>
+                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, sed veniam. Quasi culpa labore sed repellendus ipsam nisi libero, natus vitae dicta delectus, recusandae quam quibusdam nobis accusamus possimus saepe.</p>
+                                      <a @click="todavia" class="button button-blog" href="#none">Ver más</a>
                                   </div>
                               </div>
                           </div>
@@ -116,13 +169,18 @@
 
 <script>
 export default {
-
+    methods: {
+        todavia(){
+            alert('Aún me encuentro trabajando en esto.')
+        }
+    }
 }
 </script>
 
 <style>
 .novedades-elengy {
     background: #fff;
+    padding-top: 130px;
 }
 
 /* .novedades-elengy>.container {
@@ -292,7 +350,7 @@ export default {
 .blog_details h2 {
     font-size: 24px;
     line-height: 36px;
-    color: #3a414e;
+    color: #2a3549;
     font-weight: 600;
     transition: all 0.3s linear
 }
@@ -304,7 +362,10 @@ export default {
 .blog_details p {
     margin-bottom: 26px;
     margin-right: 10px;
-    color: rgba(0,0,0,0.7);
+    font-size: .95rem;
+    font-weight: 300;
+    font-family: 'Roboto', "Helvetica Neue", Helvetica, sans-serif;
+    color: rgba(0,0,0,.9);
 }
 
 .view_btn {
@@ -346,4 +407,59 @@ export default {
     background-color: rgba(170, 0, 10, 1);
     color: #fff
 }
+
+.meta-2 {
+    display: none;
+    list-style: none;
+}
+
+@media screen and (max-width: 767px){
+    .blog_item .col-md-3 {
+        padding-bottom: 0;
+    }
+    .blog_meta {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        margin-bottom: 0;
+        text-align: left;
+    }
+    .blog_meta  li a:last-child{
+        padding-bottom: 3px;
+    }
+    .blog_info  .blog_meta li:nth-child(2), .blog_info  .blog_meta li:last-child{
+        display: none;
+    }
+    .meta-2 {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        padding-top: 5px;
+    }
+     .meta-2 li a{
+         color: rgba(0,0,0,0.7);
+         text-decoration: none;
+     }
+     .blog_details {
+         padding-top: 15px;
+     }
+     .blog_info {
+         padding-top: 0;
+     }
+    
+}
+@media screen and (max-width: 575px){
+    .blog_left_sidebar article {
+        border-top: 1px solid #dad8e4;
+        border-bottom: 1px solid #dad8e4;
+        padding: 10px 0px;
+        box-sizing: border-box;
+        background: #fff;
+    }
+    .novedades-elengy{
+        background: rgb(219, 215, 215);
+    }
+}
+
+
 </style>
