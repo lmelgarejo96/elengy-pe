@@ -246,18 +246,7 @@ export default {
       } */
     },
     cargaEnlaces(){
-      TweenMax.from(".link-nav, .hamburger, .social-links", 3, {
-        delay: 3,
-        opacity: 0,
-        y: 30,
-        ease: Expo.easeInOut
-      });
-      TweenMax.from(".contact, #logo-elengy-top", 4, {
-          delay: 4,
-          opacity: 0,
-          y: 20,
-          ease: Expo.easeInOut
-      });
+      
     },
     cambiaLinkActivo(scroll, elements){
       try {

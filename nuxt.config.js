@@ -61,7 +61,7 @@ export default {
             },
             /* tween max */
             {
-                src: "https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js",
+                src: "https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js",
                 type: "text/javascript"
             },
             {
@@ -84,10 +84,11 @@ export default {
                 src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js',
                 type: "text/javascript",
             },
-            {
+
+            /* {
                 src: 'https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js',
                 type: "text/javascript",
-            },
+            }, */
             /* ISOTOPE */
             /* {
                 src: "https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js",
@@ -161,6 +162,14 @@ export default {
         /*
          ** You can extend webpack config here
          */
-        extend(config, ctx) {}
+        extend(config, ctx) {
+            config.module.rules.push({
+                test: /\.(ogg|mp3|wav|mpe?g)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]'
+                }
+            })
+        }
     }
 }

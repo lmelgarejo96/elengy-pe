@@ -1,6 +1,6 @@
 <template>
   <div data-app id="index-p" class="index-page">
-    <Loader v-on:loadedComplete="loadedComplete($event)" />
+    <Loader v-on:loadedComplete="loadedComplete($event)" v-on:loadClosing="endLoader()" />
     <div id="home" class="content-index animation-index">
       <MenuResponsive v-if="menu" v-on:closeMenuResponsive="closeMenuResponsive($event)" />
       <Navbar
@@ -9,7 +9,8 @@
         v-on:closeMenu="closeMenu($event)"
         v-on:openMenu="openMenu($event)"
       />
-      <SliderElengy />
+      
+      <SliderElengy v-on:slideFull="initSlider($event)"/>
       <EnlacesIndex />
       <ContactIndex :contact.sync="contact" :servicios="servicios" />
       <ClientesSection />
@@ -40,7 +41,6 @@ import ContactIndex from "../components/ContactIndex";
 import ClientesSection from "../components/ClientesIndex";
 import SocialAds from "../components/RedesSociales";
 import Footer from "../components/Footer";
-
 import EnlacesIndex from "../components/EnlacesIndex";
 
 export default {
@@ -84,13 +84,16 @@ export default {
         "Ingeniería secundaria y protecciones",
         "Redes, comunicaciones y fibra óptica",
         "Estudios Eléctricos en AT, MT y BT."
-      ]
+      ],
+      currentSlide: null,
+      audioContext: null
     };
   },
   mounted() {
     /* this.chargeContent(); */
     console.log("monto index");
     this.addActiveLink();
+    this.audioContext = document.getElementById('audio-elengy');
     AOS.init();
   },
   destroyed() {
@@ -139,6 +142,19 @@ export default {
     addActiveLink() {
       const links = document.querySelectorAll(".link-nav");
       links[0].classList.add("enlace-activo");
+    },
+    initSlider(ev){
+      this.currentSlide = ev;
+    },
+    endLoader(){
+      this.currentSlide.init();
+      this.playAudio();
+    },
+    playAudio() {
+      this.audioContext.play();
+    },
+    pauseAudio() {
+      this.audioContext.pause();
     }
   }
 };

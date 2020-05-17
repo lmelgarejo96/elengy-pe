@@ -161,33 +161,31 @@
           <span class="mouse-wheel"></span>
         </span>
     </a>
+    <AudioReproductor/>
     </div>
   </header>
 </template>
 
 <script>
+import AudioReproductor from '../components/ReproductorAudio';
 export default {
+  components: {
+    AudioReproductor
+  },
   data: () => ({
     oakSlider: null
   }),
   mounted() {
-    TweenMax.from("#header-elengy", 3, {
-        delay: 4.1,
-        opacity: 0,
-        y: 400,
-        ease: Expo.easeInOut
-    });
-
     this.oakSlider = {
       /*------------------------------------------------
             # Slider Settings
             ------------------------------------------------*/
       settings: {
-        currentSlide: 1,
+        currentSlide: 4,
         totalSlides: 0,
         animating: false,
         autoPlay: true,
-        autoPlaySpeed: 9, // Increase to stay on slides for longer
+        autoPlaySpeed: 7, // Increase to stay on slides for longer
         transitionSpeed: 2.5, // Changes transition speed
         autoPlayInterval: false,
         ease: "expo",
@@ -498,7 +496,10 @@ export default {
       }
     };
 
-    this.oakSlider.init();
+    /* setTimeout(() => { */
+    this.$emit('slideFull', this.oakSlider);
+      /* this.oakSlider.init(); */
+    /* }, 4000) */
   }
 };
 </script>
@@ -615,8 +616,9 @@ export default {
 .oakslider__nav {
   position: absolute;
   bottom: 1%;
-  left: 0;
+  /* left: 0; */
   right: 0;
+  /* width: 40%; */
   margin: auto;
   display: flex;
   justify-content: flex-end;

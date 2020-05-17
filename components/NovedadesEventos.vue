@@ -49,7 +49,7 @@
       </div>
   </section> -->
     <section class="blog_area novedades-elengy">
-      <div class="container">
+      <div class="container pt-5 pb-3">
           <div class="row">
               <div class="col-lg-8">
 
