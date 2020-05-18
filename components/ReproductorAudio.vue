@@ -6,21 +6,20 @@
         </audio>
         <div class="player-controls">
             <!-- Play -->
-            <v-btn v-if="isPlay===false" @click="playAudio()" class="mx-2 button-control" style="outline: none; background: #4e5fbb;" fab dark large color="purple">
+            <v-btn v-if="isPlay===false" @click="playAudio()" class="mx-2 button-control" style="outline: none; background: #aa0000; width: 50px; height: 50px; text-align:center;" fab dark large color="purple">
                 <v-icon dark>play_arrow</v-icon>
             </v-btn>
             <!-- PAUSE -->
-            <v-btn v-else @click="pauseAudio()" class="mx-2 button-control" style="outline: none; background: #4e5fbb;" fab dark large color="purple">
+            <v-btn v-else @click="pauseAudio()" class="mx-2 button-control" style="outline: none; background: #aa0000; width: 50px; height: 50px; text-align:center;" fab dark large color="purple">
                 <v-icon dark>pause</v-icon>
             </v-btn>
             <!-- <v-slider :dark="false" color="primary" v-model="volume" min="0" max="6"></v-slider> -->
-            <div>
+            <!-- <div>
                 <div id="inputDiv">
                 <div id="etiqueta"></div>
                 <input id="volume-player" @change="cambiaVolumen()" type="range" value="20"  v-model="volume" min="0" max="100"  autocomplete="off">
-                <!-- autocomplete="off" pare que Firefox no "recuerde" el valor del input "on refresh" -->
             </div>
-            </div>
+            </div> -->
             <!-- <input type="range"  id="volume-player"> -->
             
         </div>
@@ -35,22 +34,22 @@ export default {
     data:() => ({
         isPlay: true,
         player: null,
-        volume: 20,
+        volume: 15,
     }),
     mounted() {
+      try {
         this.player = document.getElementById('audio-elengy');
-        this.stylesInput()
+        /* this.stylesInput() */
+      } catch (error) {}
     },
     methods: {
         playAudio(){
             this.player.play();
             this.isPlay = true;
-            console.log(this.isPlay);
         },
         pauseAudio(){
             this.player.pause();
             this.isPlay = false;
-            console.log(this.isPlay);
         },
         cambiaVolumen(){
             /* cambia el valor de la etiqueta (el tooltip) */

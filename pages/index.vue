@@ -1,6 +1,6 @@
 <template>
   <div data-app id="index-p" class="index-page">
-    <Loader v-on:loadedComplete="loadedComplete($event)" v-on:loadClosing="endLoader()" />
+    <Loader v-if="loader" v-on:loadedComplete="loadedComplete($event)" v-on:loadClosing="endLoader()" />
     <div id="home" class="content-index animation-index">
       <MenuResponsive v-if="menu" v-on:closeMenuResponsive="closeMenuResponsive($event)" />
       <Navbar
@@ -79,27 +79,24 @@ export default {
         telefono: "",
         descripcion: ""
       },
-      servicios: [
-        "Obras electromecánicas",
-        "Ingeniería secundaria y protecciones",
-        "Redes, comunicaciones y fibra óptica",
-        "Estudios Eléctricos en AT, MT y BT."
-      ],
+      servicios: [],
       currentSlide: null,
       audioContext: null
     };
   },
+  beforeMount(){
+    this.servicios = this.$store.state.services.servicesNames;
+  },
   mounted() {
-    /* this.chargeContent(); */
-    console.log("monto index");
-    this.addActiveLink();
-    this.audioContext = document.getElementById('audio-elengy');
-    AOS.init();
+    try {
+      if(window.screen.width>840){
+        this.addActiveLink();
+      }
+      this.audioContext = document.getElementById('audio-elengy');
+      this.audioContext.volume = 0.15;
+      AOS.init();
+    } catch (error) {}
   },
-  destroyed() {
-    console.log("se destruyó el index");
-  },
-
   methods: {
     openMenu(bool) {
       try {
@@ -149,6 +146,10 @@ export default {
     endLoader(){
       this.currentSlide.init();
       this.playAudio();
+      setTimeout(() => {
+        this.loader= false
+      }, 2200);
+
     },
     playAudio() {
       this.audioContext.play();

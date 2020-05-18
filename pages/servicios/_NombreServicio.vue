@@ -4,7 +4,7 @@
       <MenuResponsive v-if="menu" v-on:closeMenuResponsive="closeMenuResponsive($event)" />
       <section class="section-servicios-page">
           
-          <div class="container animationMoveUp mt-5 pt-5 pb-5 mb-2">
+          <div class="container animationMoveUp pt-4 pb-4 mb-2">
               <h1 class="text-center mt-5 mb-0 pb-0">{{servicio.name_service}}</h1>
               <p><span>(Lista de características)</span></p>
               <div class="flex-fila ">
@@ -52,7 +52,7 @@
                             Prev
                             <!-- {{controls.prev.name_service}} -->
                         </a>
-                        <a href="/servicios" class="animationMoveUp">Listado de Servicios</a>
+                        <a class="servicios-list-link animationMoveUp" href="/servicios" >Listado de Servicios</a>
                         <a class="enlace-servicios "   :href="controls.next.Uri">
                            <!--  {{controls.next.name_service}} -->
                             Next
@@ -137,18 +137,19 @@ export default {
     
     },
     async mounted(){
-        AOS.init();
-        let bodyEl = document.body;
-        bodyEl.scrollTop = 0;
-        this.servicios = await this.$store.state.services.all;
-        /* this.servicio.nombre = this.$route.params.NombreServicio; */
-        document.getElementById('hamburger-menu').classList.add('red-hamburger');
-        this.buscaServicio(this.$route.params.NombreServicio);
-        this.addActiveLink();
+        try {
+            AOS.init();
+            let bodyEl = document.body;
+            bodyEl.scrollTop = 0;
+            this.servicios = await this.$store.state.services.all;
+            /* this.servicio.nombre = this.$route.params.NombreServicio; */
+            document.getElementById('hamburger-menu').classList.add('red-hamburger');
+            this.buscaServicio(this.$route.params.NombreServicio);
+            if(window.screen.width >840){
+                this.addActiveLink();
+            }
+        } catch (error) {}
     },
-    /* updated(){
-        this.buscaServicio(this.$route.params.NombreServicio);
-    }, */
     methods: {
         openMenu(bool){ 
             try {
@@ -224,7 +225,6 @@ export default {
                         const pathName2 = sub_enlaces[j].pathname.toString()
                         const nameEnlace2 = pathName2.substring(1, pathName2.length);
                         if(URIactual === nameEnlace2){
-                            console.log('name enlace 2',nameEnlace2, URIactual, j);
                             sub_enlaces[j].classList.add('active');
                             break;
                         }
@@ -342,9 +342,15 @@ section {
 }
 
 .section-servicios-page {
-    padding-top: 130px;
+    padding-top: 140px;
     min-height: 100vh;
     margin-bottom: 100px;
+}
+
+@media screen and (max-width: 600px){
+    .section-servicios-page {
+        padding-top: 77px;
+    }
 }
 
 .section-servicios-page h1{
@@ -462,6 +468,7 @@ section {
 .controls-services {
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 .controls-services .enlace-servicios{
@@ -588,6 +595,13 @@ section {
 
 .bg-menu {
     background: #fff !important;
+}
+
+.servicios-list-link {
+    padding-top: 5px;
+    font-size: 11px;
+    font-family: 'Roboto', "Helvetica Neue", Helvetica, sans-serif;
+    text-transform: uppercase;
 }
 
 </style>

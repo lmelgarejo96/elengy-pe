@@ -8,22 +8,22 @@
               <img draggable="false" class="logo1" src="../static/logo.webp" style="max-width: 150px;" alt="logo-elengy-sac" data-aos="fade-up" data-aos-duration="1500"/>
               <ul class="social_icon" data-aos="fade-up" data-aos-duration="1500">
                 <li>
-                  <a href=" # ">
+                  <a href="https://www.facebook.com/elengysac/" target="_blank">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="# ">
+                  <a href="#" target="_blank">
                     <i class="fa fa-twitter" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="# ">
+                  <a href="#" target="https://www.linkedin.com/company/elengy-sac/">
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="# ">
+                  <a href="#" target="_blank">
                     <i class="fa fa-instagram" aria-hidden="true"></i>
                   </a>
                 </li>
@@ -116,7 +116,7 @@
             <div class="row pb-0 pt-0 mt-0 mb-0">
               <div class="col-md-12 m-2" >
                 <p >
-                  © 2020 <a href="#">Luis Melgarejo.</a> Todos los derechos reservados.
+                  © 2020 <a href="/">Elengy SAC.</a> Todos los derechos reservados.
                   <!-- Design by<a href="# "> Luis Melgarejo</a> -->
                 </p>
               </div>

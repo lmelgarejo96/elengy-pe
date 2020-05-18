@@ -126,12 +126,12 @@ export default {
         font-size: 20px;
     }
     .container-img {
-        max-height: 200px;
+        max-height: 250px;
     }
 
     .container-img img {
         width: 100%;
-        min-height: 200px;
+        min-height: 250px;
         margin-top: -20%;
     }
 }

@@ -101,32 +101,10 @@
             </div>
           </div>
         </div>
+
+        
+
         <div class="oakslider__slide" data-slide="3">
-          <div class="slide__image">
-            <img src="../static/bg/teamElengy.jpg" alt="bg-slide-elengy" />
-          </div>
-          <div class="slide__container">
-            <div class="slide__content">
-              <div class="items-slide">
-                <div class="izquierda animation-card">
-                  <div class="service">
-                    <h3 class="animation-details-info1">
-                      <span>Soluciones y servicios integrales para sus proyectos</span>
-                    </h3>
-                    <p
-                      class="animation-details-info1"
-                    >Contamos con especialistas en subestaciones de media, alta y extra alta tensión.</p>
-                    <a href="#" class="animation-2">
-                      <span class="material-icons">keyboard_arrow_right</span>
-                      Conoce más aquí
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="oakslider__slide" data-slide="4">
           <div class="slide__image">
             <img
               src="../static/bg/elengy-desinfection.jpg"
@@ -144,7 +122,7 @@
                     <p
                       class="animation-details-info1"
                     >Te invitamos a leer acerca de nuestra cabina de desinfección en la lucha contra el covid-19.</p>
-                    <a href="#" class="animation-2">
+                    <a href="/portafolio" class="animation-2">
                       <span class="material-icons">keyboard_arrow_right</span>
                       Conoce más aquí
                     </a>
@@ -154,6 +132,34 @@
             </div>
           </div>
         </div>
+        <div class="oakslider__slide" data-slide="4">
+          <div class="slide__image">
+            <img src="../static/bg/teamElengy.jpg" alt="bg-slide-elengy" />
+          </div>
+          <div class="slide__container">
+            <div class="slide__content">
+              <div class="items-slide">
+                <div class="izquierda animation-card">
+                  <div class="service">
+                    <h3 class="animation-details-info1">
+                      <span>Soluciones y servicios integrales para sus proyectos</span>
+                    </h3>
+                    <p
+                      class="animation-details-info1"
+                    >Contamos con especialistas en subestaciones de media, alta y extra alta tensión.</p>
+                    <a href="/servicios" class="animation-2">
+                      <span class="material-icons">keyboard_arrow_right</span>
+                      Conoce más aquí
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
       </div>
 
     <a href="#descubre_mas" class="mouse smoothscroll">

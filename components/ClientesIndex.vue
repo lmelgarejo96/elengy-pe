@@ -118,6 +118,7 @@ export default {
 
 <style>
 #clientes-elengy {
+  width: 100%;
   background: #fff;
 }
 

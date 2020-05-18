@@ -89,10 +89,7 @@ export default {
     openVideo() {
       try {
         const btn = document.getElementById('button-video');
-        
         this.dialogNosotros = true;
-        console.log(btn);
-        /* document.getElementById("video-elengy").play(); */
       } catch (error) {}
     },
     closeVideo() {

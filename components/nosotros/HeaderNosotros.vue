@@ -20,6 +20,7 @@ export default {
   margin-top: 100px;
   width: 100vw;
   height: calc(80vh - 100px);
+  max-height: 750px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -106,9 +107,10 @@ export default {
 }
 
 @media screen and (max-width: 840px){
-  /* .header-nosotros-elengy {
-    height: calc(100vh - 100px);
-  } */
+  .header-nosotros-elengy {
+    height: 100vh;
+    margin-top: 0;
+  }
   .header-nosotros-elengy .bg-nosotros{
     display: flex;
   }

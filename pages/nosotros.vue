@@ -46,7 +46,10 @@ export default {
         menu: false,
     }),
     mounted(){
-        AOS.init();
+        try {
+            AOS.init();
+            this.addActiveLink();
+        } catch (error) { }
     },
     methods: {
         openMenu(bool) {
@@ -69,6 +72,18 @@ export default {
                 this.menu = bool;
             }, 700)
         },
+        addActiveLink(){
+            const links = document.querySelectorAll('.link-nav');
+            const URIactual = window.location.pathname.substring(1, window.location.pathname.length);
+            for(let i=0; i<links.length; i++){
+                const pathName = links[i].pathname.toString()
+                const nameEnlace = pathName.substring(1, pathName.length);
+                if(URIactual === nameEnlace){
+                    links[i].classList.add('enlace-activo');
+                    break;
+                }
+            }
+        }
     }
     
 

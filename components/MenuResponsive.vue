@@ -7,11 +7,11 @@
             </v-btn>
     </div>-->
     <div class="enlaces-responsive">
-      <a href="/">Inicio</a>
-      <a href="/servicios">Servicios</a>
-      <a href="/nosotros">Nosotros</a>
-      <a href="/portafolio">Portafolio</a>
-      <a href="#">Contacto</a>
+      <a class="link-responsive" href="/">Inicio</a>
+      <a class="link-responsive" href="/servicios">Servicios</a>
+      <a class="link-responsive" href="/nosotros">Nosotros</a>
+      <a class="link-responsive" href="/portafolio">Portafolio</a>
+      <a class="link-responsive" href="/contacto">Contacto</a>
       <div class="social-networks">
         <a href="https://www.facebook.com/elengysac/" target="_blank">
           <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -29,11 +29,26 @@
 
 <script>
 export default {
+  mounted(){
+    this.activeLink();
+  },
   methods: {
     closeMenu() {
       this.$emit("closeMenuResponsive", false);
       const menu = document.getElementById("menu-responsive");
       menu.style.top = "-100vh";
+    },
+    activeLink(){
+      try {
+        const URIActual = window.location.pathname;
+          const links = document.querySelectorAll('.link-responsive');
+          for( let i=0; i<links.length; i++ ){
+            if(links[i].pathname === URIActual){
+              links[i].classList.add('active-link');
+              break;
+            }
+          } 
+      } catch (error) {}
     }
   }
 };
@@ -63,6 +78,20 @@ export default {
   flex-direction: column;
   justify-content: space-evenly;
   height: 100%;
+}
+
+.enlaces-responsive a.active-link {
+  color: #fd7e14;;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 600px){
+  .enlaces-responsive {
+    margin-top: 50px;
+  }
+  .menu-responsive {
+    padding-top: 0;
+  }
 }
 .enlaces-responsive a {
   color: #fff;
@@ -118,5 +147,9 @@ export default {
   .menu-responsive {
     display: none;
   }
+}
+
+@media screen and (max-width: 600px) {
+  
 }
 </style>

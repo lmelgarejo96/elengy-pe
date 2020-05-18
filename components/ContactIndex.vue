@@ -130,7 +130,6 @@ export default {
             const contacto = {...this.$props.contact};
             const errors = this.generateErrors();
             if(errors.length === 0){ //indica que no hay errores
-            console.log('obj', contacto);
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -166,11 +165,12 @@ export default {
 
 <style>
 .contact-section {
-    width: 100vw;
+    width: 100%;
     background: #faf9ff;
     padding-bottom: 60px;
     padding-top: 70px;
     overflow: hidden;
+    /* box-sizing: border-box; */
 }
 .section-contact-bg{
     width: 100%;
@@ -231,13 +231,19 @@ export default {
 
 @media screen and (max-width: 500px){
     .contact-section .card-contact {
-        padding: 20px 10px;
+        width: 96%;
+    }
+    .contact-section .card-contact {
+        padding: 20px 5px;
     }
 }
 
 @media screen and (max-width: 350px){
     .contact-section .card-contact {
-        padding: 20px 5px;
+        width: 100%;
+    }
+    .contact-section .card-contact {
+        padding: 15px 5px;
     }
 }
 

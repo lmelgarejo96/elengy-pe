@@ -1,7 +1,7 @@
 <template>
   <div data-app>
       <MenuResponsive v-if="menu" v-on:closeMenuResponsive="closeMenuResponsive($event)" />
-      <Navbar :isIndex="false" v-on:openMenu="openMenu($event)"/>
+      <Navbar :isIndex="false" :isAbout="false" v-on:openMenu="openMenu($event)"/>
       <ListaBlog/>
   </div>
 </template>
@@ -21,7 +21,13 @@ export default {
       menu: false,
   }),
   mounted(){
-      document.getElementById('hamburger-menu').classList.add('red-hamburger');
+      try {
+          AOS.init();
+          document.getElementById('hamburger-menu').classList.add('red-hamburger');
+          if(window.screen.width>840){
+              this.addActiveLink();
+          }
+      } catch (error) {}
   },
   methods: {
       openMenu(bool) {
@@ -44,6 +50,18 @@ export default {
                 this.menu = bool;
             }, 700)
         },
+        addActiveLink(){
+            const links = document.querySelectorAll('.link-nav');
+            const URIactual = window.location.pathname.substring(1, window.location.pathname.length);
+            for(let i=0; i<links.length; i++){
+                const pathName = links[i].pathname.toString()
+                const nameEnlace = pathName.substring(1, pathName.length);
+                if(URIactual === nameEnlace){
+                    links[i].classList.add('enlace-activo');
+                    break;
+                }
+            }
+        }
   }
 }
 </script>

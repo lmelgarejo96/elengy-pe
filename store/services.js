@@ -88,5 +88,11 @@ export const state = () => ({
             redirectTo: '/servicios/ingeniería_primaria',
             img: '//img1.wsimg.com/isteam/ip/ba69460f-3ac0-4f5b-afa5-8b6ef5b4ac63/IMG_20180503_115054.jpg'
         }, */
-    ]
+    ],
+    servicesNames: [
+        "Obras electromecánicas",
+        "Ingeniería secundaria y protecciones",
+        "Redes, comunicaciones y fibra óptica",
+        "Estudios Eléctricos en AT, MT y BT."
+    ],
 })

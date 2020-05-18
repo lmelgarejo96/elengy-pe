@@ -49,11 +49,11 @@
       </div>
   </section> -->
     <section class="blog_area novedades-elengy">
-      <div class="container pt-5 pb-3">
+      <div class="container pb-3">
           <div class="row">
               <div class="col-lg-8">
 
-                  <div class="blog_left_sidebar">
+                  <div class="blog_left_sidebar" data-aos="fade-up" data-aos-duration="1500">
                       <article class="row blog_item">
                           <div class="col-md-3">
                               <div class="blog_info text-right">
@@ -105,7 +105,7 @@
                       </article>
                   </div>
 
-                   <div class="blog_left_sidebar">
+                   <div class="blog_left_sidebar" data-aos="fade-up" data-aos-duration="1500">
                       <article class="row blog_item">
                           <div class="col-md-3">
                               <div class="blog_info text-right">
@@ -181,6 +181,12 @@ export default {
 .novedades-elengy {
     background: #fff;
     padding-top: 130px;
+}
+
+@media screen and (max-width: 600px){
+    .novedades-elengy {
+        padding-top: 70px;
+    }
 }
 
 /* .novedades-elengy>.container {
@@ -450,14 +456,14 @@ export default {
 }
 @media screen and (max-width: 575px){
     .blog_left_sidebar article {
-        border-top: 1px solid #dad8e4;
-        border-bottom: 1px solid #dad8e4;
+        border-top: 1px solid #faf9ff;
+        border-bottom: 1px solid #faf9ff;
         padding: 10px 0px;
         box-sizing: border-box;
         background: #fff;
     }
     .novedades-elengy{
-        background: rgb(219, 215, 215);
+        background: #faf9ff;
     }
 }
 

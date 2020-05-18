@@ -49,7 +49,6 @@ export default {
   /* created(){
     }, */
   beforeMount(){
-    
     this.servicios = this.$store.state.services.all;
   },
   mounted() {
@@ -85,9 +84,7 @@ export default {
       
     },
     closeModal(ev){
-      console.log('close', ev);
       this.dialog = ev;
-      /* console.log(this.dialog); */
     }
   }
 };
@@ -101,14 +98,20 @@ export default {
   /* background: #faf9ff; */
   background: #fff;
   border-bottom: 2px solid #faf9ff; ;
-  padding-top: 70px;
+  padding-top: 100px;
   padding-bottom: 50px;
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (min-width: 1000px){
   .services-section {
     padding-top: 100px;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .services-section {
+    padding-top: 60px;
   }
 }
 

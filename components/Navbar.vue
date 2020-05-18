@@ -115,7 +115,7 @@
             <a class="link-nav" href="/portafolio">Portafolio</a>
           </li>
           <li>
-            <a class="link-nav" href="#contacto-elengy">Contacto</a>
+            <a class="link-nav" href="/contacto">Contacto</a>
           </li>
           <!-- <li>
             <a class="link-nav" ></a>
@@ -154,80 +154,61 @@ export default {
   },
   mounted() {
     const menu = document.getElementById("menu");
-    const sections = document.querySelectorAll('header, section');
-    
     if(this.$props.isIndex){
       menu.style.display = 'flex';
-      this.cargaEnlaces();
     }else{
       menu.classList.add('animationNavbar');
-      /* document.getElementById('hamburger-menu').classList.add('red-hamburger'); */
       setTimeout(() => {
         menu.style.display = 'flex';
       }, 500);
     }
     const bannerTop = document.getElementById("banner-top");
-    const logo = document.getElementById("logo");
     const links = document.querySelectorAll('.transparent-link');
-    const containerLogo = document.getElementById('logo-elengy-top');
-    /* let containerNavegacion = document.getElementById('navbar-logo'); */
-
     window.onscroll = () => {
       const scroll = document.documentElement.scrollTop || document.body.scrollTop;
-      if (scroll > 50) {
+      const anchoPantalla = window.screen.width;
+      if (scroll > 100) {
         menu.classList.add('bg-white');
-        containerLogo.style.flexFlow = 'row nowrap';
-        containerLogo.style.alignItems = 'center';
-        menu.style.height = "65px";
-        bannerTop.style.top = "-60px";
-        logo.style.height = "50px";
-        document.getElementById('navbar-logo').style.flexFlow = "row nowrap";
-        document.getElementById('navbar-logo').style.justifyContent = "space-between";
-        document.getElementById('navbar-logo').style.alignItems = "flex-end";
-        document.getElementById('navbar-logo').style.paddingTop = "0";
         if(this.$props.isIndex || this.$props.isAbout){
           document.getElementById('hamburger-menu').classList.add('red-hamburger');
         }
+        if(anchoPantalla > 600){
+          bannerTop.style.top = "-60px";
+          menu.classList.add('scroll-big-menu');
+          menu.classList.remove('short-menu');
+        }else{
+          menu.classList.add('short-menu');
+        }
       } else {
         menu.classList.remove('bg-white');
-        menu.style.height = "130px"
-        bannerTop.style.top = "0";
-        logo.style.height = "55px";
-        containerLogo.style.flexFlow = 'column nowrap';
-        containerLogo.style.alignItems = 'flex-start';
-        document.getElementById('navbar-logo').style.flexFlow = "column nowrap";
-        document.getElementById('navbar-logo').style.justifyContent = "center";
-        document.getElementById('navbar-logo').style.alignItems = "flex-start";
-        document.getElementById('navbar-logo').style.paddingTop = "14px";
+        
         if(this.$props.isIndex || this.$props.isAbout){
           document.getElementById('hamburger-menu').classList.remove('red-hamburger');
         }
+        if(anchoPantalla > 600){
+          bannerTop.style.top = "0";
+          menu.classList.remove('scroll-big-menu');
+          menu.classList.remove('short-menu');
+        }else{
+          menu.classList.add('short-menu');
+        }
       }
       if(this.$props.isIndex){
-        this.cambiaColorLinks(scroll, links, menu);
+        this.activaSocialAds(scroll);
       }
       if(this.$props.isAbout){
-        this.cambiaLinkActivo(scroll, sections);
+        this.cambiaLinkActivoAboutPage(scroll);
       }
     }
   },
   methods: {
-    cambiaColorLinks(scroll, links, menu){
+    activaSocialAds(scroll){
       const headerHeight = document.getElementById('header-elengy').clientHeight;
       if(scroll>(headerHeight-60)){
         document.getElementById('social-ads').style.left='0';
       }else{
         document.getElementById('social-ads').style.left='-70px';
       }
-       /*  menu.style.background = "rgb(170,0,0)"; */
-        /* links[links.length-1].style.color = "#fff";
-        for(let i=0; i<links.length-1; i++){
-          links[i].classList.add('dark-link');
-        links[i].classList.remove('transparent-link');
-          links[i].classList.remove('link-nav');
-        } */
-      
-
     },
     toggleMenu(){
       this.flag = !this.flag;
@@ -245,11 +226,10 @@ export default {
         document.getElementById('hamburger-menu').classList.add('red-hamburger');
       } */
     },
-    cargaEnlaces(){
-      
-    },
-    cambiaLinkActivo(scroll, elements){
+
+    /* cambiaLinkActivo(scroll, elements){
       try {
+        const elements = document.querySelectorAll('header, section');   
         const links = document.querySelectorAll('#ul-menu>li>a, .dropdown>li>a');
         let alturaTotal = 0;  
         for(let i=0; i<elements.length; i++){
@@ -264,7 +244,6 @@ export default {
                 if(enlace === elements[j].id){
                   links[x].classList.add('enlace-activo');
                 }
-
                 const subEnlaces = document.querySelectorAll('.sub-enlaces');
                 for(let y=0; y<subEnlaces.length; y++){
                   const classLista = subEnlaces[y].classList;
@@ -278,11 +257,26 @@ export default {
           }
         }
       } catch (error) {}
-    },
-    /* contactLink(){
-      console.log('click');
-      location.href = "#contacto-elengy"
-    } */
+    }, */
+    cambiaLinkActivoAboutPage(scroll) {
+      try {
+        let elementsHeight = []
+        const elements = document.querySelectorAll('header, section');   
+        const links = document.querySelectorAll('.dropdown>li>a');
+        let altura = 0;
+        for(let i=0; i<elements.length; i++){
+          altura += elements[i].clientHeight;
+          elementsHeight.push(altura);
+        }
+        for(let i=0; i<elementsHeight.length-1; i++){
+          if(scroll>elementsHeight[i] && scroll<elementsHeight[i+1]){
+            links[i].classList.add('enlace-activo');
+          }else {
+            links[i].classList.remove('enlace-activo');
+          }
+        }
+      } catch (error) {}
+    }
 
   }
 };
@@ -294,8 +288,7 @@ export default {
   width: 100%;
   height: 130px;
   /* background: none; */
-  
-      border-bottom: 2px solid #dfe6ed;
+  border-bottom: 2px solid #dfe6ed;
  /*  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.2); */
   font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   display: none;
@@ -309,8 +302,23 @@ export default {
   /* overflow: hidden; */
 }
 
+
+
+
+
+@media screen and(max-width: 600px) {
+  .menu {
+    height: 65px;
+  }
+  .logo span {
+    display: none;
+  }
+}
+
+
 .bg-menu {
   background: #fff;
+  
 }
 
 .menu-container {
@@ -896,6 +904,85 @@ export default {
   transform:rotate(225deg);
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
+
+
+/* <600px */
+.menu.short-menu {
+ height: 70px; 
+}
+
+.menu.short-menu .logo span {
+  display: none;
+}
+.menu.short-menu .logo #logo {
+  height: 50px;
+}
+
+.menu.short-menu .hamburger {
+  width: 30px;
+  height: 3px;
+}
+.menu.short-menu .hamburger-three:before,
+.menu.short-menu .hamburger-three:after {
+  width: 32px;
+  height: 3px;
+}
+/* .menu.short-menu .icon-three {
+  height: 40px;
+} */
+
+@media screen and (max-width: 600px){
+  .menu {
+  height: 70px; 
+  }
+
+  .menu .logo span {
+    display: none;
+  }
+  .menu .logo #logo {
+    height: 50px;
+  }
+
+  .menu .hamburger {
+    width: 30px;
+    height: 3px;
+  }
+  .menu .hamburger-three:before,
+  .menu .hamburger-three:after {
+    width: 32px;
+    height: 3px;
+  }
+  .menu .hamburger-three:after {
+    top: -10px;
+  }
+  .menu .hamburger-three:before {
+    top: 10px;
+  }
+}
+/* Fin <600px */
+
+
+/* >600px  on scroll*/
+.menu.scroll-big-menu {
+  height: 65px;
+}
+.menu.scroll-big-menu .logo {
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.menu.scroll-big-menu .logo #logo {
+  height: 50px;
+}
+.menu.scroll-big-menu  .navbar-logo {
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 0;
+}
+/* >600px */
+
+
 
 /* menu responsive in 840px */
 @media screen and (max-width: 840px){

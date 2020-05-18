@@ -95,7 +95,7 @@ export default {
                     { value: this.listSVG[3].path }
                   ],
                   easing: "easeInOutQuint",
-                  duration: 800,
+                  duration: 600,
                   loop: false
                 });
                 let textWrapper = document.querySelector(".ml7 .letters");
@@ -127,7 +127,9 @@ export default {
                   /* document.querySelectorAll('#svg-elengy path')[0].classList.add('animate-thunder'); */
                   /* thunder.reverse() */
 
-                  document.getElementById('svg-elengy').classList.add('animate-thunder')
+                  /* setTimeout(() => { */
+                    document.getElementById('svg-elengy').classList.add('animate-thunder')
+                  /* }, 1500); */
               }
             });
         },
@@ -136,7 +138,7 @@ export default {
      
       TweenMax.from("#btn-play-audio", {
         duration: 1.5,
-        delay: 6.5,
+        delay: 6.8,
         opacity: 0,
         scale: 0,
         border: "none",
@@ -163,7 +165,7 @@ export default {
             document.documentElement.style.overflow = "visible";
             TweenMax.to(".init", 1, {
               delay: 0,
-              /* top: "-200vh", */
+             /*  top: "-200vh", */
               zIndex: -100,
               ease: Expo.easeInOut
             });
@@ -431,15 +433,15 @@ export default {
 @keyframes thunder {
   0%{
    /*  fill: orange; */
-    transform: translateY(-20px);
+    transform: translateY(0);
   }
   75% {
     /* fill: yellow; */
-    transform: translateY(0);
+    transform: translateY(-20px);
   }
   100%{
     /* fill: orange; */
-    transform: translateY(-20px);
+    transform: translateY(0);
 
   }
 }

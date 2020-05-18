@@ -64,10 +64,7 @@ export default {
         this.contentSlide = document.querySelectorAll('.title-slide');
         this.textSlide = document.querySelectorAll('.text-slide');
         this.btnsSlide = document.querySelectorAll('.btn-content-slide');
-        console.log(this.contentSlide);
         this.nextSlide()
-        console.log(this.elements);
-        
         const slider = document.getElementById('galeria-elengy');
         this.counter = setInterval(() => {
             this.nextSlide();
@@ -78,8 +75,6 @@ export default {
             const alturaSlider = document.getElementById('slider-elengy').clientHeight;
             const anchoSlider = document.getElementById('slider-elengy').clientHeight;
             const resta = alturaSlider - pageY;
-            console.log(pageY);
-            console.log(pageX);
             if(resta<=60 ||  pageY<=60 || pageX<60 || pageX>anchoSlider-60){
                 clearInterval(this.counter);
                 this.counter = setInterval(() => {
