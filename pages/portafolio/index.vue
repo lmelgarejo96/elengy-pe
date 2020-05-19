@@ -2,7 +2,8 @@
   <div data-app>
       <MenuResponsive v-if="menu" v-on:closeMenuResponsive="closeMenuResponsive($event)" />
       <Navbar :isIndex="false" :isAbout="false" v-on:openMenu="openMenu($event)"/>
-      <ListaBlog/>
+      <ListaBlog v-on:openLightbox="openLightbox($event)"/>
+      <ImageVisor :post="post" v-if="lightbox" v-on:closeLightbox="closeLightbox()"/>
   </div>
 </template>
 
@@ -10,15 +11,19 @@
 import ListaBlog from '../../components/NovedadesEventos';
 import Navbar from '../../components/Navbar';
 import MenuResponsive from '../../components/MenuResponsive';
+import ImageVisor from '../../components/ImageVisor';
 
 export default {
   components: {
       ListaBlog,
       Navbar,
-      MenuResponsive
+      MenuResponsive,
+      ImageVisor
   },
   data: () => ({
       menu: false,
+      lightbox: false,
+      post: {}
   }),
   mounted(){
       try {
@@ -61,6 +66,26 @@ export default {
                     break;
                 }
             }
+        },
+        openLightbox(post){
+            this.post = post;
+            this.lightbox = true;
+            setTimeout(() => {
+                document.body.style.overflowY = "hidden";
+                document.documentElement.style.overflow = "hidden";
+                const lightbox =  document.getElementById('modal-lightbox');
+                lightbox.classList.add('animationLightBox')
+            }, 400);
+        },
+        closeLightbox(){
+            const lightbox =  document.getElementById('modal-lightbox');
+            lightbox.classList.add('outLightBox');
+            setTimeout(() => {
+                this.post = {}
+                this.lightbox = false;
+                document.body.style.overflowY = "visible";
+                document.documentElement.style.overflow = "visible";
+            }, 400);
         }
   }
 }

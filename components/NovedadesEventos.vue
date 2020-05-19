@@ -1,75 +1,27 @@
 <template>
-  <!-- <section id="novedades-elengy" class="novedades-elengy section-padding">
-      <div class="container">
-          <h1 class="mb-1">Novedades</h1>
-          <div class="row contenedor-cards">
-              
-              <div class="col-lg-4 col-md-4 col-sm-12">
-                 
-                    <div class="card-novedad">
-                        <div class="container-img">
-                            <img class="img-fluid" src="../static/4.jpg" alt="">
-                        </div>
-                        <div class="content-novedad">
-                            <h3>Elengy presente en la lucha contra el Covid</h3>
-                            <div class="letters-novedad">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum fugiat animi perspiciatis, exercitationem culpa cumque.</div>
-                            <a href="#">
-                                Leer más
-                                <span class="material-icons">
-                                    keyboard_arrow_right
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                  
-              </div>
 
-              <div class="col-lg-4 col-md-4 col-sm-12">
-                  
-                    <div class="card-novedad">
-                        <div class="container-img">
-                            <img class="img-fluid" src="../static/ingenieriasecyprotecciones.jpg" alt="">
-                        </div>
-                        <div class="content-novedad">
-                            <h3>Elengy presente en la lucha contra el Covid</h3>
-                            <div class="letters-novedad">Lorem ipsum dolor Lorem ipsum dolor sit amet. sit amet consectetur adipisicing elit. Harum fugiat animi perspiciatis, exercitationem culpa cumque.</div>
-                            <a href="#">
-                                Leer más
-                                <span class="material-icons">
-                                    keyboard_arrow_right
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                  
-              </div>
-
-
-          </div>
-      </div>
-  </section> -->
     <section class="blog_area novedades-elengy">
       <div class="container pb-3">
           <div class="row">
               <div class="col-lg-8">
 
-                  <div class="blog_left_sidebar" data-aos="fade-up" data-aos-duration="1500">
+                  <div v-for="(post, index) in posts" :key="index" class="blog_left_sidebar" data-aos="fade-up" data-aos-duration="1500">
                       <article class="row blog_item">
                           <div class="col-md-3">
                               <div class="blog_info text-right">
                                   <ul class="blog_meta list">
                                       <li>
-                                          <a href="#">Elengy SAC
+                                          <a href="#">{{post.author.names}}
                                               <i class="fas fa-users"></i>
                                           </a>
                                       </li>
                                       <li>
-                                          <a href="#">30 Mar, 2020
+                                          <a href="#">{{post.date}}
                                               <i class="fas fa-calendar-alt"></i>
                                           </a>
                                       </li>
                                       <li>
-                                          <a href="#">Lima, Perú
+                                          <a href="#">{{post.location}}
                                               <i class="fas fa-map-marker-alt"></i>
                                           </a>
                                       </li>
@@ -79,78 +31,26 @@
                           <div class="col-md-9">
                               <div class="blog_post">
                                   <div class="container-img">
-                                    <img draggable="false" src="../static/bg/elengy-desinfection.jpg" alt="">
+                                    <img draggable="false" :src="post.portada" :alt="post.title">
                                   </div>
                                   <ul class="blog_meta list meta-2">
                                         <li>
                                             <a href="#">
                                               <i class="fas fa-calendar-alt"></i>
-                                                30 Mar, 2020
+                                                {{post.date}}
                                           </a>
                                         </li>
                                         <li>
                                             <a href="#">
                                                 <i class="fas fa-map-marker-alt"></i>
-                                                Lima, Perú
+                                                {{post.location}}
                                             </a>
                                         </li>
                                       </ul>
                                   <div class="blog_details">
-                                        <h2>Elengy presente en la lucha contra el Covid 19</h2>
-                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, sed veniam. Quasi culpa labore sed repellendus ipsam nisi libero, natus vitae dicta delectus, recusandae quam quibusdam nobis accusamus possimus saepe.</p>
-                                      <a @click="todavia" class="button button-blog" href="#none">Ver más</a>
-                                  </div>
-                              </div>
-                          </div>
-                      </article>
-                  </div>
-
-                   <div class="blog_left_sidebar" data-aos="fade-up" data-aos-duration="1500">
-                      <article class="row blog_item">
-                          <div class="col-md-3">
-                              <div class="blog_info text-right">
-                                  <ul class="blog_meta list">
-                                      <li>
-                                          <a href="#">Elengy SAC
-                                              <i class="fas fa-users"></i>
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="#">15 Sep, 2019
-                                              <i class="fas fa-calendar-alt"></i>
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="#">Lima, Perú
-                                              <i class="fas fa-map-marker-alt"></i>
-                                          </a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="col-md-9">
-                              <div class="blog_post">
-                                  <div class="container-img">
-                                    <img draggable="false" src="https://img1.wsimg.com/isteam/ip/ba69460f-3ac0-4f5b-afa5-8b6ef5b4ac63/IMG_20180217_130020_1.jpg/:/rs=w:1300,h:800" alt="">
-                                  </div>
-                                  <ul class="blog_meta list meta-2">
-                                        <li>
-                                            <a href="#">
-                                              <i class="fas fa-calendar-alt"></i>
-                                                15 Sep, 2019
-                                          </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                Cerro de pasco, Perú
-                                            </a>
-                                        </li>
-                                      </ul>
-                                  <div class="blog_details">
-                                        <h2>Elengy realizando obras electromecánicas en la subestación Milpo</h2>
-                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, sed veniam. Quasi culpa labore sed repellendus ipsam nisi libero, natus vitae dicta delectus, recusandae quam quibusdam nobis accusamus possimus saepe.</p>
-                                      <a @click="todavia" class="button button-blog" href="#none">Ver más</a>
+                                        <h2>{{post.title}}</h2>
+                                      <p>{{post.shortDescription}}...</p>
+                                      <a @click="openPost(post)" class="button button-blog" href="#none">Ver más</a>
                                   </div>
                               </div>
                           </div>
@@ -163,15 +63,78 @@
     </section>
 
 
-
-
 </template>
 
 <script>
+import img1 from '../static/posts/elengy-covid.jpg';
+import img2 from '../static/posts/elengy-covid1.jpg';
+import img3 from '../static/posts/elengy-covid2.jpg';
+import milpo1 from '../static/posts/sub_estacion_milpo_2019-09-15.webp';
+import logo from '../static/logo.svg';
+import videoElengyCovid from '../static/posts/elengy-covid.mp4';
+import videoElengyCovid2 from '../static/posts/elengy-covid2.mp4';
 export default {
+    data: () => ({
+        posts: [
+            {
+                title: 'Elengy presente en la lucha contra el Covid 19',
+                author: {
+                    names: 'ELENGY SAC',
+                    img: logo
+                },
+                description: 'Nuestra cabina de desinfeccion con el nebulizado correcto evitando mojar a la persona, usando acido hipocloroso (Aprobado por la EPA contra el covid), no daña las vias respiratorias ni irrita los ojos.<br/><br/>Está automatizada con activacion por sensor de movimiento y con fluorescente para su uso hasta de madrugada. <br/><br/> ELENGY Ingenieria para El Mundo!',
+                shortDescription: 'Nuestra cabina de desinfeccion con el nebulizado correcto evitando mojar a la persona, usando acido hipocloroso (Aprobado por la EPA contra el covid), no daña las vias respiratorias ni irrita los ojos',
+                date: '23 Abr, 2020',
+                location: 'Lima, Perú',
+                portada: img1,
+                media: [
+                    {
+                        type: 'img',
+                        uri: img1,
+                    },
+                    {
+                        type: 'img',
+                        uri: img2,
+                    },
+                    {
+                        type: 'img',
+                        uri: img3
+                    },
+                    {
+                        type: 'mp4',
+                        uri: videoElengyCovid
+                    },
+                    {
+                        type: 'mp4',
+                        uri: videoElengyCovid2
+                    }
+                    
+                ],
+            },
+            {
+                title: 'Elengy realizando obras electromecánicas en la subestación Milpo',
+                author: {
+                    names: 'ELENGY SAC',
+                    img: logo
+                },
+                description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, sed veniam. Quasi culpa labore sed repellendus ipsam nisi libero, natus vitae dicta delectus, recusandae quam quibusdam nobis accusamus possimus saepe. Consectetur adipisicing elit. Odio, sed veniam. <br/><br/> Quasi culpa labore sed repellendus ipsam nisi libero, natus vitae dicta delectus, recusandae quam quibusdam nobis accusamus possimus saepe.',
+                shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, sed veniam. Quasi culpa labore sed repellendus ipsam nisi libero.',
+                date: '15 Sep, 2019',
+                location: 'Puno, Perú',
+                portada: milpo1,
+                media: [
+                    {
+                        type: 'img',
+                        uri: milpo1
+                    }
+                ],
+            },
+        ],
+        /* post:  */
+    }),
     methods: {
-        todavia(){
-            alert('Aún me encuentro trabajando en esto.')
+        openPost(post){
+            this.$emit('openLightbox', post);
         }
     }
 }
