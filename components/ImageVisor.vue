@@ -133,8 +133,12 @@ export default {
 }
 .lightbox .scroll-modal {
     width: 100%;
-    height: 80%;
+    height: 85%;
     margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
 }
 .lightbox, .lightbox .wrapper-img  {
     display: flex;
