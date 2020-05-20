@@ -1,7 +1,7 @@
 <template>
   <section id="misionyvision" class="section-padding section-mv">
       <div class="container">
-          <div class="row">
+          <div class="row"> 
               <div class="col-lg-4 col-md-4 col-sm-12 mb-4" style="display: block;">
                   <div class="card-mv h-100" data-aos="fade-up" data-aos-duration="1500">
                       <img draggable="false" src="../../static/offer.png" alt="" data-aos="fade-up" data-aos-duration="1500">
@@ -53,7 +53,7 @@
 
 <script>
 export default {
-
+    
 }
 </script>
 

@@ -31,7 +31,7 @@
                           <div class="col-md-9">
                               <div class="blog_post">
                                   <div class="container-img">
-                                    <img draggable="false" :src="post.portada" :alt="post.title">
+                                    <img draggable="false" v-lazy="post.portada" :alt="post.title">
                                   </div>
                                   <ul class="blog_meta list meta-2">
                                         <li>
@@ -50,7 +50,7 @@
                                   <div class="blog_details">
                                         <h2>{{post.title}}</h2>
                                       <p>{{post.shortDescription}}...</p>
-                                      <a @click="openPost(post)" class="button button-blog" href="#none">Ver más</a>
+                                      <button @click="openPost(post)" class="button button-blog">Ver más</button>
                                   </div>
                               </div>
                           </div>
@@ -60,9 +60,8 @@
               </div>
           </div>
       </div>
+
     </section>
-
-
 </template>
 
 <script>
@@ -107,7 +106,11 @@ export default {
                     {
                         type: 'mp4',
                         uri: videoElengyCovid2
-                    }
+                    },
+                   /*  {
+                        uri: 'http://img-ys011.didistatic.com/static/didiglobal/do1_pcUZZjSG7vFlMbdr8fA6',
+                        type: 'mp4'
+                    } */
                     
                 ],
             },

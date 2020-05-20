@@ -1,6 +1,10 @@
 <template>
   <div data-app id="index-p" class="index-page">
-    <Loader v-if="loader" v-on:loadedComplete="loadedComplete($event)" v-on:loadClosing="endLoader()" />
+    <Loader
+      v-if="loader"
+      v-on:loadedComplete="loadedComplete($event)"
+      v-on:loadClosing="endLoader()"
+    />
     <div id="home" class="content-index animation-index">
       <MenuResponsive v-if="menu" v-on:closeMenuResponsive="closeMenuResponsive($event)" />
       <Navbar
@@ -9,8 +13,8 @@
         v-on:closeMenu="closeMenu($event)"
         v-on:openMenu="openMenu($event)"
       />
-      
-      <SliderElengy v-on:slideFull="initSlider($event)"/>
+
+      <SliderElengy v-on:slideFull="initSlider($event)" />
       <EnlacesIndex />
       <ContactIndex :contact.sync="contact" :servicios="servicios" />
       <ClientesSection />
@@ -44,6 +48,27 @@ import Footer from "../components/Footer";
 import EnlacesIndex from "../components/EnlacesIndex";
 
 export default {
+  head() {
+    return {
+      script: [
+        /* gsap +tweenMax */
+        {
+          src: "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js",
+          type: "text/javascript"
+        },
+        {
+          src:
+            "https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js",
+          type: "text/javascript"
+        },
+        {
+          src:
+            "https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js",
+          type: "text/javascript"
+        }
+      ]
+    };
+  },
   components: {
     /* Header, */
     /* DescriptionRectangle,
@@ -84,15 +109,15 @@ export default {
       audioContext: null
     };
   },
-  beforeMount(){
+  beforeMount() {
     this.servicios = this.$store.state.services.servicesNames;
   },
   mounted() {
     try {
-      if(window.screen.width>840){
+      if (window.screen.width > 840) {
         this.addActiveLink();
       }
-      this.audioContext = document.getElementById('audio-elengy');
+      this.audioContext = document.getElementById("audio-elengy");
       this.audioContext.volume = 0.15;
       AOS.init();
     } catch (error) {}
@@ -140,16 +165,15 @@ export default {
       const links = document.querySelectorAll(".link-nav");
       links[0].classList.add("enlace-activo");
     },
-    initSlider(ev){
+    initSlider(ev) {
       this.currentSlide = ev;
     },
-    endLoader(){
+    endLoader() {
       this.currentSlide.init();
       this.playAudio();
       setTimeout(() => {
-        this.loader= false
+        this.loader = false;
       }, 2200);
-
     },
     playAudio() {
       this.audioContext.play();

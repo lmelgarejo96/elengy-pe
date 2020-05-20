@@ -1,7 +1,7 @@
 <template>
   <header id="header-elengy" class="header-elengy">
 
-    <div id="carousel-elengy" class="carousel slide" data-ride="carousel">
+    <!-- <div id="carousel-elengy" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carousel-elengy" data-slide-to="0" class="active">1</li>
         <li data-target="#carousel-elengy" data-slide-to="1">2</li>
@@ -21,9 +21,6 @@
                         Conoce más aquí
                       </a>
                     </div>
-                    <!-- <div class="view-more animation-details-info2">
-                      <p>Responsabilidad ante todo</p>
-                    </div> -->
                 </div>
               </div>
           </div>
@@ -105,14 +102,8 @@
         <span class="mouse-icon">
           <span class="mouse-wheel"></span>
         </span>
-    </a>
-    <!-- <div class="circle-wave">
-      <img src="../static/circle.png" alt="">
-      <a href="#"><span class="material-icons">
-        keyboard_arrow_down
-        </span>
-      </a>
-    </div> -->
+    </a> -->
+
   </header>
 </template>
 

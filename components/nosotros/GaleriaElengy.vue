@@ -69,31 +69,6 @@ export default {
         this.counter = setInterval(() => {
             this.nextSlide();
         },5000);;
-        $('.galery-section').mousemove((e) => {
-            const pageY = e.pageY;
-            const pageX = e.pageX;
-            const alturaSlider = document.getElementById('slider-elengy').clientHeight;
-            const anchoSlider = document.getElementById('slider-elengy').clientHeight;
-            const resta = alturaSlider - pageY;
-            if(resta<=60 ||  pageY<=60 || pageX<60 || pageX>anchoSlider-60){
-                clearInterval(this.counter);
-                this.counter = setInterval(() => {
-                    this.nextSlide();
-                },5000);;
-            }else{
-                clearInterval(this.counter);
-            }
-            /* if($(".slider").is(":hover")) { 
-                this.mouseOverSlide = true;
-                
-            }else{
-                this.mouseOverSlide = false;
-                if(!this.mouseOverSlide){
-                    
-                }
-            } */
-        });
-
     },
     methods: {
         nextSlide(){

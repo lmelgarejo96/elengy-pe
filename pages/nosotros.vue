@@ -20,7 +20,7 @@
 import Navbar from '../components/Navbar';
 import MenuResponsive from '../components/MenuResponsive';
 import HeaderNosotros from '../components/nosotros/HeaderNosotros';
-import HistoriaElengy from '../components/nosotros/HistoriaElengy';
+/* import HistoriaElengy from '../components/nosotros/HistoriaElengy'; */
 import Nosotros from '../components/NosotrosIndex';
 import MisionVision from '../components/nosotros/MisionVision';
 import CaracteristicasElengy from '../components/Caracteristicas';
@@ -34,7 +34,7 @@ export default {
         Navbar,
         MenuResponsive,
         HeaderNosotros,
-        HistoriaElengy,
+        /* HistoriaElengy, */
         Nosotros,
         MisionVision,
         CaracteristicasElengy,

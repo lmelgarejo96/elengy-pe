@@ -1,116 +1,93 @@
 <template>
   <section id="clientes-elengy" class="clients_logo_area section-padding">
-    <div class="container h-100">
-      <div class="clients_slider owl-carousel">
-        
-        <div class="item">
-          <img src="../static/clientes/abb.png" alt="abb-logo" />
-        </div>
-        <div class="item">
-          <img src="../static/clientes/siemens.png" alt="siemens-logo" />
-        </div>
-        <div class="item">
-          <img src="../static/clientes/luzdelsur.png" alt="luzdelsur-logo" />
-        </div>
-        <div class="item">
-          <img src="../static/clientes/enel.png" alt="enel-logo" />
-        </div>
-        <div class="item">
-          <img src="../static/clientes/cobra.png" alt />
-        </div>
-        <div class="item">
-          <img src="../static/clientes/milpo.png" alt />
-        </div>
-        <div class="item">
-          <img src="../static/clientes/abengoa.png" alt />
-        </div>
-      </div>
-
-    </div>
-  </section>
-  <!-- <section class="clientes-section">
-      <div class="container">
-          <div class="row d-flex flex-column justify-content-center align-items-center flex-nowrap p-3 m-auto">
-                  <h4 class="title-clientes">Nuestros potenciales clientes</h4>
-
-                  <div class="clientes-container d-flex justify-content-center align-items-center flex-wrap">
-                    <div class="oscurecedor m-2">
-                        <img draggable="false" src="../static/abb.png" alt="">  
-                    </div>
-
-
-                    <div class="oscurecedor m-2">
-                        <img draggable="false" src="../static/siemens.png" alt="">  
-                    </div>
-                    
-
-
-                    <div class="oscurecedor m-2">
-                        <img draggable="false" src="../static/luzdelsur.png" alt="">  
-                    </div>
-                    
-
-                    <div class="oscurecedor m-2">
-                        <img draggable="false" src="../static/enel.png" alt="">  
-                    </div>
-                  </div>
-                
+    <div class="container">
+      
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="item">
+              <img src="../static/clientes/abb.png" alt="abb-logo" />
+            </div>
           </div>
+          <div class="swiper-slide">
+             <div class="item">
+              <img src="../static/clientes/siemens.png" alt="siemens-logo" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item">
+              <img src="../static/clientes/luzdelsur.png" alt="luzdelsur-logo" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item">
+              <img src="../static/clientes/enel.png" alt="enel-logo" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item">
+              <img src="../static/clientes/cobra.png" alt />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item">
+              <img src="../static/clientes/milpo.png" alt />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item">
+              <img src="../static/clientes/abengoa.png" alt />
+            </div>
+          </div>
+        </div>
       </div>
-  </section>-->
+    </div>
+
+  </section>
 </template>
 
 <script>
-
 export default {
   data: () => ({
-    responsive: {
-      0: {
-        items: 1
-      },
-      768: {
-        items: 3
-      },
-      1024: {
-        items: 4
-      },
-      1224: {
-        items: 5
-      }
-    }
+    swiperClients: null
   }),
   mounted() {
-    this.iniciaOWLCarousel();
+      this.initSwiper();
   },
   methods: {
-    iniciaOWLCarousel() {
-      if ($(".clients_slider").length) {
-        $(".clients_slider").owlCarousel({
-          loop: true,
-          margin: 25,
-          items: 7,
-          nav: false,
-          dots: false,
-          responsiveClass: true,
-          autoplay: 3000,
-          slideSpeed: 300,
-          paginationSpeed: 500,
-          responsive: {
-            0: {
-              items: 1
-            },
-            768: {
-              items: 3
-            },
-            1024: {
-              items: 4
-            },
-            1224: {
-              items: 5
-            }
-          }
-        });
+    initSwiper(){
+      this.swiperClients = new Swiper('.swiper-container', {
+      /* init: false, */
+      loop: true,
+      spaceBetween: 30,
+      slidesPerView: 1,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      /* pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      }, */
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        1224: {
+          slidesPerView: 5,
+          spaceBetween: 40,
+        },
       }
+    });
     }
   }
 };
@@ -122,6 +99,33 @@ export default {
   background: #fff;
 }
 
+/*  Swiper */
+.swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+
+/*  Swiper */
 .clients_logo_area /* .clients_slider */ .item {
   text-align: center;
 }
