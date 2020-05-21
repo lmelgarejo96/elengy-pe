@@ -9,31 +9,28 @@
                 <div class="swiper-wrapper">
                   <div v-for="(media, index) in post.media" :key="index*50" class="swiper-slide">
                     <div>
-                        <div v-if="media.type === 'img'" class="wrapper-zoom" :id="`img-zoomer-box${index}`">
-                            <!-- <img src="https://bit.ly/2mgDw0y" id="img1" /> -->
-                            <img
-                                :id="`img-elengy-${index}`"
-                                class="img-fluid"
-                                draggable="false"
-                                :src="media.uri"
-                                :alt="`${post.title}${index}`"
-                            />
-                            <div class="img-zoomed" :style="`background: url(${media.uri}) no-repeat #FFF;`" :id="`img-zoom-${index}`"></div>
-                        </div>
-                      <!-- <img
+                      <div
                         v-if="media.type === 'img'"
-                        class="img-fluid"
-                        draggable="false"
-                        :src="media.uri"
-                        :alt="`${post.title}${index}`"
-                      /> -->
-
-                      <video
-                        v-else
-                        setup="{}"
-                        controls
+                        class="wrapper-zoom"
+                        :id="`img-zoomer-box${index}`"
                       >
-                        <source :src="media.uri"  :type="`video/${media.type}`"> 
+                        <!-- <img src="https://bit.ly/2mgDw0y" id="img1" /> -->
+                        <img
+                          :id="`img-elengy-${index}`"
+                          class="img-fluid"
+                          draggable="false"
+                          :src="media.src"
+                          :alt="`${post.title}${index}`"
+                        />
+                        <!-- <div class="img-zoomed" :style="`background: url(${media.uri}) no-repeat #FFF;`" :id="`img-zoom-${index}`"></div> -->
+                        <div class="loupe-zoom">
+                          <button @click="openZoom(media)">
+                            <i class="material-icons">fullscreen</i>
+                          </button>
+                        </div>
+                      </div>
+                      <video v-else setup="{}" controls>
+                        <source :src="media.src" :type="`video/${media.type}`" />
                       </video>
                     </div>
                   </div>
@@ -56,7 +53,7 @@
                   </div>
                 </div>
                 <div class="description-content">
-                  <hr>
+                  <hr />
                   <div class="title-description">{{post.title}}</div>
                   <div class="desc" v-html="post.description"></div>
                 </div>
@@ -66,87 +63,32 @@
         </div>
       </div>
     </div>
-    <!--  <div class="scroll-modal">
-
-            <div id="content-lightbox" class="wrapper-img">
-                <div class="img-container">
-                    <div class="img-bg">
-                        <div class="image swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div v-for="(media, index) in post.media" :key="index*50" class="swiper-slide">
-                                        <div>
-                                            <img v-if="media.type === 'img'" class="img-fluid" draggable="false" :src="media.uri" :alt="`${post.title}${index}`">
-                                            
-                                            <video v-else  :src="media.uri" controls></video>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            
-                            <div class="swiper-pagination"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="description-img">
-                    <div class="bg-description">
-                        <div class="banner-description">
-                            <div class="img-square">
-                                <img :src="post.author.img" :alt="post.author.names">
-                            </div>
-                            <div class="details-pub">
-                                <h5>{{post.author.names}}</h5>
-                                <span>{{post.date}}</span>
-                            </div>
-                        </div>
-                        <div class="description-content">
-                            <p></p>
-                            <div class="desc" v-html="post.description">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="description-responsive-img">
-                    <div class="bg-description">
-                        <div class="banner-description">
-                            <div class="img-square">
-                                <img :src="post.author.img" :alt="post.author.names">
-                            </div>
-                            <div class="details-pub">
-                                <h5>{{post.author.names}}</h5>
-                                <span>{{post.date}}</span>
-                            </div>
-                        </div>
-                        <div class="description-content">
-                            <p></p>
-                            <div class="desc" v-html="post.description">
-                            </div>
-                        </div>
-                    </div>
-            </div>
-    </div>-->
 
     <button @click="closeLightbox" style="outline: none;" class="btn-close-lightbox">
       <i class="material-icons">close</i>
     </button>
+
+    <PhotoSlide v-if="photosList.length > 0" :items="photosList" v-on:closeVisor="closeVisor" />
   </div>
 </template>
 
 <script>
+import PhotoSlide from "../components/PhotoSwipe";
 export default {
+  components: {
+    PhotoSlide
+  },
   props: {
     post: Object
   },
   data: () => ({
     slideSwiper: null,
-    playsinline: true
+    playsinline: true,
+    photosList: []
   }),
   mounted() {
     this.initSwiper();
     this.closeOnClick();
-    this.cargaZoom();
   },
   methods: {
     closeLightbox() {
@@ -168,71 +110,15 @@ export default {
         pagination: {
           el: ".swiper-pagination",
           type: "fraction"
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
         }
       });
     },
-    cargaZoom(){
-        const wrappersZoom = document.querySelectorAll('.wrapper-zoom');
-        wrappersZoom.forEach((wrapper) => {
-            wrapper.addEventListener('mousemove',  function(e) {
-                let original = wrapper.firstChild,
-                magnified = wrapper.lastChild,
-                style = magnified.style,
-                x = e.pageX - this.offsetLeft,
-                y = e.pageY - this.offoffsetYsetTop,
-                imgWidth = original.width,
-                imgHeight = original.height,
-                xperc = ((x/imgWidth) * 100),
-                yperc = ((y/imgHeight) * 100);
-                /* console.log(imgWidth, imgHeight); */
-                if(x > (.01 * imgWidth)) {
-                xperc += (.15 * xperc);
-                };//lets user scroll past right edge of image
-    
-                if(y >= (.01 * imgHeight)) {
-                yperc += (.15 * yperc);
-                };//lets user scroll past bottom edge of image
-    
-                style.backgroundPositionX = (xperc - 9) + '%';
-                style.backgroundPositionY = (yperc - 9) + '%';
-    
-                style.left = (x - 180) + 'px';
-                style.top = (y - 180) + 'px';
-            }, false);
-
-            /* document.getElementById('img-zoomer-box')
-                .addEventListener('mousemove', function(e) {
-    
-                var original = document.getElementById('img1'),
-                    magnified = document.getElementById('img2'),
-                    style = magnified.style,
-                    x = e.pageX - this.offsetLeft,
-                    y = e.pageY - this.offsetTop,
-                    imgWidth = original.width,
-                    imgHeight = original.height,
-                    xperc = ((x/imgWidth) * 100),
-                    yperc = ((y/imgHeight) * 100);
-    
-                if(x > (.01 * imgWidth)) {
-                xperc += (.15 * xperc);
-                };//lets user scroll past right edge of image
-    
-                if(y >= (.01 * imgHeight)) {
-                yperc += (.15 * yperc);
-                };//lets user scroll past bottom edge of image
-    
-                style.backgroundPositionX = (xperc - 9) + '%';
-                style.backgroundPositionY = (yperc - 9) + '%';
-    
-                style.left = (x - 180) + 'px';
-                style.top = (y - 180) + 'px';
-    
-            }, false); */
-        })
+    openZoom(media) {
+      this.photosList = [];
+      this.photosList.push(media);
+    },
+    closeVisor() {
+      this.photosList = [];
     }
   }
 };
@@ -261,7 +147,6 @@ export default {
   max-height: 80%;
   max-width: 80%;
 }
-
 
 .lightbox .wrapper-post .container-fluid,
 .lightbox .wrapper-post .container-fluid .row {
@@ -340,16 +225,16 @@ export default {
   height: 100%;
 }
 .description-content .title-description {
-    font-weight: 500;
-    color: #2a3549;
-    padding: .5em 0;
-    padding-bottom: 1rem;
-    font-size: 17px;
-    font-family: "Roboto";
+  font-weight: 500;
+  color: #2a3549;
+  padding: 0.5em 0;
+  padding-bottom: 1rem;
+  font-size: 17px;
+  font-family: "Roboto";
 }
 .description-content hr {
-    margin-top: .4rem;
-    margin-bottom: .8rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.8rem;
 }
 
 .description-content .desc {
@@ -436,8 +321,6 @@ export default {
 
  */
 
-
-
 .btn-close-lightbox {
   line-height: normal;
   color: #fff;
@@ -466,29 +349,60 @@ export default {
   /* position: relative; */
   width: 100%;
   margin: auto;
+  /* overflow: hidden; */
 }
+
+.lightbox .swiper-slide .loupe-zoom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.lightbox .swiper-slide .loupe-zoom button {
+  color: #fff;
+  width: 30px;
+  height: 35px;
+  border-radius: 50% 0px 0px 50%;
+  /* background: rgba(0,0,0,.6); */
+  background: rgba(0, 0, 0, 0.65);
+  outline: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .lightbox .wrapper-post video {
   max-width: 100%;
   max-height: 100%;
   outline: none;
 }
 .swiper-container-horizontal > .swiper-pagination-bullets,
-  .swiper-pagination-custom,
-  .swiper-pagination-fraction {
-    bottom: calc(90% + 10px);
-    left: 5px;
-    width: 100%;
-    z-index: 265;
-    text-align: right;
-    padding: 3px 8px;
-    border-radius: 15px;
-    background: rgba(0, 0, 0, 0.6);
-    width: auto;
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: calc(90% + 10px);
+  left: 5px;
+  width: 100%;
+  z-index: 265;
+  text-align: right;
+  padding: 3px 8px;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  width: auto;
+}
+
+@media screen and (max-width: 1100px) {
+  .lightbox .wrapper-post {
+    height: 85%;
+    width: 85%;
+    max-height: 85%;
+    max-width: 85%;
   }
+}
 @media screen and (max-width: 959px) {
   .lightbox .wrapper-post {
     height: 85%;
     width: 85%;
+    max-height: 85%;
+    max-width: 85%;
     overflow-y: scroll;
   }
   .lightbox .wrapper-post .container-fluid {
@@ -502,171 +416,73 @@ export default {
     background-color: rgb(54, 51, 51);
     outline: 1px solid slategrey;
   }
-  
 }
 
 @media screen and (max-width: 600px) {
   .lightbox .wrapper-post {
-    height: 88%;
-    width: 95%;
-  }
-  .lightbox .wrapper-post {
-    height: 100%;
+    /*  height: 100%; */
     width: 100%;
+    max-width: 92%;
+    height: 88%;
+    max-height: 88%;
+    margin-left: 0.2em;
+    margin-bottom: 0.2em;
   }
+  .lightbox .wrapper-post::-webkit-scrollbar-thumb {
+    background-color: rgba(133, 13, 13, 0.7);
+    outline: 1px solid slategrey;
+  }
+}
 
-  .lightbox .wrapper-post .col-description {
-    display: none;
-    /* position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 265; */
+@media screen and (max-width: 500px) {
+  .lightbox .wrapper-post {
+    /*  height: 100%; */
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .lightbox .wrapper-post {
+    /*  height: 100%; */
+    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    overflow-y: scroll;
+    height: 100%;
   }
 
   /* .swiper-pagination {
         position: absolute;
         z-index: 265;
     } */
-}
-
-@media screen and (max-width: 500px) {
-}
-
-/* 
-
-@media screen and (min-width: 1200px){
-    .lightbox .wrapper-img {
-        width: 80%;
-    }
-}
-@media screen and (max-width: 1000px){
-    .lightbox .img-container {
-        width: 65%;
-        max-width: 75%;
-    }   
-
-    .description-img {
-        width: 35%;
-        max-width: 35%;
-    }
-}
-@media screen and (max-width: 870px){
-    .lightbox .img-container {
-        width: 62%;
-        max-width: 62%;
-    }   
-
-    .description-img {
-        width: 38%;
-        max-width: 38%;
-    }
-}
-
-@media screen and (max-width: 840px){
-    .lightbox .img-container {
-        max-height: 380px;
-        width: 100%;
-        width: 100%;
-        max-width: 100%;
-    }
-    .swiper-slide {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        max-height: 380px;
-        align-items: center;
-    }
-    .lightbox .img-container .img-bg {
+  /* .lightbox .swiper-container {
         width: 100%;
         height: auto;
-        background: #000;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
+        max-height: 300px;
     }
-    .lightbox .img-container .img-bg {
-        width: 100%;
-        height: auto;
-        background: #000;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-    }
-    .lightbox .img-container .img-bg .image {
-        width: auto;
-        height: auto;
-    }
-    .lightbox .wrapper-img {
-        flex-flow: column nowrap;
-        width: 80%;
-        height: 100%;
-    }
-    .description-img {
-        display: none;
-    }
-    .lightbox .description-responsive-img {
-        display: flex;
-    }
-
-    .lightbox .scroll-modal {
-        overflow-y: scroll;
-        height: 90%;
-    }
-    .lightbox .scroll-modal::-webkit-scrollbar {
-        width: .2em;
-    }
-    .lightbox .scroll-modal::-webkit-scrollbar-thumb {
-        background-color: rgb(54, 51, 51);
-        outline: 1px solid slategrey
-    }
-    .lightbox {
-        display: flex;
-        flex-flow: column nowrap;
-    }
-    .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
-        position: absolute;
-        top: 8px;
-        right: 0;
-        height: 40px;
-        display: flex;
-        justify-content: flex-start;
-        padding-left: 8px;
-    }
-    
-}
-
-@media screen and (max-width: 650px){
-    
-    .lightbox .wrapper-img {
-        flex-flow: column nowrap;
-        width: 95%;
-    }
-    .lightbox .description-responsive-img {
-        width: 95%;
-    }
-
-}
-
-@media screen and (max-width: 360px){
-    .lightbox .wrapper-img {
-        flex-flow: column nowrap;
-        width: 98%;
-        max-height: 85%;
-        height: auto;
-    }
-    .lightbox .description-responsive-img {
-        width: 98%;
-    }
-} */
-
-/* .video-container {
+    .lightbox .swiper-slide {
+        max-height: 300px;
+    } */
+  .lightbox .swiper-slide img,
+  .lightbox .swiper-slide video {
+    max-height: 200px;
+  }
+  .lightbox .swiper-slide video {
     width: 100%;
+  }
+  .swiper-container-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
+    bottom: calc(86%);
+  }
+  .lightbox .swiper-container {
     height: 100%;
-    overflow: hidden;
-    height: 250px;
-} */
+    max-height: 200px;
+  }
+}
 
 .swiper-pagination,
 .swiper-pagination span {
@@ -747,22 +563,24 @@ export default {
 }
 
 .lightbox .wrapper-post .wrapper-zoom {
-    position: relative;
+  position: relative;
 }
 
-.lightbox .wrapper-post .wrapper-zoom:hover, .lightbox .wrapper-post .wrapper-zoom:active {
-  cursor: zoom-in;
+.lightbox .wrapper-post .wrapper-zoom:hover,
+.lightbox .wrapper-post .wrapper-zoom:active {
+  cursor: grabbing;
   display: block;
 }
 
-.lightbox .wrapper-post .wrapper-zoom:hover .img-zoomed, .lightbox .wrapper-post .wrapper-zoom:active .img-zoomed {
+.lightbox .wrapper-post .wrapper-zoom:hover .img-zoomed,
+.lightbox .wrapper-post .wrapper-zoom:active .img-zoomed {
   opacity: 1;
 }
 
 .lightbox .wrapper-post .wrapper-zoom .img-zoomed {
   width: 340px;
   height: 340px;
-  box-shadow: 0 5px 10px -2px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);
   pointer-events: none;
   position: absolute;
   opacity: 0;
@@ -770,7 +588,16 @@ export default {
   z-index: 99;
   border-radius: 100%;
   display: block;
-  transition: opacity .2s;
+  transition: opacity 0.2s;
 }
 
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 100px;
+  height: 100px;
+}
 </style>

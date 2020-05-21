@@ -1,14 +1,14 @@
 <template>
  <!--  <div class="container">
       <div class="row"> -->
-              <div class="col-lg-4 col-md-6 col-sm-12">
+              <div class="col-lg-4 col-md-6 col-sm-12 mt-2 mb-2">
                   <a class="enlace-card" :href="service.redirectTo">
                     <div class="card-service">
                         <div class="container-img">
                             <img draggable="false" class="img-fluid" :src="service.img" alt="">
                         </div>
-                        <div class="content-service">
-                            <h3>{{service.name_service}}</h3>
+                        <div class="content-service mt-2 mb-4">
+                            <h3 class="mb-3 text-center">{{service.name_service}}</h3>
                             <ul class="letters-service">
                                 <div v-for="(item, index) in service.characteristics" :key="index+150">
                                     <li v-if="index>0 && index<2">{{item}}</li> 

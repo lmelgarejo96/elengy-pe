@@ -105,12 +105,12 @@ body::-webkit-scrollbar-thumb {
     background: #fff !important;
 }
 
-.padding-contact {
+.contact-section.padding-contact {
     padding-top: 130px;
 }
 
 @media screen and (max-width: 600px){
-    .padding-contact {
+    .contact-section.padding-contact {
         padding-top: 70px;
     }
 }

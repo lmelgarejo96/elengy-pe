@@ -4,6 +4,7 @@
     <Navbar :isIndex="false" :isAbout="false" v-on:openMenu="openMenu($event)" />
     <ListaBlog v-on:openLightbox="openLightbox($event)" />
     <ImageVisor :post="post" v-if="lightbox" v-on:closeLightbox="closeLightbox()" />
+    <!-- <PhotoSwipe/> -->
   </div>
 </template>
 
@@ -12,12 +13,34 @@ import ListaBlog from "../../components/NovedadesEventos";
 import Navbar from "../../components/Navbar";
 import MenuResponsive from "../../components/MenuResponsive";
 import ImageVisor from "../../components/ImageVisor";
+/* import PhotoSwipe from '../../components/PhotoSwipe'; */
 
 export default {
+  head() {
+    return {
+      link: [
+        { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css' },
+        { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css' },
+      ],
+      script: [
+        {
+          src:
+            "https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js",
+          type: "text/javascript"
+        },
+        {
+          src:
+            "https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js",
+          type: "text/javascript"
+        }
+      ]
+    };
+  },
   components: {
     ListaBlog,
     Navbar,
     MenuResponsive,
+    /* PhotoSwipe, */
     ImageVisor
   },
   data: () => ({
