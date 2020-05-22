@@ -127,7 +127,8 @@ export default {
       email: "",
       telefono: "",
       mensaje: "",
-      fecha: ''
+      fecha: '',
+      reply_to: 'luismelgarejoalarcon@gmail.com'
     },
      mask: '### ######',
     errors: []
@@ -172,7 +173,6 @@ export default {
       const errors = this.generateErrors();
       this.contact.fecha = new Date();
       if (errors.length === 0) {
-        //indica que no hay errores
         emailjs
           .sendForm(
             "gmail",
@@ -188,8 +188,6 @@ export default {
                     icon: "success",
                     title: "Gof Job!",
                     text: `Apenas recibamos su mensaje nos pondremos en contacto con usted ${contacto.nombres}.`
-                    /* showConfirmButton: false,
-                                timer: 3500 */
                 });
                 this.resetForm();
             },

@@ -58,6 +58,9 @@
                   </div>
 
               </div>
+
+
+              <img class="d-none" src="../static/logo.png" alt="sad">
           </div>
       </div>
 
