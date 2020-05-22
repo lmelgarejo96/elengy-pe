@@ -8,9 +8,9 @@
 
       <div id="logo-elengy-top" class="logo">
         <a draggable="false" href="/">
-          <img draggable="false" id="logo" src="../static/logo.webp" alt />
+          <img draggable="false" id="logo" :src="logoEmpresa" alt="logo-empresa" />
         </a>
-          <span id="lema-elengy">Engineering for the world</span>
+          <span id="lema-elengy">{{fraseEmpresa}}</span>
       </div>
       <div id="enlaces" class="enlaces">
         <ul id="ul-menu">
@@ -64,26 +64,6 @@
                   </div>  
               </li>
 
-
-             <!--  <li>
-                <a class="sub-enlaces2" href="/#nosotros">
-                    <i class="fas fa-hard-hat"></i>
-                    <span>Servicio 1</span>
-                  </a>
-              </li>
-              <li>
-                <a class="sub-enlaces2" href="/#nosotros">
-                    <i class="fas fa-briefcase"></i>
-                    <span>Servicio 1</span>
-                  </a>
-              </li>
-              <li>
-                <a class="sub-enlaces2" href="/#nosotros">
-                    <i class="fas fa-briefcase"></i>
-                    <span>Servicio 1</span>
-                  </a>
-              </li> -->
-
             </ul> 
           </li>
 
@@ -117,9 +97,15 @@
           <li>
             <a class="link-nav" href="/contacto">Contacto</a>
           </li>
-          <!-- <li>
-            <a class="link-nav" ></a>
+         <!--  <li>
+            <a class="link-nav button-brochure">
+              <i class="material-icons mr-1" dark >picture_as_pdf</i>
+              Descarga nuestro brochure
+            </a>
           </li> -->
+          <!-- <v-btn class="mx-2" fab dark large color="purple">
+            <v-icon dark>mdi-android</v-icon>
+          </v-btn> -->
         </ul>
       </div>
       </div>
@@ -137,6 +123,7 @@
 
 <script>
 import BannerTop from '../components/BannerTop';
+import {mapState} from 'vuex';
 export default {
   components: {
     BannerTop
@@ -149,6 +136,13 @@ export default {
     flag: false,
     servicios: []
   }),
+  computed: {
+    ...mapState({
+        logoEmpresa: state => state.datosElengy.datos.logoEmpresa,
+        fraseEmpresa: state => state.datosElengy.datos.frase,
+        navegacion: state => state.datosElengy.datos.navegacion,
+    })
+  },
   created() {
     this.servicios = this.$store.state.services.all;
   },
@@ -199,6 +193,8 @@ export default {
       if(this.$props.isAbout){
         this.cambiaLinkActivoAboutPage(scroll);
       }
+
+      this.aplicateEffectOnMessage(scroll);
     }
   },
   methods: {
@@ -276,6 +272,21 @@ export default {
           }
         }
       } catch (error) {}
+    },
+    aplicateEffectOnMessage(scroll){
+      const classMessageContainer = document.getElementById('details-brochure').classList;
+      if(scroll > 500){
+        document.getElementById('brochure-elengy').classList.add('openBrochure');
+        if(classMessageContainer.length===1){
+          document.getElementById('details-brochure').classList.add('animationMessageBrochure');
+        }
+      }else{
+        document.getElementById('brochure-elengy').classList.remove('openBrochure');
+        if(classMessageContainer.length>1){
+          document.getElementById('details-brochure').classList.remove('animationMessageBrochure');
+        }
+        //details-brochure
+      }
     }
 
   }

@@ -7,24 +7,9 @@
             <div class="footer-links col-xl-3 col-lg-3 col-md-6 col-sm-12">
               <img draggable="false" class="logo1" src="../static/logo.webp" style="max-width: 150px;" alt="logo-elengy-sac" data-aos="fade-up" data-aos-duration="1500"/>
               <ul class="social_icon" data-aos="fade-up" data-aos-duration="1500">
-                <li>
-                  <a href="https://www.facebook.com/elengysac/" target="_blank">
-                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank">
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="https://www.linkedin.com/company/elengy-sac/">
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_blank">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                <li v-for="(social, index) in datosE.socialItems" :key="index+10">
+                  <a v-if="social.footer" :href="social.href" target="_blank">
+                    <i :class="social.icon" aria-hidden="true"></i>
                   </a>
                 </li>
               </ul>
@@ -36,45 +21,13 @@
               <div class="enlaces-footer">
                 <h3 class="pl-1" data-aos="fade-up" data-aos-duration="1500">Menú</h3>
                 <ul data-aos="fade-up" data-aos-duration="1500">
-                  <li>
-                    <a href="/">
+                  <li v-for="(nav, index) in datosE.navegacion" :key="index+100">
+                    <a :href="nav.redirectTo">
                       <p>
-                        <span class="material-icons">keyboard_arrow_right</span>Inicio
+                        <span class="material-icons">keyboard_arrow_right</span>{{nav.name}}
                       </p>
                     </a>
                     
-                  </li>
-                  <li>
-                    <a href="/nosotros">
-                      <p >
-                        <span class="material-icons">keyboard_arrow_right</span>Nosotros
-                      </p>
-                    </a>
-                    
-                  </li>
-                  <li>
-                    <a href="/servicios">
-                      <p>
-                        <span class="material-icons">keyboard_arrow_right</span>Servicios
-                      </p>
-                    </a>
-                    
-                  </li>
-                  <li>
-                    <a href="/portafolio">
-                      <p >
-                        <span class="material-icons">keyboard_arrow_right</span>Portafolio
-                      </p>
-                    </a>
-                    
-                  </li>
-                  <li>
-                    <a href="/contacto">
-                      <p >
-                        <span class="material-icons">keyboard_arrow_right</span>Contacto
-                      </p>
-                    </a>
-                   
                   </li>
                 </ul>
               </div>
@@ -84,21 +37,20 @@
               <div class="contacto-footer">
                 <div class="direccion" data-aos="fade-up" data-aos-duration="1500">
                   <h6>Dirección:</h6>
-                  <p class="text-muted">Manzana C Lote, San Martín de Porres 15112</p>
+                  <p class="text-muted">{{datosE.direccion}}, {{datosE.distrito}}, {{datosE.provincia}}, {{datosE.pais}}</p>
                 </div>
                 <div class="telefonos" data-aos="fade-up" data-aos-duration="1500">
                   <h6>Telefonos:</h6>
                   <ul>
-                    <li class="text-muted">(+51) 933153669</li>
-                    <li class="text-muted">(+51) 933153669</li>
-                    <li class="text-muted">(+51) 933153669</li>
+                    <li v-for="(telefono, index) in datosE.telefonos" :key="index+1000" class="text-muted">{{telefono}}</li>
+                    <!-- <li class="text-muted">(+51) 933153669</li>
+                    <li class="text-muted">(+51) 933153669</li> -->
                   </ul>
                 </div>
                 <div class="correos" data-aos="fade-up" data-aos-duration="1500">
                   <h6>Correos:</h6>
                   <ul data-aos="fade-up" data-aos-duration="1500">
-                    <li class="text-muted">elengy@gmail.com</li>
-                    <li class="text-muted">elengy2@gmail.com</li>
+                    <li v-for="(correo, index) in datosE.correos" :key="index*10" class="text-muted">{{correo}}</li>
                   </ul>
                 </div>
               </div>
@@ -106,7 +58,7 @@
             <div id="about-footer" class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
               <h3 data-aos="fade-up" data-aos-duration="1500">Acerca de Elengy</h3>
               <div class="about-us" data-aos="fade-up" data-aos-duration="1500">
-                  <p class="text-muted"> Somos una empresa peruana dedicada al rubro de Ingeniería Electrica. Contamos con especialistas en subestaciones de media, alta y extra alta tensión, desarrollamos ingeniería, estudios, sistemas de control y protección.</p>
+                  <p class="text-muted"> {{datosE.descripcion}} </p>
               </div>
             </div>
           </div>
@@ -116,7 +68,7 @@
             <div class="row pb-0 pt-0 mt-0 mb-0">
               <div class="col-md-12 m-2" >
                 <p >
-                  © 2020 <a href="/">Elengy SAC.</a> Todos los derechos reservados.
+                  © {{year}} <a href="/">{{datosE.empresa}}.</a> Todos los derechos reservados.
                   <!-- Design by<a href="# "> Luis Melgarejo</a> -->
                 </p>
               </div>
@@ -129,7 +81,20 @@
 </template>
 
 <script>
-export default {};
+import {mapState} from 'vuex';
+export default {
+  computed: {
+    ...mapState({
+        datosE: state => state.datosElengy.datos,
+    })
+  },
+  data: () => ({
+    year: 2020
+  }),
+  beforeMount(){
+    this.year = new Date().getFullYear();
+  }
+};
 </script>
 
 <style>

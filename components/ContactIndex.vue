@@ -50,6 +50,7 @@
                   name="email"
                   outlined
                   placeholder="Email *"
+                  type="email"
                   v-model="contact.email"
                   hint="Dejenos un correo de su uso para enviarle mayor información sobre nuestros servicios."
                   required
@@ -64,6 +65,7 @@
                   v-model="contact.telefono"
                   hint="Dejenos un telefono de su uso para para ponernos en contacto lo más pronto posible."
                   required
+                  v-mask="mask"
                   color="#21146a"
                 ></v-text-field>
               </v-col>
@@ -108,8 +110,11 @@
 <script>
 import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
-
+import { mask } from 'vue-the-mask'
 export default {
+  directives: {
+      mask,
+  },
   props: {
     /* contact: Object, */
     servicios: Array
@@ -124,7 +129,7 @@ export default {
       mensaje: "",
       fecha: ''
     },
-
+     mask: '### ######',
     errors: []
   }),
   methods: {

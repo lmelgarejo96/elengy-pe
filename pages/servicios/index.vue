@@ -6,6 +6,7 @@
             servicios
         </div> -->
         <ServicesSection/>
+        <DonwloadBrochure />
         <Clientes />
         <SocialAds/>
         <Footer/>
@@ -17,6 +18,7 @@ import Navbar from '../../components/Navbar';
 import MenuResponsive from '../../components/MenuResponsive';
 import ServicesSection from '../../components/ServicesIndex';
 import Clientes from '../../components/ClientesIndex';
+import DonwloadBrochure from '../../components/Minis/DownloadBrochure';
 import SocialAds from '../../components/RedesSociales';
 import Footer from '../../components/Footer';
 export default {
@@ -25,6 +27,7 @@ export default {
         MenuResponsive,
         ServicesSection,
         Clientes,
+        DonwloadBrochure,
         SocialAds,
         Footer
     },

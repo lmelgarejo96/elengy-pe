@@ -11,6 +11,7 @@
             nosotros
         </div> -->
         <Clientes />
+        <DonwloadBrochure/>
         <SocialAds/>
         <Footer/>
     </div>
@@ -26,6 +27,8 @@ import MisionVision from '../components/nosotros/MisionVision';
 import CaracteristicasElengy from '../components/Caracteristicas';
 import Clientes from '../components/ClientesIndex';
 
+import DonwloadBrochure from '../components/Minis/DownloadBrochure';
+
 import SocialAds from '../components/RedesSociales';
 import Footer from '../components/Footer';
 
@@ -38,6 +41,7 @@ export default {
         Nosotros,
         MisionVision,
         CaracteristicasElengy,
+        DonwloadBrochure,
         Clientes,
         SocialAds,
         Footer

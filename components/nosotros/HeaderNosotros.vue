@@ -1,5 +1,7 @@
 <template>
-  <header id="header-elengy" class="header-nosotros-elengy animationHeaderNosotros">
+  <header id="header-elengy" class="header-nosotros-elengy animationHeaderNosotros"
+    :style="`background-image: linear-gradient(rgba(22,123,177,.35), rgba(0,0,0,.55)), url(${bgNosotros});`"
+  >
       <h1 class="titulo-nosotros animationTitle">Acerca de nosotros</h1>
       <!-- <div class="bg-nosotros"></div> -->
       <a href="#nosotros" class="animationArrow">
@@ -10,8 +12,13 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
-
+  computed: {
+        ...mapState({
+            bgNosotros: state => state.datosElengy.datos.bgNosotros,
+        })
+  },
 }
 </script>
 
@@ -29,8 +36,11 @@ export default {
   background-size: cover;
   z-index: 1;
   transition: all ease-in-out .5s;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
 }
-.header-nosotros-elengy::after{
+/* .header-nosotros-elengy::after{
   content: "";
   display: block;
   position: absolute;
@@ -38,11 +48,9 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(22,123,177,.35), rgba(0,0,0,.55)), url(../../static/bg/elengy.jpg) center no-repeat;
-  background-size: cover;
   z-index: -1;
-}
-/* .header-nosotros-elengy .bg-nosotros{
+} */
+.header-nosotros-elengy .bg-nosotros{
   display: none;
   position: absolute;
   width: 100%;
@@ -52,7 +60,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
-} */
+}
 .header-nosotros-elengy .titulo-nosotros {
   color: #fff;
   font-family: Arial, Helvetica, sans-serif, cursive;

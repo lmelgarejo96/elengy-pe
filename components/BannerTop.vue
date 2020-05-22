@@ -9,39 +9,30 @@
               <span style="font-size: 18px;" class="material-icons mr-1" >
               call
               </span>
-              (+51) 393 5206</a>
+              {{telefonoPrincipal}}</a>
           </div>
 
         </div>
         <div id="social-links" class="social-links">
-                <div class="social-item">
+                <div class="social-item" v-for="(item, index) in socialItems" :key="index+3550" >
                     <!-- facebook -->
-                    <a class="contact-nav" href="https://www.facebook.com/elengysac/" target="_blank">
-                      <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <a v-if="item.footer" class="contact-nav" :href="item.href" target="_blank">
+                      <i :class="item.icon" aria-hidden="true"></i>
                     </a>
-                </div>
-                <div class="social-item">
-                    <!-- twitter -->
-                    <a class="contact-nav" href="#">
-                      <i class="fa fa-twitter" aria-hidden="true" target="_blank"></i>
-                    </a>
-                </div>
-                <div class="social-item">
-                    <!-- linkedin -->
-                    <a class="contact-nav" href="https://www.linkedin.com/company/elengy-sac/" target="_blank">
-                      <i class="fa fa-linkedin" aria-hidden="true"></i>
-                    </a>
-                </div>
-                
-                
-                
+                </div>      
             </div>
       </div>
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
-
+  computed: {
+    ...mapState({
+        telefonoPrincipal: state => state.datosElengy.datos.telefonoPrincipal, //socialItems
+        socialItems: state => state.datosElengy.datos.socialItems, //socialItems
+    })
+  },
 }
 </script>
 

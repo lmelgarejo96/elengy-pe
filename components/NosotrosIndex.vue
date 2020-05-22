@@ -8,8 +8,7 @@
             <div class="about__content">
               <h2 data-aos="fade-up" data-aos-duration="1500">¿Quiénes somos?</h2>
               <p data-aos="fade-up" data-aos-duration="1500">
-                ELENGY es una empresa, con sede central en Lima (Perú) y filial en Santiago (Chile), que cuenta con alto potencial humano especializado en planeamiento, administración y ejecución de proyectos electromecánicos y de telecomunicaciones.
-                Contamos con especialistas en subestaciones de media, alta y extra alta tensión, desarrollamos ingeniería, estudios, sistemas de control y protección.
+                {{nosotros}}
               </p>
               <!-- <a class="button button-light" href="/nosotros" data-aos="fade-up" data-aos-duration="1500">Leer más</a> -->
               <p
@@ -31,7 +30,7 @@
                 <img
                   draggable="false"
                   class="img-fluid"
-                  src="../static/team-elengy.jpg"
+                  :src="imgNosotros"
                   alt
                   data-aos="fade-up"
                   data-aos-duration="1500"
@@ -70,7 +69,7 @@
               controls
               autoplay
               controlslist="nodownload"
-              src="../static/video/elengy.mp4"
+              :src="videoNosotros"
             ></video>
           </div>
         </div>
@@ -80,10 +79,18 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
   data: () => ({
     dialogNosotros: false
   }),
+  computed: {
+        ...mapState({
+            nosotros: state => state.datosElengy.datos.nosotros,
+            imgNosotros: state => state.datosElengy.datos.imgNosotros, 
+            videoNosotros: state => state.datosElengy.datos.videoNosotros, 
+        })
+  },
   mounted() {},
   methods: {
     openVideo() {

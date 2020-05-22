@@ -32,6 +32,7 @@
         <div class="d-flex flex-column">
           <button @click="closeLoader" id="btn-play-audio">Continuar</button>
           <span class="mt-1 animate-press-button">Presiona para continuar</span>
+          <p class="text-white text-center animate-press-button2">{{timeClose}}</p>
         </div>
         <!-- <button id="btn-pause-audio">Pause</button> -->
       </div>
@@ -46,7 +47,10 @@ import anime from "animejs/lib/anime.es.js";
 export default {
   data: () => ({
     listSVG: [],
-    lineDrawing: null
+    lineDrawing: null,
+    document: null,
+    timeClose: 10,
+    timeInterval: null
   }),
   beforeMount() {
     this.listSVG = this.$store.state.svg.all;
@@ -80,7 +84,7 @@ export default {
           document.querySelector(".morph-svg").setAttribute("fill", "#aa0000");
           let bgDark = new TimelineMax();
           bgDark
-            .to(".loader", .8, {
+            .to(".loader", 0.8, {
               delay: 0,
               background: "#fff"
             })
@@ -124,18 +128,23 @@ export default {
                 document
                   .querySelector(".morph-svg")
                   .setAttribute("fill", "orange");
-                  /* document.querySelectorAll('#svg-elengy path')[0].classList.add('animate-thunder'); */
-                  /* thunder.reverse() */
+                /* document.querySelectorAll('#svg-elengy path')[0].classList.add('animate-thunder'); */
+                /* thunder.reverse() */
 
-                  /* setTimeout(() => { */
-                    document.getElementById('svg-elengy').classList.add('animate-thunder')
-                  /* }, 1500); */
+                /* setTimeout(() => { */
+                document
+                  .getElementById("svg-elengy")
+                  .classList.add("animate-thunder");
+                /* }, 1500); */
+                /* console.log("inicio"); */
+                /* const loader = document.getElementById("loading-screen"); */
+                this.listenInterval();
               }
             });
         },
         autoplay: true
       });
-     
+
       TweenMax.from("#btn-play-audio", {
         duration: 1.5,
         delay: 6.8,
@@ -146,6 +155,7 @@ export default {
         onComplete: () => {
           setTimeout(() => {
             document.querySelector(".animate-press-button").style.opacity = "1";
+            document.querySelector(".animate-press-button2").style.opacity = "1";
           }, 1500);
         }
       });
@@ -153,7 +163,7 @@ export default {
     difuminaLoader() {
       let tlWipe = new TimelineMax();
       tlWipe
-        .to("#svg-elengy, .letter, #btn-play-audio, .animate-press-button", 1, {
+        .to("#svg-elengy, .letter, #btn-play-audio, .animate-press-button, .animate-press-button2", 1, {
           autoAlpha: 0,
           display: "none"
         })
@@ -165,7 +175,7 @@ export default {
             document.documentElement.style.overflow = "visible";
             TweenMax.to(".init", 1, {
               delay: 0,
-             /*  top: "-200vh", */
+              /*  top: "-200vh", */
               zIndex: -100,
               ease: Expo.easeInOut
             });
@@ -201,10 +211,21 @@ export default {
     },
     closeLoader() {
       this.$emit("loadClosing");
+      clearInterval(this.timeInterval);
       this.difuminaLoader();
       /* setTimeout(() => { */
       this.animaIndexPage();
+      /* this.removeListener() */ 
       /* },500) */
+    },
+    listenInterval(){
+      this.timeInterval = setInterval(() => {
+          this.timeClose -= 1;
+          if(this.timeClose === 0) {
+            this.closeLoader();
+            clearInterval(this.timeInterval);
+          } 
+      }, 1000);
     }
   }
 };
@@ -414,6 +435,14 @@ export default {
   animation: lighSpan ease-in-out 2s infinite;
 }
 
+.animate-press-button2 {
+  opacity: 0;
+  color: rgba(255, 255, 255, 0.3);
+  font-family: "Raleway", sans-serif;
+  font-size: 12px;
+  text-align: center;
+}
+
 @keyframes lighSpan {
   0% {
     color: rgba(255, 255, 255, 0.3);
@@ -431,18 +460,17 @@ export default {
 }
 
 @keyframes thunder {
-  0%{
-   /*  fill: orange; */
+  0% {
+    /*  fill: orange; */
     transform: translateY(0);
   }
   75% {
     /* fill: yellow; */
     transform: translateY(-20px);
   }
-  100%{
+  100% {
     /* fill: orange; */
     transform: translateY(0);
-
   }
 }
 </style>

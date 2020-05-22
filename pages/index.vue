@@ -2,7 +2,8 @@
   <div data-app id="index-p" class="index-page">
     <Loader
       v-if="loader"
-      v-on:loadedComplete="loadedComplete($event)"
+      :timeClose="timeClose"
+      v-on:loadedComplete="endLoader($event)"
       v-on:loadClosing="endLoader()"
     />
     <div id="home" class="content-index animation-index">
@@ -18,6 +19,7 @@
       <EnlacesIndex />
       <ContactIndex :contact.sync="contact" :servicios="servicios" />
       <ClientesSection />
+      <DonwloadBrochure />
       <Footer />
 
       <SocialAds />
@@ -46,6 +48,8 @@ import ClientesSection from "../components/ClientesIndex";
 import SocialAds from "../components/RedesSociales";
 import Footer from "../components/Footer";
 import EnlacesIndex from "../components/EnlacesIndex";
+
+import DonwloadBrochure from '../components/Minis/DownloadBrochure';
 
 export default {
   head() {
@@ -89,6 +93,7 @@ export default {
     ContactIndex,
     ClientesSection,
     SocialAds,
+    DonwloadBrochure,
     Footer
   },
   data() {
@@ -106,7 +111,8 @@ export default {
       },
       servicios: [],
       currentSlide: null,
-      audioContext: null
+      audioContext: null,
+      timeClose: 10,
     };
   },
   beforeMount() {
@@ -117,8 +123,8 @@ export default {
       if (window.screen.width > 840) {
         this.addActiveLink();
       }
-      this.audioContext = document.getElementById("audio-elengy");
-      this.audioContext.volume = 0.15;
+      /* this.audioContext = document.getElementById("audio-elengy");
+      this.audioContext.volume = 0.15; */
       AOS.init();
     } catch (error) {}
   },
@@ -170,7 +176,10 @@ export default {
     },
     endLoader() {
       this.currentSlide.init();
-      this.playAudio();
+      setTimeout(() => {
+        document.querySelectorAll(".oakslider__next")[0].click();
+      }, 1000);
+      /* this.playAudio(); */
       setTimeout(() => {
         this.loader = false;
       }, 2200);
@@ -180,6 +189,16 @@ export default {
     },
     pauseAudio() {
       this.audioContext.pause();
+    },
+    activeDissmissLoader(){
+      /* let timeInterval = setInterval(() => {
+          this.timeClose -= 1;
+          if(this.timeClose === 0) {
+            this.endLoader()
+            clearInterval(timeInterval);
+          } 
+      }, 1000); */
+      
     }
   }
 };

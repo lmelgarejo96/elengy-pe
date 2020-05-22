@@ -4,45 +4,32 @@
           <div class="row"> 
               <div class="col-lg-4 col-md-4 col-sm-12 mb-4" style="display: block;">
                   <div class="card-mv h-100" data-aos="fade-up" data-aos-duration="1500">
-                      <img draggable="false" src="../../static/offer.png" alt="" data-aos="fade-up" data-aos-duration="1500">
+                      <img draggable="false" :src="mision.img" alt="" data-aos="fade-up" data-aos-duration="1500">
                       <div class="card-mv-content">
                           <h4 data-aos="fade-up" data-aos-duration="1500">Misión</h4>
-                          <p data-aos="fade-up" data-aos-duration="1500">Ofrecer el mejor servicio en pruebas primarias, de protección y secundarías de Ingeniería eléctrica a nuestros clientes.</p>
+                          <p data-aos="fade-up" data-aos-duration="1500">{{mision.desc}}</p>
                       </div>
                   </div>
               </div>
               <div class="col-lg-4 col-md-4 col-sm-12 mb-4" style="display: block;">
                   <div class="card-mv h-100" data-aos="fade-up" data-aos-duration="1500">
-                        <img draggable="false" src="../../static/vision.svg" alt="" data-aos="fade-up" data-aos-duration="1500">
+                        <img draggable="false" :src="vision.img" alt="" data-aos="fade-up" data-aos-duration="1500">
 
                       <div class="card-mv-content">
                           <h4 data-aos="fade-up" data-aos-duration="1500">Visión</h4>
-                          <p data-aos="fade-up" data-aos-duration="1500">Ser la opción número uno en soluciones de Ingeniería eléctrica a nivel nacional.</p>
+                          <p data-aos="fade-up" data-aos-duration="1500">{{vision.desc}}</p>
 
                       </div>
                   </div>
               </div>
               <div class="col-lg-4 col-md-4 col-sm-12 mb-4" style="display: block;">
                   <div class="card-mv h-100" data-aos="fade-up" data-aos-duration="1500">
-                        <img draggable="false" src="../../static/valores.svg" alt="" data-aos="fade-up" data-aos-duration="1500">
+                        <img draggable="false" :src="valores.img" alt="" data-aos="fade-up" data-aos-duration="1500">
                       <div class="card-mv-content">
                           <h4 data-aos="fade-up" data-aos-duration="1500">Valores</h4>
                           <ul data-aos="fade-up" data-aos-duration="1500">
-                              <li >Responsabilidad</li>
-                              <li >Compromiso</li>
-                              <li >Puntualidad</li>
-                              <li >Calidad</li>
-                              <li >Ética</li>
+                              <li v-for="(valor, index) in valores.list" :key="index+3400">{{valor}}</li>
                           </ul>
-                          <!-- <p  style="text-align: left;" data-aos="fade-up" data-aos-duration="1500">
-                              - Responsabilidad <br>
-                              - Compromiso <br>
-                              - Puntualidad <br>
-                              - Calidad <br>
-                              - Ética <br>
-                            </p> -->
-
-
                       </div>
                   </div>
               </div>
@@ -52,8 +39,15 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
-    
+  computed: {
+        ...mapState({
+            mision: state => state.datosElengy.datos.mision,
+            vision: state => state.datosElengy.datos.vision,
+            valores: state => state.datosElengy.datos.valores,
+        })
+  },
 }
 </script>
 

@@ -4,41 +4,13 @@
       
       <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
+
+          <div v-for="(cliente, index) in clientes" :key="index+3100" class="swiper-slide">
             <div class="item">
-              <img src="../static/clientes/abb.png" alt="abb-logo" />
+              <img :src="cliente.src" :alt="cliente.name" />
             </div>
           </div>
-          <div class="swiper-slide">
-             <div class="item">
-              <img src="../static/clientes/siemens.png" alt="siemens-logo" />
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="item">
-              <img src="../static/clientes/luzdelsur.png" alt="luzdelsur-logo" />
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="item">
-              <img src="../static/clientes/enel.png" alt="enel-logo" />
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="item">
-              <img src="../static/clientes/cobra.png" alt />
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="item">
-              <img src="../static/clientes/milpo.png" alt />
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="item">
-              <img src="../static/clientes/abengoa.png" alt />
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -47,10 +19,16 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
   data: () => ({
     swiperClients: null
   }),
+  computed: {
+    ...mapState({
+        clientes: state => state.clientes.all,
+    })
+  },
   mounted() {
       this.initSwiper();
   },

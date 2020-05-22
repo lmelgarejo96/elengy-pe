@@ -19,8 +19,8 @@
               <i class="material-icons">home</i>
             </span>
             <div class="media-body">
-              <h3>San Martín de Porres</h3>
-              <p>Manzana C Lote #</p>
+              <h3>{{datosE.distrito}}</h3>
+              <p>{{datosE.direccion}}</p>
             </div>
           </div>
           <div class="media contact-info">
@@ -28,8 +28,8 @@
               <i class="material-icons">tablet_android</i>
             </span>
             <div class="media-body">
-              <h3>+51 999 999 999</h3>
-              <p>Lunes a Sabado 8:00am a 6:30pm</p>
+              <h3 v-for="(telefono, index) in datosE.telefonos" :key="index">+51 999 999 999</h3>
+              <p>{{datosE.horarioAtención}}</p>
             </div>
           </div>
           <div class="media contact-info">
@@ -37,7 +37,7 @@
               <i class="material-icons">mail</i>
             </span>
             <div class="media-body">
-              <h3>elengy@elengy.com</h3>
+              <h3 v-for="(correo, index) in datosE.correos" :key="index*10">{{correo}}</h3>
               <p>Envíenos su consulta en cualquier momento!</p>
             </div>
           </div>
@@ -76,7 +76,14 @@
 </template>
 
 <script>
-export default {};
+import {mapState} from 'vuex';
+export default {
+  computed: {
+    ...mapState({
+        datosE: state => state.datosElengy.datos,
+    })
+  }
+};
 </script>
 
 <style>

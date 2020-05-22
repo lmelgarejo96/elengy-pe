@@ -60,39 +60,8 @@
 
                         </a>
                     </div>
-            <!-- </div> -->
           </div>
           </div>
-
-         
-
-          <!-- <div class="other-services mt-4 pb-4 mb-4">
-              <div class="container pt-4 pb-4">
-                  <h3 class="mb-3 text-center" data-aos="fade-up" data-aos-duration="1800">Más servicios</h3>
-                <div class="row d-flex justify-content-center">
-                    <div v-for="(item, index) in restServices" :key="index+100" class="col-lg-4 col-md-4 col-sm-12"
-                        data-aos="fade-up" data-aos-duration="1000" :data-aos-delay="200*(index+1)"
-                    >
-                        <div>
-                            <div class="card-other-services"
-                                :style="`background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.2), rgba(0,0,0,.2),rgba(0,0,0,.2)), url(${item.img})`"
-                                
-                            >
-                                <div class="w-100">
-                                    <h5 data-aos="fade-up" data-aos-duration="1500">{{item.name_service}}</h5>
-                                    <hr class="bg-white">
-                                </div>
-
-                                <a :href="item.redirectTo" class="btn-service">
-                                    Ver detalles
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div> -->
 
       </section>
 

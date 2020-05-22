@@ -10,53 +10,25 @@
           <div class="col-lg-6">
 
             <div class="row offer-single-wrapper">
-              <div class="col-lg-6 offer-single">
-                <div class="card offer-single__content text-center m-3" data-aos="fade-up" data-aos-duration="1500">
-                  <span class="offer-single__icon" data-aos="fade-up" data-aos-duration="1500">
-                    <i class="fas fa-award"></i>
-                  </span>
-                  <h4 data-aos="fade-up" data-aos-duration="1500">Calidad</h4>
-                  <p data-aos="fade-up" data-aos-duration="1500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, voluptatibus?</p>
-                </div>
-              </div>
               
-              <div class="col-lg-6 offer-single">
+              
+              <div v-for="(caracteristica, i) in caracteristicas" :key="i+3300"   class="col-lg-6 offer-single">
                 <div class="card offer-single__content text-center m-3" data-aos="fade-up" data-aos-duration="1500">
                   <span class="offer-single__icon" data-aos="fade-up" data-aos-duration="1500">
-                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <i :class="caracteristica.icons" aria-hidden="true"></i>
                   </span>
-                  <h4 data-aos="fade-up" data-aos-duration="1500">Profesionalidad</h4>
-                  <p data-aos="fade-up" data-aos-duration="1500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, voluptatibus?</p>
+                  <h4 data-aos="fade-up" data-aos-duration="1500">{{caracteristica.title}}</h4>
+                  <p data-aos="fade-up" data-aos-duration="1500">{{caracteristica.desc}}</p>
                 </div>
               </div>
+
             </div>
 
-            <div class="row offer-single-wrapper">
-              <div class="col-lg-6 offer-single">
-                <div class="card offer-single__content text-center m-3" data-aos="fade-up" data-aos-duration="1500">
-                  <span class="offer-single__icon" data-aos="fade-up" data-aos-duration="1500">
-                    <i class="fa fa-shield" aria-hidden="true"></i>
-                  </span>
-                  <h4 data-aos="fade-up" data-aos-duration="1500">Seguridad</h4>
-                  <p data-aos="fade-up" data-aos-duration="1500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, voluptatibus?</p>
-                </div>
-              </div>
-              
-              <div class="col-lg-6 offer-single">
-                <div class="card offer-single__content text-center m-3" data-aos="fade-up" data-aos-duration="1500">
-                  <span class="offer-single__icon" data-aos="fade-up" data-aos-duration="1500">
-                    <i class="fas fa-check-circle"></i>
-                  </span>
-                  <h4 data-aos="fade-up" data-aos-duration="1500">Garantía</h4>
-                  <p data-aos="fade-up" data-aos-duration="1500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, voluptatibus?</p>
-                </div>
-              </div>
-            </div>
 
           </div>
           <div class="col-lg-6">
             <div class="offer-single__img">
-              <img draggable="false" class="img-fluid" src="../static/offer.svg" alt="undraw-elengy-offer"  data-aos="fade-up" data-aos-duration="1500">
+              <img draggable="false" class="img-fluid" :src="imgCaracteristicas" alt="undraw-elengy-offer"  data-aos="fade-up" data-aos-duration="1500">
             </div>
           </div>
         </div>
@@ -65,8 +37,14 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
-
+  computed: {
+        ...mapState({
+            caracteristicas: state => state.datosElengy.datos.caracteristicas,
+            imgCaracteristicas: state => state.datosElengy.datos.imgCaracteristicas,
+        })
+  },
 }
 </script>
 

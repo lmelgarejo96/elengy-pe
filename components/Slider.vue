@@ -3,39 +3,16 @@
     <div class="oakslider">
       <div class="oakslider__ui">
         <div class="oakslider__nav">
-          <div class="oakslider__navpoint">
-            <!-- <p class="point-slide">01</p> -->
-            01
-            <div class="oakslider__timer">
-              <div class="timer__progress"></div>
-            </div>
-            <span class="oakslider__label"></span>
-          </div>
-          <div class="oakslider__navpoint">
-            <!-- <button class="point-slide"></button> -->
-            02
-            <div class="oakslider__timer">
-              <div class="timer__progress"></div>
-            </div>
-            <span class="oakslider__label"></span>
-          </div>
-          <div class="oakslider__navpoint">
-            <!-- <button class="point-slide"></button> -->
-            03
-            <div class="oakslider__timer">
-              <div class="timer__progress"></div>
-            </div>
-            <span class="oakslider__label"></span>
-          </div>
-          <div class="oakslider__navpoint">
-            <!-- <button class="point-slide"></button> -->
-            04
+
+          <div v-for="(slide, index) in slideItems" :key="index+20" class="oakslider__navpoint">
+            0{{index+1}}
             <div class="oakslider__timer">
               <div class="timer__progress"></div>
             </div>
             <span class="oakslider__label"></span>
           </div>
         </div>
+
         <div class="oakslider__controls">
           <div class="oakslider__arrow oakslider__arrow--left oakslider__prev">
               <span class="material-icons">
@@ -51,9 +28,9 @@
       </div>
 
       <div class="oakslider__slider">
-        <div class="oakslider__slide slide--active" data-slide="1">
+        <div v-for="(slide, index) in slideItems" :key="index+20" v-if="index===0" class="oakslider__slide slide--active" :data-slide="index+1">
           <div class="slide__image">
-            <img src="../static/bg/altoVoltaje.jpg" alt="bg-slide-elengy" />
+            <img :src="slide.background" :alt="`bg-slide-elengy${index+1}`" />
           </div>
           <div class="slide__container">
             <div class="slide__content">
@@ -61,39 +38,14 @@
                 <div class="izquierda animation-card">
                   <div class="service">
                     <h3 class="animation-details-info1">
-                      <span>Somos una empresa Peruana dedicada al rubro de Ingeniería Eléctrica.</span>
+                      <span>{{slide.title}}</span>
                     </h3>
                     <p
                       class="animation-details-info1"
-                    >Te invitamos a conocer más acerca de nosotros.</p>
-                    <a href="/nosotros" class="animation-2">
+                    >{{slide.desc}}</p>
+                    <a :href="slide.href" class="animation-2">
                       <span class="material-icons">keyboard_arrow_right</span>
-                      Leer más aquí
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="oakslider__slide" data-slide="2">
-          <div class="slide__image">
-            <img src="../static/bg/elengy.jpg" alt="bg-slide-elengy" />
-          </div>
-          <div class="slide__container">
-            <div class="slide__content">
-              <div class="items-slide">
-                <div class="izquierda animation-card">
-                  <div class="service">
-                    <h3 class="animation-details-info1">
-                      <span>Soluciones y servicios integrales para sus proyectos</span>
-                    </h3>
-                    <p
-                      class="animation-details-info1"
-                    >Desarrollamos ingeniería, estudios eléctricos, sistemas de control y protección.</p>
-                    <a href="/servicios" class="animation-2">
-                      <span class="material-icons">keyboard_arrow_right</span>
-                      Conoce más aquí
+                      {{slide.nameEnlace}}
                     </a>
                   </div>
                 </div>
@@ -102,14 +54,9 @@
           </div>
         </div>
 
-        
-
-        <div class="oakslider__slide" data-slide="3">
+        <div v-else class="oakslider__slide" :data-slide="index+1">
           <div class="slide__image">
-            <img
-              src="../static/bg/elengy-desinfection.jpg"
-              alt="bg-slide-elengy"
-            />
+            <img :src="slide.background" :alt="`bg-slide-elengy${index+1}`" />
           </div>
           <div class="slide__container">
             <div class="slide__content">
@@ -117,14 +64,14 @@
                 <div class="izquierda animation-card">
                   <div class="service">
                     <h3 class="animation-details-info1">
-                      <span>Elengy, un aliado en la lucha contra el Coronavirus</span>
+                      <span>{{slide.title}}</span>
                     </h3>
                     <p
                       class="animation-details-info1"
-                    >Te invitamos a leer acerca de nuestra cabina de desinfección en la lucha contra el covid-19.</p>
-                    <a href="/portafolio" class="animation-2">
+                    >{{slide.desc}}</p>
+                    <a :href="slide.href" class="animation-2">
                       <span class="material-icons">keyboard_arrow_right</span>
-                      Conoce más aquí
+                      {{slide.nameEnlace}}
                     </a>
                   </div>
                 </div>
@@ -132,34 +79,6 @@
             </div>
           </div>
         </div>
-        <div class="oakslider__slide" data-slide="4">
-          <div class="slide__image">
-            <img src="../static/bg/teamElengy.jpg" alt="bg-slide-elengy" />
-          </div>
-          <div class="slide__container">
-            <div class="slide__content">
-              <div class="items-slide">
-                <div class="izquierda animation-card">
-                  <div class="service">
-                    <h3 class="animation-details-info1">
-                      <span>Soluciones y servicios integrales para sus proyectos</span>
-                    </h3>
-                    <p
-                      class="animation-details-info1"
-                    >Contamos con especialistas en subestaciones de media, alta y extra alta tensión.</p>
-                    <a href="/servicios" class="animation-2">
-                      <span class="material-icons">keyboard_arrow_right</span>
-                      Conoce más aquí
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
       </div>
 
     <a href="#descubre_mas" class="mouse smoothscroll">
@@ -167,16 +86,17 @@
           <span class="mouse-wheel"></span>
         </span>
     </a>
-    <AudioReproductor/>
     </div>
   </header>
 </template>
 
 <script>
-import AudioReproductor from '../components/ReproductorAudio';
+import {mapState} from 'vuex';
 export default {
-  components: {
-    AudioReproductor
+  computed: {
+    ...mapState({
+      slideItems: state => state.slideItems.all,
+    })
   },
   data: () => ({
     oakSlider: null
@@ -191,7 +111,7 @@ export default {
         totalSlides: 0,
         animating: false,
         autoPlay: true,
-        autoPlaySpeed: 7, // Increase to stay on slides for longer
+        autoPlaySpeed: 10, // Increase to stay on slides for longer
         transitionSpeed: 2.5, // Changes transition speed
         autoPlayInterval: false,
         ease: "expo",
