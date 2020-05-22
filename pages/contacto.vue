@@ -4,6 +4,7 @@
         <Navbar :isIndex="false" :isAbout="false" v-on:openMenu="openMenu($event)"/>
         <div>
             <ContactoForm class="padding-contact" :contact.sync="contact" :servicios="servicios"/>
+            <DonwloadBrochure/>
             <Ubicacion/>
             <Footer/>
         </div>
