@@ -3,9 +3,9 @@
     <MenuResponsive v-if="menu" v-on:closeMenuResponsive="closeMenuResponsive($event)" />
     <Navbar :isIndex="false" :isAbout="false" v-on:openMenu="openMenu($event)" />
     <ListaBlog v-on:openLightbox="openLightbox($event)" />
+    <DonwloadBrochure/>
     <ImageVisor :post="post" v-if="lightbox" v-on:closeLightbox="closeLightbox()" />
     <!-- <PhotoSwipe/> -->
-    <DonwloadBrochure/>
   </div>
 </template>
 
@@ -15,7 +15,8 @@ import Navbar from "../../components/Navbar";
 import MenuResponsive from "../../components/MenuResponsive";
 import ImageVisor from "../../components/ImageVisor";
 /* import PhotoSwipe from '../../components/PhotoSwipe'; */
-import DonwloadBrochure from '../../components/Minis/DownloadBrochure';
+import DonwloadBrochure from '@/components/Minis/DownloadBrochure';
+
 export default {
   head() {
     return {
