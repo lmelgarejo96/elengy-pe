@@ -64,7 +64,7 @@
           </div>
 
       </section>
-
+      <DonwloadBrochure/>
       <Clientes/>
       <Footer/>
 
@@ -75,12 +75,14 @@
 import Navbar from '../../components/Navbar';
 import MenuResponsive from '../../components/MenuResponsive';
 import Clientes from '../../components/ClientesIndex';
+import DonwloadBrochure from '../../components/Minis/DownloadBrochure';
 import Footer from '../../components/Footer';
 export default {
     components: {
         Navbar,
         MenuResponsive,
         Footer,
+        DonwloadBrochure,
         Clientes
     },
     data: () => ({

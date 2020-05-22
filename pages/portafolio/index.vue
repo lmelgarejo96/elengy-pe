@@ -5,6 +5,7 @@
     <ListaBlog v-on:openLightbox="openLightbox($event)" />
     <ImageVisor :post="post" v-if="lightbox" v-on:closeLightbox="closeLightbox()" />
     <!-- <PhotoSwipe/> -->
+    <DonwloadBrochure/>
   </div>
 </template>
 
@@ -14,7 +15,7 @@ import Navbar from "../../components/Navbar";
 import MenuResponsive from "../../components/MenuResponsive";
 import ImageVisor from "../../components/ImageVisor";
 /* import PhotoSwipe from '../../components/PhotoSwipe'; */
-
+import DonwloadBrochure from '../../components/Minis/DownloadBrochure';
 export default {
   head() {
     return {
@@ -40,6 +41,7 @@ export default {
     ListaBlog,
     Navbar,
     MenuResponsive,
+    DonwloadBrochure,
     /* PhotoSwipe, */
     ImageVisor
   },

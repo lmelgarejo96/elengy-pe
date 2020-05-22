@@ -16,12 +16,14 @@ import MenuResponsive from '../components/MenuResponsive';
 import ContactoForm from '../components/ContactIndex';
 import Ubicacion from '../components/Ubication';
 import Footer from '../components/Footer';
+import DonwloadBrochure from '../../components/Minis/DownloadBrochure';
 export default {
      components: {
         Navbar,
         MenuResponsive,
         ContactoForm,
         Ubicacion,
+        DonwloadBrochure,
         Footer,
     },
     data: () => ({
